@@ -1,8 +1,16 @@
 import GitHubLogo from '../../../../assets/github-logo.svg'
 import LinkedInLogo from '../../../../assets/linkedin-logo.svg'
 
-export const TeamMember = ({ data }) => {
-  const { name, avatar, social } = data
+interface TeamMemberProps {
+  name: string
+  avatar: string
+  social?: {
+    github: string
+    linkedin: string
+  }
+}
+
+export const TeamMember = ({ name, avatar, social }: TeamMemberProps) => {
   return (
     <li className="Team__member">
       <img
@@ -15,7 +23,7 @@ export const TeamMember = ({ data }) => {
         <a href={social?.github} target="_blank">
           <img src={GitHubLogo} alt="GitHub logo" />
         </a>
-        <a href={social.linkedin} target="_blank">
+        <a href={social?.linkedin} target="_blank">
           <img src={LinkedInLogo} alt="LinkedIn logo" />
         </a>
       </div>
