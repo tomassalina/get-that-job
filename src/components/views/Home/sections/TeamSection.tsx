@@ -11,31 +11,31 @@ export const TeamSection = () => {
           <ul className="Team__list">
             <TeamMember
               data={{
-                name: 'Tomas Salina',
+                name: 'Anthony Sanchez',
                 avatar: Avatar1,
                 social: {
-                  github: 'https://github.com/salinatomass/',
-                  linkedin: 'https://linkedin.com/in/salinatomass/',
+                  github: 'https://github.com/anthonysa0813/',
+                  linkedin: '#',
                 },
               }}
             />
             <TeamMember
               data={{
-                name: 'Tomas Salina',
+                name: 'Marcos Laurens',
                 avatar: Avatar2,
                 social: {
-                  github: 'https://github.com/salinatomass/',
-                  linkedin: 'https://linkedin.com/in/salinatomass/',
+                  github: 'https://github.com/Marquisl2/',
+                  linkedin: 'https://www.linkedin.com/in/marcos-laurens/',
                 },
               }}
             />
             <TeamMember
               data={{
-                name: 'Tomas Salina',
+                name: 'Ivan Cataldo',
                 avatar: Avatar1,
                 social: {
-                  github: 'https://github.com/salinatomass/',
-                  linkedin: 'https://linkedin.com/in/salinatomass/',
+                  github: 'https://github.com/CataldoIvan/',
+                  linkedin: 'https://www.linkedin.com/in/cataldoivan/',
                 },
               }}
             />
