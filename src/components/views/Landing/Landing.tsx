@@ -6,7 +6,7 @@ import { MainSection } from './sections/MainSection'
 import { TeamSection } from './sections/TeamSection'
 import { Footer } from '../../Footer'
 
-export const Home = () => {
+export const Landing = () => {
   return (
     <>
       <Header />
