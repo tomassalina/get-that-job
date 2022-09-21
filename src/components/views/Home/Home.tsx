@@ -1,15 +1,17 @@
 import './Home.styles.scss'
 
 import { Header } from '../../Header'
-import { Hero } from './Hero'
+import { HeroSection } from './HeroSection'
 import { MainSection } from './MainSection'
+import { TeamSection } from './TeamSection'
 
 export const Home = () => {
   return (
     <>
       <Header />
-      <Hero />
+      <HeroSection />
       <MainSection />
+      <TeamSection />
     </>
   )
 }

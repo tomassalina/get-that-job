@@ -4,7 +4,7 @@ export const MainSection = () => {
   return (
     <main className="Main">
       <div className="Main__content">
-        <h2 className="Main__title">Find your next job</h2>
+        <h2>Find your next job</h2>
         <h3>
           Our Machine learning algorithm is so good that it’s even illegal in
           some countries. Join us to use our barelly legal algorithm that is
