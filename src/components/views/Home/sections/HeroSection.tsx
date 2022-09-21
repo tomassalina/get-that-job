@@ -1,4 +1,4 @@
-import HeroImg from '../../../assets/hero.svg'
+import HeroImg from '../../../../assets/hero.svg'
 
 export const HeroSection = () => {
   return (

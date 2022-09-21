@@ -1,5 +1,5 @@
-import Avatar1 from '../../../assets/avatar-1.png'
-import Avatar2 from '../../../assets/avatar-2.png'
+import Avatar1 from '../../../../assets/avatar-1.png'
+import Avatar2 from '../../../../assets/avatar-2.png'
 import { TeamMember } from './TeamMember'
 
 export const TeamSection = () => {

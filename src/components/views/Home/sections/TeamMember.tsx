@@ -1,5 +1,5 @@
-import GitHubLogo from '../../../assets/github-logo.svg'
-import LinkedInLogo from '../../../assets/linkedin-logo.svg'
+import GitHubLogo from '../../../../assets/github-logo.svg'
+import LinkedInLogo from '../../../../assets/linkedin-logo.svg'
 
 export const TeamMember = ({ data }) => {
   const { name, avatar, social } = data

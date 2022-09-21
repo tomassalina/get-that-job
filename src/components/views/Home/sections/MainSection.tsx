@@ -1,4 +1,4 @@
-import ObjetivesImg from '../../../assets/objectives.png'
+import ObjetivesImg from '../../../../assets/objectives.png'
 
 export const MainSection = () => {
   return (
