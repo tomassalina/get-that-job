@@ -1,10 +1,15 @@
-import Header from '../../Header/Header'
+import './Home.styles.scss'
+
+import { Header } from '../../Header'
+import { Hero } from './Hero'
+import { MainSection } from './MainSection'
 
 export const Home = () => {
   return (
     <>
       <Header />
-      {/* <h1>The place where you get that job</h1> */}
+      <Hero />
+      <MainSection />
     </>
   )
 }

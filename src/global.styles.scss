@@ -60,4 +60,13 @@ body {
   width: 100%;
   min-height: 100vh;
   font: var(--body-1);
+  color: var(--content-color);
+  background-color: var(--bg-color);
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 12px;
+  padding-right: 12px;
 }

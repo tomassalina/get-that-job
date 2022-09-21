@@ -1,7 +1,7 @@
 import './Header.styles.scss'
 import Logo from '../../assets/logo.png'
 
-const Header = () => {
+export const Header = () => {
   return (
     <header className="Header">
       <div className="wrapper">
@@ -15,5 +15,3 @@ const Header = () => {
     </header>
   )
 }
-
-export default Header
