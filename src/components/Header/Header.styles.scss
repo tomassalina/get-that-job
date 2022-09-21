@@ -1,0 +1,14 @@
+.Header {
+  background-color: var(--white-color);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  &__grid {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__logo {
+    display: flex;
+  }
+}
