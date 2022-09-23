@@ -19,7 +19,7 @@ module.exports= {
         })
 
 
-        await result.addRecruiters(email)
+        await result.addUsers(email)
 
         return result
     }
