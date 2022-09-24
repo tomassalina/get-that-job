@@ -14,6 +14,7 @@ export const Button = ({
   isFile,
   isLink,
   to,
+  handleClick,
 }: ButtonProps) => {
   const buttonClasses = classNames('btn', `btn-${type}`, { large })
 
@@ -29,7 +30,7 @@ export const Button = ({
   if (isFile) return <input type="file" name="" id="" />
 
   return (
-    <button type="button" className={buttonClasses}>
+    <button type="button" onClick={handleClick} className={buttonClasses}>
       <>
         {children} <span>{text}</span>
       </>

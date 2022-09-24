@@ -6,4 +6,5 @@ export interface ButtonProps {
   isFile?: boolean
   isLink?: boolean
   to?: string
+  handleClick?: () => void
 }

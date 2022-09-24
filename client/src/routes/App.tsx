@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+import { Layout } from '../components/Layout'
 import { Landing } from '../components/views/Landing'
 import { Home } from '../components/views/Home'
 import { Login } from '../components/views/auth/Login'
@@ -11,10 +12,31 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Landing />} />
+        <Route
+          index
+          element={
+            <Layout>
+              <Landing />
+            </Layout>
+          }
+        />
         <Route path="/home" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route
+          path="/login"
+          element={
+            <Layout>
+              <Login />
+            </Layout>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <Layout>
+              <Register />
+            </Layout>
+          }
+        />
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
