@@ -14,7 +14,7 @@ export const HeroSection = () => {
             time. We promise you! Just give us the money and we will take care
             of it.
           </h3>
-          <Button text="create an account now" icon="" type="primary" large />
+          <Button type="primary" text="create an account now" large />
           <figure className="Hero__image">
             <img src={HeroImg} alt="Illustation of many professionals" />
           </figure>

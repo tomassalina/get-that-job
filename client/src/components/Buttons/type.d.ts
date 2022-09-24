@@ -1,7 +1,7 @@
 export interface ButtonProps {
-  text: string
-  icon: string
   type: 'primary' | 'secondary' | 'disabled' | 'ghost'
+  text: string
+  children?: ReactNode
   large?: boolean
   isFile?: boolean
   isLink?: boolean

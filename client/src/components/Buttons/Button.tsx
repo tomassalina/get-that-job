@@ -4,12 +4,13 @@ import classNames from 'classnames'
 import './Button.styles.scss'
 
 import { ButtonProps } from './type'
+import { Children } from 'react'
 
 export const Button = ({
+  children,
   type,
   large,
   text,
-  icon,
   isFile,
   isLink,
   to,
@@ -19,8 +20,9 @@ export const Button = ({
   if (isLink)
     return (
       <Link className={buttonClasses} to={to ? to : '/'}>
-        <img src={icon} alt="icon" />
-        <span>{text}</span>
+        <>
+          {children} <span>{text}</span>
+        </>
       </Link>
     )
 
@@ -28,8 +30,9 @@ export const Button = ({
 
   return (
     <button type="button" className={buttonClasses}>
-      {icon ? <img src={icon} alt="" /> : null}
-      <span>{text}</span>
+      <>
+        {children} <span>{text}</span>
+      </>
     </button>
   )
 }
