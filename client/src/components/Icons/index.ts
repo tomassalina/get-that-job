@@ -1,1 +1,1 @@
-export { ProfileIcon } from './Icons'
+export * from './Icons'

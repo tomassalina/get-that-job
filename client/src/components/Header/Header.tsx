@@ -1,18 +1,20 @@
 import './Header.styles.scss'
+
+import { Link } from 'react-router-dom'
 import { Button } from '../Buttons'
-import Logo from '../../assets/logo.png'
-import { ProfileIcon } from '../Icons'
+import LogoImg from '../../assets/logo.png'
+import { AuthIcon } from '../Icons'
 
 export const Header = () => {
   return (
     <header className="Header">
       <div className="wrapper">
         <div className="Header__grid">
-          <figure className="Header__logo">
-            <img src={Logo} alt="Get That Job logo" />
-          </figure>
+          <Link to="/" className="Header__logo">
+            <img src={LogoImg} alt="Get That Job logo" />
+          </Link>
           <Button type="secondary" text="Login" isLink to="/login">
-            <ProfileIcon />
+            <AuthIcon />
           </Button>
         </div>
       </div>
