@@ -1,4 +1,5 @@
 import HeroImg from '../../../../assets/hero.svg'
+import { Button } from '../../../Buttons'
 
 export const HeroSection = () => {
   return (
@@ -13,7 +14,7 @@ export const HeroSection = () => {
             time. We promise you! Just give us the money and we will take care
             of it.
           </h3>
-          <button type="button">create an account now</button>
+          <Button text="create an account now" icon="" type="primary" large />
           <figure className="Hero__image">
             <img src={HeroImg} alt="Illustation of many professionals" />
           </figure>
