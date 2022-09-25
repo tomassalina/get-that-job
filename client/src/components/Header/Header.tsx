@@ -1,5 +1,6 @@
 import './Header.styles.scss'
 import Logo from '../../assets/logo.png'
+import { Button } from '../Button/Button'
 
 export const Header = () => {
   return (
@@ -9,7 +10,7 @@ export const Header = () => {
           <figure className="Header__logo">
             <img src={Logo} alt="Get That Job logo" />
           </figure>
-          <button>Login</button>
+          <Button text='LOGIN'/>
         </div>
       </div>
     </header>

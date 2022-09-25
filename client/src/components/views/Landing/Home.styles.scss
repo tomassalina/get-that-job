@@ -1,10 +1,14 @@
 .Hero {
-  padding: 64px 12px;
+  padding: 43px 12px;
   text-align: center;
   &__grid {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    @media only screen and (min-width: 992px) {
+      display: block;
+
+    }
   }
 
   h1 {
@@ -13,10 +17,21 @@
     span {
       color: var(--pink-color);
     }
+    @media only screen and (min-width: 992px) {
+      width: 500px;
+      margin: 15px auto;
+      font: var(--headline-2);
+    }
   }
   h3 {
     font: var(--headline-6);
     color: var(--content-color);
+    @media only screen and (min-width: 992px) {
+      font: var(--headline-5);
+    width: 700px;
+    margin: 30px auto;
+
+    }
   }
 
   &__image {
@@ -31,7 +46,9 @@
 
 .Main {
   color: var(--white-color);
+
   &__content {
+    
     padding: 64px 24px;
     display: flex;
     flex-direction: column;
@@ -48,7 +65,33 @@
     font-weight: 400;
   }
   &__image {
-    display: none;
+    //display: none;
+    margin-top: 30px;
+    img{
+      display: block;
+      
+      margin: 10px auto;
+
+    }
+  }
+  @media only screen and (min-width: 992px) {
+    margin: 0 auto;
+    width: 1200px;
+    display: flex;
+    &__content {
+      width: 800px;
+      padding: 64px 100px;
+    }
+    &__image {
+      width: 560px;
+      justify-content: center;
+    align-items: center;
+    display: flex;
+    }
+    h2 {
+     
+      font: var(--headline-3);
+    }
   }
 }
 
@@ -66,6 +109,11 @@
     grid-template-columns: 1fr;
     justify-items: center;
     grid-gap: 24px;
+    @media only screen and (min-width: 992px) {
+     display: flex;
+     justify-content: space-around;
+    }
+
   }
   &__member {
     width: fit-content;

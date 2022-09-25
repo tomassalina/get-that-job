@@ -8,6 +8,9 @@
     align-items: center;
     justify-content: space-between;
     gap: 32px;
+    @media only screen and (min-width: 992px) {
+      flex-direction: inherit;;
+    }
   }
   &__technologies {
     display: flex;
@@ -22,6 +25,10 @@
       &:hover {
         text-decoration: underline;
       }
+    }
+    @media only screen and (min-width: 992px) {
+      flex-direction: inherit;
+      gap: 20px;
     }
   }
 }
