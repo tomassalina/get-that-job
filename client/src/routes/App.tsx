@@ -1,21 +1,40 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+import { Layout } from '../components/Layout'
 import { Landing } from '../components/views/Landing'
 import { Home } from '../components/views/Home'
-import { Login } from '../components/views/auth/Login'
-import { Register } from '../components/views/auth/Register'
-import { Profile } from '../components/views/Profile'
+import { NewProfile, Profile } from '../components/views/Profile'
 import { NotFound } from '../components/views/NotFound'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Landing />} />
+        <Route
+          index
+          element={
+            <Layout>
+              <Landing />
+            </Layout>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <Layout>
+              <Profile />
+            </Layout>
+          }
+        />
+        <Route
+          path="/profile/new"
+          element={
+            <Layout>
+              <NewProfile />
+            </Layout>
+          }
+        />
         <Route path="/home" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
