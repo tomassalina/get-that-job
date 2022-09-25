@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Layout } from '../components/Layout'
 import { Landing } from '../components/views/Landing'
 import { Home } from '../components/views/Home'
-import { Profile } from '../components/views/Profile'
+import { NewProfile, Profile } from '../components/views/Profile'
 import { NotFound } from '../components/views/NotFound'
 
 function App() {
@@ -23,6 +23,14 @@ function App() {
           element={
             <Layout>
               <Profile />
+            </Layout>
+          }
+        />
+        <Route
+          path="/profile/new"
+          element={
+            <Layout>
+              <NewProfile />
             </Layout>
           }
         />

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import { Button } from '../Buttons'
 import LogoImg from '../../assets/logo.png'
-import { AuthIcon } from '../Icons'
+import { AuthIcon, LogoutIcon } from '../Icons'
 
 export const Header = () => {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0()
@@ -22,7 +22,7 @@ export const Header = () => {
           </Link>
           {isAuthenticated ? (
             <Button type="secondary" text="Logout" handleClick={handleLogout}>
-              <AuthIcon />
+              <LogoutIcon />
             </Button>
           ) : (
             <Button type="secondary" text="Login" handleClick={handleAuth0}>
