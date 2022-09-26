@@ -1,6 +1,5 @@
-import './Home.styles.scss'
+import './Landing.styles.scss'
 
-import { Header } from '../../Header'
 import { HeroSection } from './sections/HeroSection'
 import { MainSection } from './sections/MainSection'
 import { TeamSection } from './sections/TeamSection'
@@ -9,7 +8,6 @@ import { Footer } from '../../Footer'
 export const Landing = () => {
   return (
     <>
-      <Header />
       <HeroSection />
       <MainSection />
       <TeamSection />

@@ -1,0 +1,84 @@
+.btn {
+  width: fit-content;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  font: var(--button);
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  outline: none;
+  cursor: pointer;
+
+  transition: background-color 0.3s ease-out;
+
+  svg path {
+    transition: fill 0.3s ease-out;
+  }
+
+  &.large {
+    padding: 16px 28px;
+  }
+
+  &-primary {
+    background-color: var(--pink-color);
+    color: var(--white-color);
+    svg path {
+      fill: var(--white-color);
+    }
+    &:hover {
+      background-color: var(--dark-pink-color);
+    }
+    &:focus {
+      outline: 2px solid var(--dark-pink-color);
+    }
+  }
+
+  &-secondary {
+    background-color: var(--white-color);
+    color: var(--gray-color);
+    border: 1px solid var(--pink-color);
+    svg path {
+      fill: var(--gray-color);
+    }
+    &:hover {
+      background-color: var(--light-pink-color);
+      border-color: var(--dark-pink-color);
+      color: var(--dark-gray-color);
+      svg path {
+        fill: var(--dark-gray-color);
+      }
+    }
+    &:focus {
+      border: 1px solid var(--pink-color);
+    }
+  }
+
+  &-disabled {
+    color: var(--light-gray-color);
+    background-color: var(--bg-dark-color);
+    svg path {
+      fill: var(--light-gray-color);
+    }
+  }
+
+  &-ghost {
+    color: var(--gray-color);
+    background-color: transparent;
+    backdrop-filter: blur(2px);
+    svg path {
+      fill: var(--gray-color);
+    }
+    &:hover {
+      background-color: var(--shallow-pink);
+      color: var(--dark-gray-color);
+      svg path {
+        fill: var(--dark-gray-color);
+      }
+    }
+  }
+}
