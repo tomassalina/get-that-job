@@ -3,7 +3,6 @@ export interface ButtonProps {
   text: string
   children?: ReactNode
   large?: boolean
-  isFile?: boolean
   isLink?: boolean
   to?: string
   handleClick?: () => void

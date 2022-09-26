@@ -4,14 +4,12 @@ import classNames from 'classnames'
 import './Button.styles.scss'
 
 import { ButtonProps } from './type'
-import { Children } from 'react'
 
 export const Button = ({
   children,
   type,
   large,
   text,
-  isFile,
   isLink,
   to,
   handleClick,
@@ -26,8 +24,6 @@ export const Button = ({
         </>
       </Link>
     )
-
-  if (isFile) return <input type="file" name="" id="" />
 
   return (
     <button type="button" onClick={handleClick} className={buttonClasses}>
