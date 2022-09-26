@@ -3,7 +3,7 @@ import './Landing.styles.scss'
 import { HeroSection } from './sections/HeroSection'
 import { MainSection } from './sections/MainSection'
 import { TeamSection } from './sections/TeamSection'
-import { Footer } from '../../Footer'
+import { FooterSection } from './sections/FooterSection'
 
 export const Landing = () => {
   return (
@@ -11,7 +11,7 @@ export const Landing = () => {
       <HeroSection />
       <MainSection />
       <TeamSection />
-      <Footer />
+      <FooterSection />
     </>
   )
 }
