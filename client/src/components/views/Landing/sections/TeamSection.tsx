@@ -25,6 +25,14 @@ export const TeamSection = () => {
                 linkedin: 'https://www.linkedin.com/in/salinatomass/',
               }}
             />
+            <TeamMember
+              name="Ivan Cataldo"
+              avatar={Avatar1}
+              social={{
+                github: 'https://github.com/cataldoIvan/',
+                linkedin: 'https://www.linkedin.com/in/cataldoivan/',
+              }}
+            />
           </ul>
         </div>
       </div>
