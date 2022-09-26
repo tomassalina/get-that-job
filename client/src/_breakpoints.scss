@@ -1,0 +1,22 @@
+// _____Breakpoints
+
+@mixin small {
+  @media screen and (min-width: 480px) {
+    @content;
+  }
+}
+@mixin medium {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+@mixin large {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+@mixin extra-large {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}

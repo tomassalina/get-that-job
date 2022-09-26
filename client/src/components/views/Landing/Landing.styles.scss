@@ -1,3 +1,5 @@
+@use '../../../breakpoints';
+
 .Hero {
   padding: 43px 12px;
   text-align: center;
@@ -7,7 +9,6 @@
     align-items: center;
     flex-direction: column;
     gap: 20px;
-   
   }
 
   h1 {
@@ -16,21 +17,10 @@
     span {
       color: var(--pink-color);
     }
-    @media only screen and (min-width: 992px) {
-      width: 500px;
-      margin: 15px auto;
-      font: var(--headline-2);
-    }
   }
   h3 {
     font: var(--headline-6);
     color: var(--content-color);
-    @media only screen and (min-width: 992px) {
-      font: var(--headline-5);
-    width: 700px;
-    margin: 30px auto;
-
-    }
   }
 
   &__image {
@@ -41,13 +31,25 @@
       object-fit: cover;
     }
   }
+
+  @include breakpoints.medium {
+    h1 {
+      max-width: 500px;
+      margin: 15px auto;
+      font: var(--headline-2);
+    }
+    h3 {
+      font: var(--headline-5);
+      width: 700px;
+      margin: 30px auto;
+    }
+  }
 }
 
 .Main {
   color: var(--white-color);
 
   &__content {
-    
     padding: 64px 24px;
     display: flex;
     flex-direction: column;
@@ -64,18 +66,16 @@
     font-weight: 400;
   }
   &__image {
-    //display: none;
+    display: none;
     margin-top: 30px;
-    img{
+    img {
       display: block;
-      
-      margin: 10px auto;
 
+      margin: 10px auto;
     }
   }
-  @media only screen and (min-width: 992px) {
+  @include breakpoints.large {
     margin: 0 auto;
-    width: 1200px;
     display: flex;
     &__content {
       width: 800px;
@@ -83,12 +83,11 @@
     }
     &__image {
       width: 560px;
+      display: flex;
       justify-content: center;
-    align-items: center;
-    display: flex;
+      align-items: center;
     }
     h2 {
-     
       font: var(--headline-3);
     }
   }
@@ -108,11 +107,10 @@
     grid-template-columns: 1fr;
     justify-items: center;
     grid-gap: 24px;
-    @media only screen and (min-width: 992px) {
-     display: flex;
-     justify-content: space-around;
+    @include breakpoints.large {
+      display: flex;
+      justify-content: space-around;
     }
-
   }
   &__member {
     width: fit-content;
