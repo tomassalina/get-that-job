@@ -10,27 +10,11 @@ export const TeamSection = () => {
           <h3>Meet the team</h3>
           <ul className="Team__list">
             <TeamMember
-              name="Anthony Sanchez"
-              avatar={Avatar1}
-              social={{
-                github: 'https://github.com/anthonysa0813/',
-                linkedin: '#',
-              }}
-            />
-            <TeamMember
               name="Marcos Laurens"
-              avatar={Avatar2}
+              avatar={Avatar1}
               social={{
                 github: 'https://github.com/Marquisl2/',
                 linkedin: 'https://www.linkedin.com/in/marcos-laurens/',
-              }}
-            />
-            <TeamMember
-              name="Ivan Cataldo"
-              avatar={Avatar1}
-              social={{
-                github: 'https://github.com/CataldoIvan/',
-                linkedin: 'https://www.linkedin.com/in/cataldoivan/',
               }}
             />
             <TeamMember

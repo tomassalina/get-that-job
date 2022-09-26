@@ -1,6 +1,12 @@
+import { useAuth0 } from '@auth0/auth0-react'
 import HeroImg from '../../../../assets/hero.svg'
+import { Button } from '../../../Buttons'
 
 export const HeroSection = () => {
+  const { loginWithRedirect } = useAuth0()
+
+  const handleAuth0 = () => loginWithRedirect()
+
   return (
     <section className="Hero">
       <div className="wrapper">
@@ -13,7 +19,12 @@ export const HeroSection = () => {
             time. We promise you! Just give us the money and we will take care
             of it.
           </h3>
-          <button type="button">create an account now</button>
+          <Button
+            type="primary"
+            text="create an account now"
+            large
+            handleClick={handleAuth0}
+          />
           <figure className="Hero__image">
             <img src={HeroImg} alt="Illustation of many professionals" />
           </figure>
