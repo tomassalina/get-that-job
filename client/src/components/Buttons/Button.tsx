@@ -14,11 +14,11 @@ export const Button = ({
   to,
   handleClick,
 }: ButtonProps) => {
-  const buttonClasses = classNames('btn', `btn-${type}`, { large })
+  const styles = classNames('btn', `btn-${type}`, { large })
 
   if (isLink)
     return (
-      <Link className={buttonClasses} to={to ? to : '/'}>
+      <Link className={styles} to={to ? to : '/'}>
         <>
           {children} <span>{text}</span>
         </>
@@ -26,7 +26,7 @@ export const Button = ({
     )
 
   return (
-    <button type="button" onClick={handleClick} className={buttonClasses}>
+    <button type="button" onClick={handleClick} className={styles}>
       <>
         {children} <span>{text}</span>
       </>

@@ -7,3 +7,9 @@ export interface ButtonProps {
   to?: string
   handleClick?: () => void
 }
+
+export interface IconButtonProps {
+  icon: string
+  activeIcon: string
+  active?: boolean
+}
