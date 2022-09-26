@@ -1,4 +1,4 @@
-import './Home.styles.scss'
+import './Landing.styles.scss'
 
 import { HeroSection } from './sections/HeroSection'
 import { MainSection } from './sections/MainSection'
