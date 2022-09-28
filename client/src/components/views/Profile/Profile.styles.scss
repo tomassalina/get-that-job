@@ -2,4 +2,9 @@
   display: flex;
   width: 1300px;
   margin: 0 auto;
+  &__userInfo{
+    flex-direction: column;
+    margin:32px 0 0 120px
+  }
+
 }
