@@ -1,6 +1,4 @@
-.navbar {
-
-    background-color: var(--dark-color);
+.navbar {  
     color: var(--gray-color);
     padding-top: 15px;
   box-sizing: border-box;
@@ -8,8 +6,11 @@
   flex-direction: column;
   width: 240px;
   height: 100vh;
+  background-color: var(--bg-dark-color);
   
-
+ul{
+  list-style: none;
+}
   a {
     color: var(--gray-color);
     display: flex;

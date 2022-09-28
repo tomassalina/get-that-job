@@ -76,7 +76,7 @@
     }
   }
   @include breakpoints.large {
-    margin: 0 auto;
+    justify-content: center;
     display: flex;
     &__content {
       width: 800px;

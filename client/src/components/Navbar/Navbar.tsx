@@ -5,6 +5,10 @@ import articleLine from "../../assets/article-line.svg";
 import focus3Line from "../../assets/focus-3-line.svg";
 import userLine from "../../assets/user-line.svg";
 import logoutuserLine from "../../assets/logout-circle-line.svg";
+import LogoImg from '../../assets/logo.png'
+
+
+
 export const Navbar = () => {
   const handleClick = (e) => {
     e.preventDefault();
@@ -13,6 +17,9 @@ export const Navbar = () => {
   return (
     <>
       <div className="navbar">
+      <Link to="/" className="Header__logo">
+            <img src={LogoImg} alt="Get That Job logo" />
+          </Link>
         <Link
           className="prueba"
           to="#"
