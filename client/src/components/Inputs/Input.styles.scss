@@ -1,0 +1,39 @@
+.input {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__label {
+    font: var(--overline);
+    text-transform: uppercase;
+    color: var(--dark-gray-color);
+  }
+
+  &__caption {
+    font: var(--caption);
+    color: var(--light-gray-color);
+  }
+
+  input {
+    padding: 8px;
+    font: var(--body-2);
+    color: var(--light-gray-color);
+    border: 1px solid var(--pink-color);
+    border-radius: var(--global-radius);
+    outline: 1px solid transparent;
+
+    &::placeholder {
+      font: var(--body-2);
+      color: var(--light-gray-color);
+    }
+
+    &:hover {
+      border-color: var(--dark-pink-color);
+    }
+    &:focus {
+      outline-color: var(--dark-pink-color);
+    }
+  }
+}
