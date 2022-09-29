@@ -78,6 +78,7 @@
   @include breakpoints.large {
     margin: 0 auto;
     display: flex;
+    justify-content: center;
     &__content {
       width: 800px;
       padding: 64px 100px;
