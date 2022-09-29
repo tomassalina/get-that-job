@@ -21,11 +21,15 @@
     padding-bottom: 6px;
     border: none;
     background-color: transparent;
-    outline: none;
+    outline: 2px solid transparent;
     font: var(--button);
     color: var(--light-gray-color);
     text-transform: uppercase;
     cursor: pointer;
+
+    &:focus {
+      outline-color: var(--dark-pink-color);
+    }
     &:after {
       position: absolute;
       bottom: 0;
@@ -41,5 +45,9 @@
         background-color: var(--pink-color);
       }
     }
+  }
+
+  form {
+    margin-top: 50px;
   }
 }
