@@ -12,10 +12,14 @@
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 16px;
-  outline: none;
+  outline: 1px solid transparent;
   cursor: pointer;
 
   transition: background-color 0.3s ease-out;
+
+  &:focus {
+    outline-color: var(--dark-pink-color);
+  }
 
   svg path {
     transition: fill 0.3s ease-out;
@@ -34,9 +38,6 @@
     &:hover {
       background-color: var(--dark-pink-color);
     }
-    &:focus {
-      outline: 2px solid var(--dark-pink-color);
-    }
   }
 
   &-secondary {
@@ -53,9 +54,6 @@
       svg path {
         fill: var(--dark-gray-color);
       }
-    }
-    &:focus {
-      border: 1px solid var(--pink-color);
     }
   }
 

@@ -10,7 +10,6 @@ export const Header = () => {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0()
 
   const handleAuth0 = () => loginWithRedirect()
-
   const handleLogout = () => logout()
 
   return (

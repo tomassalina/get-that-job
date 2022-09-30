@@ -1,7 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import HeroImg from '../../../../assets/hero.svg'
 import { Button } from '../../../Buttons'
-import { IconButton } from '../../../Buttons/IconButton'
 
 export const HeroSection = () => {
   const { loginWithRedirect } = useAuth0()

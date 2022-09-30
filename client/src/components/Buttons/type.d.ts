@@ -1,11 +1,19 @@
+type ButtonType = 'primary' | 'secondary' | 'disabled' | 'ghost'
+
 export interface ButtonProps {
-  type: 'primary' | 'secondary' | 'disabled' | 'ghost'
+  type: ButtonType
   text: string
-  children?: ReactNode
   large?: boolean
-  isLink?: boolean
-  to?: string
-  handleClick?: () => void
+  children?: ReactNode
+  handleClick: () => void
+}
+
+export interface LinkButtonProps {
+  type: ButtonType
+  text: string
+  large?: boolean
+  children?: ReactNode
+  to: string
 }
 
 export interface IconButtonProps {
