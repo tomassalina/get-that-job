@@ -1,7 +1,5 @@
-type InputType = 'text' | 'tel' | 'date' | 'url' | 'input'
-
-export interface InputProps {
-  type: InputType
+export interface TextAreaProps {
+ 
   name: string
   value: string
   placeholder: string

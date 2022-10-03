@@ -1,9 +1,8 @@
-import "./Input.styles.scss";
-import { InputProps } from "./type";
+import "./TextArea.styles.scss";
+import { TextAreaProps } from "./type";
 
-export const Input = (props: InputProps) => {
+export const TextArea = (props: TextAreaProps) => {
   const {
-    type,
     name,
     value,
     placeholder,
@@ -17,8 +16,7 @@ export const Input = (props: InputProps) => {
   return (
     <label htmlFor={`input-${name}`} className="input">
       <span className="input__label">{label}</span>
-      <input
-        type="{type}"
+      <textarea
         name={name}
         id={`input-${name}`}
         value={value}
