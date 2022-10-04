@@ -13,7 +13,12 @@ export const Button = ({
   const styles = classNames('btn', `btn-${type}`, { large })
 
   return (
-    <button type="button" onClick={handleClick} className={styles}>
+    <button
+      type="button"
+      disabled={type === 'disabled'}
+      onClick={handleClick}
+      className={styles}
+    >
       <>
         {children} <span>{text}</span>
       </>

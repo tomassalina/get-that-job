@@ -7,7 +7,7 @@ import { Step, professionalSteps } from '../steps'
 import { ArrowRightIcon, ArrowLeftIcon } from '../../../Icons'
 
 export const Professional = () => {
-  const { user } = useAuth0()
+  const { user, isAuthenticated } = useAuth0()
 
   const { steps, handleNext, handlePrevious, handleSkip, handleFinish } =
     useSteps(professionalSteps)
@@ -31,7 +31,11 @@ export const Professional = () => {
               handleChange={() => {}}
             />
             <div className="Onboarding__steps-buttons">
-              <Button text="Next" type="primary" handleClick={handleNext}>
+              <Button
+                text="Next"
+                type={isAuthenticated ? 'primary' : 'disabled'}
+                handleClick={handleNext}
+              >
                 <ArrowRightIcon />
               </Button>
             </div>
