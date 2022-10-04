@@ -15,12 +15,12 @@ interface Step {
 
 const Step = ({ data }: { data: Step }) => {
   const { status, description, active, index } = data
-  const styles = classNames(['NewProfile__steps-item', { active }])
+  const styles = classNames(['Onboarding__steps-item', { active }])
 
   return (
     <li className={styles}>
       <span>{index ? index + 1 : 1}</span>
-      <div className="NewProfile__steps-content">
+      <div className="Onboarding__steps-content">
         <p>{status}</p>
         <h4>{description}</h4>
       </div>
@@ -46,7 +46,7 @@ const stepsInitialState: Step[] = [
   },
 ]
 
-export const NewProfessional = () => {
+export const Professional = () => {
   const [steps, setSteps] = useState(stepsInitialState)
 
   const { user } = useAuth0()
@@ -82,13 +82,13 @@ export const NewProfessional = () => {
   const handleFinish = () => {}
 
   return (
-    <div className="NewProfile__steps">
+    <div className="Onboarding__steps">
       <ul>
         {steps.map((step, index) => (
           <Step key={index} data={{ ...step, index }} />
         ))}
       </ul>
-      <div className="NewProfile__steps-form">
+      <div className="Onboarding__steps-form">
         {steps[0].active && (
           <form>
             <Input
@@ -99,7 +99,7 @@ export const NewProfessional = () => {
               placeholder="some.user@mail.com"
               handleChange={() => {}}
             />
-            <div className="NewProfile__steps-buttons">
+            <div className="Onboarding__steps-buttons">
               <Button text="Next" type="primary" handleClick={handleNext}>
                 <ArrowRightIcon />
               </Button>
@@ -146,7 +146,7 @@ export const NewProfessional = () => {
               handleChange={() => {}}
             />
 
-            <div className="NewProfile__steps-buttons">
+            <div className="Onboarding__steps-buttons">
               <Button
                 text="Skip this!"
                 type="secondary"
@@ -174,7 +174,7 @@ export const NewProfessional = () => {
               handleChange={() => {}}
             />
 
-            <div className="NewProfile__steps-buttons">
+            <div className="Onboarding__steps-buttons">
               <Button
                 text="Previous"
                 type="primary"

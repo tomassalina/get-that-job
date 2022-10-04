@@ -1,4 +1,4 @@
-.NewProfile {
+.Onboarding {
   &__grid {
     padding: 32px 0;
   }
@@ -97,7 +97,7 @@
       }
     }
 
-    .NewProfile__steps-buttons {
+    &-buttons {
       margin-top: 10px;
       display: flex;
       justify-content: center;

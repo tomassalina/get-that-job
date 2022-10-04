@@ -1,19 +1,19 @@
 import { useState } from 'react'
 
-import './NewProfile.styles.scss'
-import { NewProfessional } from './roles/NewProfessional'
-import { NewRecruiter } from './roles/NewRecruiter'
+import './Onboarding.styles.scss'
+import { Professional } from './roles/Professional'
+import { Recruiter } from './roles/Recruiter'
 
-export const NewProfile = () => {
+export const Onboarding = () => {
   const [isProfessional, setIsProfessional] = useState(true)
 
   return (
-    <main className="NewProfile">
+    <main className="Onboarding">
       <div className="wrapper">
-        <div className="NewProfile__grid">
+        <div className="Onboarding__grid">
           <h2>Good choice!</h2>
           <h4>Create a new account as...</h4>
-          <div className="NewProfile__buttons">
+          <div className="Onboarding__buttons">
             <button
               className={isProfessional ? 'active' : undefined}
               type="button"
@@ -29,7 +29,7 @@ export const NewProfile = () => {
               Recruiter
             </button>
           </div>
-          {isProfessional ? <NewProfessional /> : <NewRecruiter />}
+          {isProfessional ? <Professional /> : <Recruiter />}
         </div>
       </div>
     </main>
