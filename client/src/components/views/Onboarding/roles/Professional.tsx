@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react'
-import { Input } from '../../../Inputs'
+import { Input, TextAreaInput } from '../../../Inputs'
 import { Button } from '../../../Buttons'
 
 import useSteps from '../../../../hooks/useSteps'
@@ -44,7 +44,7 @@ export const Professional = () => {
         )}
         {steps[1].active && (
           <form>
-            <p>
+            <p className="Onboarding__steps-recommendation">
               You can complete this information later but we reccomend you to do
               it now
             </p>
@@ -81,7 +81,6 @@ export const Professional = () => {
               value=""
               handleChange={() => {}}
             />
-
             <div className="Onboarding__steps-buttons">
               <Button
                 text="Skip this!"
@@ -102,7 +101,7 @@ export const Professional = () => {
 
         {steps[2].active && (
           <form>
-            <p>
+            <p className="Onboarding__steps-recommendation">
               You can complete this information later but we reccomend you to do
               it now
             </p>
@@ -111,6 +110,22 @@ export const Professional = () => {
               name="title"
               label="Title"
               placeholder="UX/UI designer"
+              value=""
+              handleChange={() => {}}
+            />
+            <TextAreaInput
+              name="experience"
+              label="Professional Experience"
+              placeholder="Worked 6 years in a bitcoin farm until I decided to change my life...."
+              caption="Between 300 and 2000 characters"
+              value=""
+              handleChange={() => {}}
+            />
+            <TextAreaInput
+              name="education"
+              label="Education"
+              placeholder="Major in life experiences with a PHD in procrastination..."
+              caption="Between 100 and 2000 characters"
               value=""
               handleChange={() => {}}
             />

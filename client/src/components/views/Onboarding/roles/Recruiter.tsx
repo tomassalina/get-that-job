@@ -1,7 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import useSteps from '../../../../hooks/useSteps'
 import { Step, recruiterSteps } from '../steps'
-import { Input } from '../../../Inputs'
+import { Input, TextAreaInput } from '../../../Inputs'
 import { Button } from '../../../Buttons'
 
 import { ArrowRightIcon } from '../../../Icons'
@@ -44,7 +44,7 @@ export const Recruiter = () => {
         )}
         {steps[1].active && (
           <form>
-            <p>
+            <p className="Onboarding__steps-recommendation">
               You can complete this information later but we reccomend you to do
               it now
             </p>
@@ -58,13 +58,20 @@ export const Recruiter = () => {
             />
             <Input
               type="url"
-              name="website"
+              name="companyWebsite"
               label="Company website"
               placeholder="https://www.mycompany.sa"
               value=""
               handleChange={() => {}}
             />
-
+            <TextAreaInput
+              name="companyAbout"
+              label="About the company"
+              placeholder="My Company SA has the vision to change thw way how..."
+              caption="Between 100 and 2000 characters"
+              value=""
+              handleChange={() => {}}
+            />
             <div className="Onboarding__steps-buttons">
               <Button
                 text="Skip this!"
