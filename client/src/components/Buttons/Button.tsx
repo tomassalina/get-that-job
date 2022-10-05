@@ -4,10 +4,11 @@ import './Button.styles.scss'
 import { ButtonProps } from './type'
 
 export const Button = ({
-  children,
   type,
   large,
   text,
+  children,
+  iconRight,
   handleClick,
 }: ButtonProps) => {
   const styles = classNames('btn', `btn-${type}`, { large })
@@ -20,7 +21,8 @@ export const Button = ({
       className={styles}
     >
       <>
-        {children} <span>{text}</span>
+        {!iconRight && children} <span>{text}</span>
+        {iconRight && children}
       </>
     </button>
   )

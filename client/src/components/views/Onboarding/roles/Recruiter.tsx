@@ -35,6 +35,7 @@ export const Recruiter = () => {
                 text="Next"
                 type={isAuthenticated ? 'primary' : 'disabled'}
                 handleClick={handleNext}
+                iconRight
               >
                 <ArrowRightIcon />
               </Button>
@@ -70,7 +71,12 @@ export const Recruiter = () => {
                 type="secondary"
                 handleClick={handleSkip}
               />
-              <Button text="Finish" type="primary" handleClick={handleFinish}>
+              <Button
+                text="Finish"
+                type="primary"
+                handleClick={handleFinish}
+                iconRight
+              >
                 <ArrowRightIcon />
               </Button>
             </div>

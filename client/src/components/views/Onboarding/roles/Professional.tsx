@@ -35,6 +35,7 @@ export const Professional = () => {
                 text="Next"
                 type={isAuthenticated ? 'primary' : 'disabled'}
                 handleClick={handleNext}
+                iconRight
               >
                 <ArrowRightIcon />
               </Button>
@@ -87,7 +88,12 @@ export const Professional = () => {
                 type="secondary"
                 handleClick={handleSkip}
               />
-              <Button text="Next" type="primary" handleClick={handleNext}>
+              <Button
+                text="Next"
+                type="primary"
+                handleClick={handleNext}
+                iconRight
+              >
                 <ArrowRightIcon />
               </Button>
             </div>
@@ -122,7 +128,12 @@ export const Professional = () => {
                 type="secondary"
                 handleClick={handleSkip}
               />
-              <Button text="Finish" type="primary" handleClick={handleFinish}>
+              <Button
+                text="Finish"
+                type="primary"
+                handleClick={handleFinish}
+                iconRight
+              >
                 <ArrowRightIcon />
               </Button>
             </div>
