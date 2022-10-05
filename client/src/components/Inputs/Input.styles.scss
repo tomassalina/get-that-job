@@ -1,4 +1,5 @@
-.input {
+.input,
+.textarea {
   width: 100%;
   max-width: 400px;
   display: flex;
@@ -16,7 +17,8 @@
     color: var(--light-gray-color);
   }
 
-  input {
+  input,
+  textarea {
     padding: 8px;
     font: var(--body-2);
     color: var(--dark-gray-color);
@@ -36,4 +38,8 @@
       outline-color: var(--dark-pink-color);
     }
   }
+}
+
+.textarea {
+  max-width: 600px;
 }
