@@ -1,16 +1,7 @@
 import { TextAreaInputProps } from './type'
 
 export const TextAreaInput = (props: TextAreaInputProps) => {
-  const {
-    name,
-    value,
-    placeholder,
-    label,
-    caption,
-    required,
-    autocomplete,
-    handleChange,
-  } = props
+  const { name, value, placeholder, label, caption, handleChange } = props
 
   return (
     <label htmlFor={`textarea-${name}`} className="textarea">
@@ -20,8 +11,6 @@ export const TextAreaInput = (props: TextAreaInputProps) => {
         id={`textarea-${name}`}
         value={value}
         placeholder={placeholder}
-        required={required}
-        autoComplete={autocomplete}
         onChange={handleChange}
         rows={3}
       ></textarea>

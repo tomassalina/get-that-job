@@ -1,10 +1,9 @@
 import { useAuth0 } from '@auth0/auth0-react'
-import { Input, TextAreaInput } from '../../../Inputs'
-import { Button } from '../../../Buttons'
-
 import useSteps from '../../../../hooks/useSteps'
 import { Step, professionalSteps } from '../steps'
 import { ArrowRightIcon, ArrowLeftIcon } from '../../../Icons'
+import { Input, TextAreaInput, FileInput } from '../../../Inputs'
+import { Button } from '../../../Buttons'
 
 export const Professional = () => {
   const { user, isAuthenticated } = useAuth0()
@@ -126,6 +125,15 @@ export const Professional = () => {
               label="Education"
               placeholder="Major in life experiences with a PHD in procrastination..."
               caption="Between 100 and 2000 characters"
+              value=""
+              handleChange={() => {}}
+            />
+            <FileInput
+              name="education"
+              label="Upload/Update your CV"
+              caption="Only PDF. Max size 5MB"
+              accept=".pdf"
+              maxSize={5}
               value=""
               handleChange={() => {}}
             />

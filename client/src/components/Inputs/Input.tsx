@@ -1,4 +1,3 @@
-import './Input.styles.scss'
 import { InputProps } from './type'
 
 export const Input = (props: InputProps) => {

@@ -1,7 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import useSteps from '../../../../hooks/useSteps'
 import { Step, recruiterSteps } from '../steps'
-import { Input, TextAreaInput } from '../../../Inputs'
+import { Input, TextAreaInput, FileInput } from '../../../Inputs'
 import { Button } from '../../../Buttons'
 
 import { ArrowRightIcon } from '../../../Icons'
@@ -69,6 +69,15 @@ export const Recruiter = () => {
               label="About the company"
               placeholder="My Company SA has the vision to change thw way how..."
               caption="Between 100 and 2000 characters"
+              value=""
+              handleChange={() => {}}
+            />
+            <FileInput
+              name="companyLogo"
+              label="Upload the company logo"
+              caption="Only PDF. Max size 5MB"
+              accept=".pdf"
+              maxSize={5}
               value=""
               handleChange={() => {}}
             />

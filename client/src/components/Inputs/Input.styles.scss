@@ -1,5 +1,6 @@
 .input,
-.textarea {
+.textarea,
+.file-input {
   width: 100%;
   max-width: 400px;
   display: flex;
@@ -42,4 +43,10 @@
 
 .textarea {
   max-width: 600px;
+}
+
+.file-input {
+  input {
+    cursor: pointer;
+  }
 }
