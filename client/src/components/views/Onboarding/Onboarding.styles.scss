@@ -26,9 +26,6 @@
       text-transform: uppercase;
       cursor: pointer;
 
-      &:focus {
-        outline-color: var(--dark-pink-color);
-      }
       &:after {
         position: absolute;
         bottom: 0;

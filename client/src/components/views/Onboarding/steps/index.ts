@@ -19,3 +19,16 @@ export const professionalSteps: StepType[] = [
     active: false,
   },
 ]
+
+export const recruiterSteps: StepType[] = [
+  {
+    status: 'in progress',
+    description: 'Login information',
+    active: true,
+  },
+  {
+    status: 'pending',
+    description: 'Company information',
+    active: false,
+  },
+]
