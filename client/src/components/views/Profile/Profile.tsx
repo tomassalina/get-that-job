@@ -1,6 +1,5 @@
 import { Button } from "../../Buttons";
 import { Input } from "../../Inputs";
-import { Navbar } from "../../Navbar";
 import { TextArea } from "../../TextArea";
 import "./Profile.styles.scss";
 
@@ -8,7 +7,6 @@ export const Profile = () => {
   return (
     <>
       <div className="profile">
-        <Navbar />
         <div className="profile__userInfo">
           <h1>Profile</h1>
           <h4>Personal information</h4>

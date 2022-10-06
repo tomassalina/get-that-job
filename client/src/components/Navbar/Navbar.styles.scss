@@ -23,6 +23,9 @@
     &:hover {
       background-color: var(--white-color);
     }
+    &.__active{
+      background-color: var(--white-color);
+    }
   }
   footer {
     position: absolute;
