@@ -1,3 +1,12 @@
+import { Navbar } from "../../Navbar"
+import { FindThatJob } from "../FindThatJob"
+import "./Home.styles.scss"
 export const Home = () => {
-  return <h1>Home</h1>
+  return (
+    <div className="home__container">
+    
+    <Navbar/>
+    <FindThatJob/>
+    </div>
+  )
 }
