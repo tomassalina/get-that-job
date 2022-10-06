@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <Auth0Provider
       domain="dev-ap49krnk.us.auth0.com"
       clientId="gYsJs9sGt2VKTzqeYApGRk4PmODu97cA"
-      redirectUri={window.location.origin + '/profile/new'}
+      redirectUri={window.location.origin + '/onboarding'}
     >
       <App />
     </Auth0Provider>

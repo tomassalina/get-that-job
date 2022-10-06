@@ -5,6 +5,7 @@ export interface ButtonProps {
   text: string
   large?: boolean
   children?: ReactNode
+  iconRight?: boolean
   handleClick: () => void
 }
 

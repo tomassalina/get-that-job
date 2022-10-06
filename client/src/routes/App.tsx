@@ -1,10 +1,11 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Layout } from "../components/Layout";
-import { Landing } from "../components/views/Landing";
-import { Home } from "../components/views/Home";
-import { NewProfile, Profile } from "../components/views/Profile";
-import { NotFound } from "../components/views/NotFound";
-import { FindThatJob } from "../components/views/FindThatJob";
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import { Layout } from '../components/Layout'
+import { Landing } from '../components/views/Landing'
+import { Home } from '../components/views/Home'
+import { Profile } from '../components/views/Profile'
+import { NotFound } from '../components/views/NotFound'
+import { Onboarding } from '../components/views/Onboarding'
 
 function App() {
   return (
@@ -27,10 +28,10 @@ function App() {
           }
         />
         <Route
-          path="/profile/new"
+          path="/onboarding"
           element={
             <Layout>
-              <NewProfile />
+              <Onboarding />
             </Layout>
           }
         />

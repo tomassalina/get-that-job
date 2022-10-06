@@ -1,6 +1,8 @@
-.input {
+.input,
+.textarea,
+.file-input {
   width: 100%;
-  max-width: 380px;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -16,10 +18,11 @@
     color: var(--light-gray-color);
   }
 
-  input {
+  input,
+  textarea {
     padding: 8px;
     font: var(--body-2);
-    color: var(--light-gray-color);
+    color: var(--dark-gray-color);
     border: 1px solid var(--pink-color);
     border-radius: var(--global-radius);
     outline: 1px solid transparent;
@@ -35,5 +38,15 @@
     &:focus {
       outline-color: var(--dark-pink-color);
     }
+  }
+}
+
+.textarea {
+  max-width: 600px;
+}
+
+.file-input {
+  input {
+    cursor: pointer;
   }
 }

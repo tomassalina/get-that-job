@@ -1,5 +1,4 @@
-import "./Input.styles.scss";
-import { InputProps } from "./type";
+import { InputProps } from './type'
 
 export const Input = (props: InputProps) => {
   const {
@@ -12,13 +11,13 @@ export const Input = (props: InputProps) => {
     required,
     autocomplete,
     handleChange,
-  } = props;
+  } = props
 
   return (
     <label htmlFor={`input-${name}`} className="input">
       <span className="input__label">{label}</span>
       <input
-        type="{type}"
+        type={type}
         name={name}
         id={`input-${name}`}
         value={value}
@@ -29,5 +28,5 @@ export const Input = (props: InputProps) => {
       />
       {caption && <p className="input__caption">{caption}</p>}
     </label>
-  );
-};
+  )
+}
