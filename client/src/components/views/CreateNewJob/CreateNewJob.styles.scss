@@ -1,21 +1,32 @@
 
-
 .CreateNewJob__container {
-  
-  h1{
+  margin-left: 128px;
+  margin-top: 32px;
+
+  h1 {
     font: var(--headline-4);
   }
-  p{
-    font :var(--caption);
+  &__main {
+    font: var(--headline-5);
+    margin: 9px 0;
+  }
+  .input,
+  .textarea{
+    margin: 8px 0;
   }
 
-
-  .JobCard{
-background-color: red;
-height: 290px;
-height: 170px;
-border-radius: 8px;
-padding: 16px;
-background: #ffff;
+  .range {
+    display: inline-flex;
+    &__separator {
+      color: var(--gray-color);
+      margin: 0 10px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      font-size: 30px;
+    }
+  }
+  .btn {
+    margin: 32px 0;
   }
 }

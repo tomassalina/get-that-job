@@ -1,10 +1,13 @@
-import { Input } from "../../Inputs";
+import { Input, TextAreaInput } from "../../Inputs";
 import "./CreateNewJob.styles.scss";
+import moneyDolarCircle from "../../../assets/money-dollar-circle-fill.svg";
+import { Button } from "../../Buttons";
+
 export const CreateNewJob = () => {
   return (
     <div className="CreateNewJob__container">
       <h1 className="">Create new job posting</h1>
-      <p>Main information</p>
+      <p className="CreateNewJob__container__main">Main information</p>
       <form>
         <Input
           type="text"
@@ -20,7 +23,7 @@ export const CreateNewJob = () => {
         <Input
           type="text"
           name="JobCategory"
-          placeholder="Job Category"
+          placeholder="Select or create a category"
           label="Job Category"
           caption=""
           value=""
@@ -37,39 +40,66 @@ export const CreateNewJob = () => {
           autocomplete="sd"
           handleChange={() => {}}
         />
-        <Input
-          type="text"
-          name="Salary"
-          placeholder="Salary Range"
-          label="Salary Range"
-          caption=""
+        <div>Salary range</div>
+        <div className="range">
+          <Input
+            type="text"
+            name="Salary"
+            placeholder="    MIN"
+            label=""
+            caption=""
+            value=""
+            autocomplete="sd"
+            handleChange={() => {}}
+            size="102px"
+            img={moneyDolarCircle}
+          />
+          <div className="range__separator">-</div>
+          <Input
+            type="text"
+            name="Salary"
+            placeholder="    MAX"
+            label=""
+            value=""
+            autocomplete="sd"
+            handleChange={() => {}}
+            size="102px"
+            img={moneyDolarCircle}
+          />
+        </div>
+        <p className="CreateNewJob__container__main">About the job position</p>
+        <TextAreaInput
+          name=""
           value=""
-          autocomplete="sd"
+          placeholder="Describe the main functions and characteristics of your job position"
+          label="About the job position"
+          caption=""
           handleChange={() => {}}
         />
-        <Input
-          type="text"
-          name="Salary"
-          placeholder="Salary Range"
-          label=""
-          caption=""
+        <TextAreaInput
+          name=""
           value=""
-          autocomplete="sd"
+          placeholder="List each mandatory requirement in a new line"
+          label="Mandatory Requirements"
+          caption=""
           handleChange={() => {}}
+        />
+        <TextAreaInput
+          name=""
+          value=""
+          placeholder="List each optional requirement in a new line"
+          label="Optional Requirements"
+          caption=""
+          handleChange={() => {}}
+        />
+        <Button
+          type="primary"
+          large={false}
+          text="post this job"
+          handleClick={() => {}}
         />
       </form>
-    <div className="list__continer">
-      <div className="JobCouter">12 jobs for you</div>
-      <div className="JobCard">
-        <div className="JobCouter__head">
-          <img src="../../assets/avatar-1.png" alt="" />
-          12
-
-        </div>
-sss
-      </div>
-    </div>
-
+   
     </div>
   );
 };

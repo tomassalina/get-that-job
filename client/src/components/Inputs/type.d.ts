@@ -10,6 +10,8 @@ export interface InputProps {
   required?: boolean
   autocomplete?: string
   handleChange: () => void
+  size?: string
+  img?: string
 }
 
 export type TextAreaInputProps = Omit<

@@ -17,6 +17,7 @@ export const TextArea = (props: TextAreaProps) => {
     <label htmlFor={`input-${name}`} className="input">
       <span className="input__label">{label}</span>
       <textarea
+      className="textareaIni"
         name={name}
         id={`input-${name}`}
         value={value}
