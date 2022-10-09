@@ -33,9 +33,7 @@ const useSteps = (initialState: StepType[]) => {
 
   const handleSkip = () => {}
 
-  const handleFinish = () => {}
-
-  return { steps, handleNext, handlePrevious, handleSkip, handleFinish }
+  return { steps, handleNext, handlePrevious, handleSkip }
 }
 
 export default useSteps

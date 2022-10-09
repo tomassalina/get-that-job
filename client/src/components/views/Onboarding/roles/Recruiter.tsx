@@ -1,4 +1,6 @@
+import { useEffect } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
+import { useFormik } from 'formik'
 import useSteps from '../../../../hooks/useSteps'
 import { Step, recruiterSteps } from '../steps'
 import { Input, TextAreaInput, FileInput } from '../../../Inputs'
@@ -6,11 +8,50 @@ import { Button } from '../../../Buttons'
 
 import { ArrowRightIcon } from '../../../Icons'
 
+interface FormValues {
+  email: string
+  companyName: string
+  companyWebsite: string
+  companyAbout: string
+  companyLogo: { file: object; path: string }
+}
+
 export const Recruiter = () => {
   const { user, isAuthenticated } = useAuth0()
+  const { steps, handleNext, handleSkip } = useSteps(recruiterSteps)
 
-  const { steps, handleNext, handleSkip, handleFinish } =
-    useSteps(recruiterSteps)
+  const initialValues: FormValues = {
+    email: '',
+    companyName: '',
+    companyWebsite: '',
+    companyAbout: '',
+    companyLogo: { file: {}, path: '' },
+  }
+
+  const onSubmit = (values: FormValues) => {
+    console.log(values)
+  }
+
+  const formik = useFormik({ initialValues, onSubmit })
+  const {
+    values,
+    errors,
+    touched,
+    handleChange,
+    handleSubmit,
+    handleBlur,
+    setFieldValue,
+  } = formik
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files ? e.target.files[0] : {}
+    const path = e.target.value
+    setFieldValue('resume', { file, path })
+  }
+
+  useEffect(() => {
+    if (user?.email) setFieldValue('email', user?.email)
+  }, [user])
 
   return (
     <div className="Onboarding__steps">
@@ -26,9 +67,9 @@ export const Recruiter = () => {
               type="text"
               name="email"
               label="Email"
-              value={user?.email ? user.email : ''}
               placeholder="some.user@mail.com"
-              handleChange={() => {}}
+              value={values.email}
+              handleChange={handleChange}
             />
             <div className="Onboarding__steps-buttons">
               <Button
@@ -53,24 +94,24 @@ export const Recruiter = () => {
               name="companyName"
               label="Company name"
               placeholder="My Company S.A"
-              value=""
-              handleChange={() => {}}
+              value={values.companyName}
+              handleChange={handleChange}
             />
             <Input
               type="url"
               name="companyWebsite"
               label="Company website"
               placeholder="https://www.mycompany.sa"
-              value=""
-              handleChange={() => {}}
+              value={values.companyWebsite}
+              handleChange={handleChange}
             />
             <TextAreaInput
               name="companyAbout"
               label="About the company"
               placeholder="My Company SA has the vision to change thw way how..."
               caption="Between 100 and 2000 characters"
-              value=""
-              handleChange={() => {}}
+              value={values.companyAbout}
+              handleChange={handleChange}
             />
             <FileInput
               name="companyLogo"
@@ -78,8 +119,8 @@ export const Recruiter = () => {
               caption="Only PDF. Max size 5MB"
               accept=".pdf"
               maxSize={5}
-              value=""
-              handleChange={() => {}}
+              value={values.companyLogo}
+              handleChange={handleFileChange}
             />
             <div className="Onboarding__steps-buttons">
               <Button
@@ -90,7 +131,7 @@ export const Recruiter = () => {
               <Button
                 text="Finish"
                 type="primary"
-                handleClick={handleFinish}
+                handleClick={handleSubmit}
                 iconRight
               >
                 <ArrowRightIcon />

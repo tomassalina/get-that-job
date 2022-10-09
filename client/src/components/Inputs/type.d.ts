@@ -1,4 +1,10 @@
 type InputType = 'text' | 'tel' | 'date' | 'url'
+type FormikHandleChange = {
+  (e: ChangeEvent<any>): void
+  <T_1 = string | ChangeEvent<any>>(field: T_1): T_1 extends ChangeEvent<any>
+    ? void
+    : (e: string | ChangeEvent<any>) => void
+}
 
 export interface InputProps {
   type: InputType
@@ -9,7 +15,7 @@ export interface InputProps {
   caption?: string
   required?: boolean
   autocomplete?: string
-  handleChange: () => void
+  handleChange: FormikHandleChange
 }
 
 export type TextAreaInputProps = Omit<
@@ -25,4 +31,5 @@ type FileInput = Omit<
 export interface FileInputProps extends FileInput {
   maxSize: number
   accept: string
+  value: { file: object, path: string }
 }
