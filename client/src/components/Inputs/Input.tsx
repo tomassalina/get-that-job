@@ -19,7 +19,7 @@ export const Input = (props: InputProps) => {
     <label htmlFor={`input-${name}`} className="input">
       <span className="input__label">{label}</span>
       <input
-       style={{width: `${size}`,background:`url(${img})no-repeat left`}} 
+        style={{background:`url(${img})no-repeat left`}}  
        
        type={type}
        name={name}
