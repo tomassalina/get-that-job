@@ -1,9 +1,15 @@
 type InputType = 'text' | 'tel' | 'date' | 'url'
+
 type FormikHandleChange = {
   (e: ChangeEvent<any>): void
   <T_1 = string | ChangeEvent<any>>(field: T_1): T_1 extends ChangeEvent<any>
     ? void
     : (e: string | ChangeEvent<any>) => void
+}
+
+type FormikHandleBlur = {
+  (e: React.FocusEvent<any, Element>): void
+  <T = any>(fieldOrEvent: T): T extends string ? (e: any) => void : void
 }
 
 export interface InputProps {
@@ -16,6 +22,9 @@ export interface InputProps {
   required?: boolean
   autocomplete?: string
   handleChange: FormikHandleChange
+  error?: string
+  touched?: boolean
+  handleBlur?: FormikHandleBlur
 }
 
 export type TextAreaInputProps = Omit<
@@ -31,5 +40,5 @@ type FileInput = Omit<
 export interface FileInputProps extends FileInput {
   maxSize: number
   accept: string
-  value: { file: object, path: string }
+  value: { file: object; path: string }
 }

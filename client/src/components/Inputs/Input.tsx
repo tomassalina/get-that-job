@@ -1,4 +1,5 @@
 import { InputProps } from './type'
+import classNames from 'classnames'
 
 export const Input = (props: InputProps) => {
   const {
@@ -11,10 +12,15 @@ export const Input = (props: InputProps) => {
     required,
     autocomplete,
     handleChange,
+    error,
+    touched,
+    handleBlur,
   } = props
 
+  const style = classNames(['input', { error: error && touched }])
+
   return (
-    <label htmlFor={`input-${name}`} className="input">
+    <label htmlFor={`input-${name}`} className={style}>
       <span className="input__label">{label}</span>
       <input
         type={type}
@@ -25,8 +31,13 @@ export const Input = (props: InputProps) => {
         required={required}
         autoComplete={autocomplete}
         onChange={handleChange}
+        onBlur={handleBlur}
       />
-      {caption && <p className="input__caption">{caption}</p>}
+      {error && touched ? (
+        <p className="input__caption error">{error}</p>
+      ) : (
+        caption && <p className="input__caption">{caption}</p>
+      )}
     </label>
   )
 }

@@ -16,6 +16,16 @@
   &__caption {
     font: var(--caption);
     color: var(--light-gray-color);
+    &.error {
+      color: #ff1e1e;
+    }
+  }
+
+  &.error {
+    input,
+    textarea {
+      border: 1px solid #ff1e1e;
+    }
   }
 
   input,

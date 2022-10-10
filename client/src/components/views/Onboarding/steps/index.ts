@@ -1,6 +1,7 @@
 import { StepType } from './type'
 
 export { Step } from './Step'
+export { StepForm } from './StepForm'
 
 export const professionalSteps: StepType[] = [
   {
