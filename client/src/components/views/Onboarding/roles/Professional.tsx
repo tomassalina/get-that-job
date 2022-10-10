@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -10,6 +11,7 @@ import { ArrowRightIcon, ArrowLeftIcon } from '../../../Icons'
 import React, { useEffect } from 'react'
 
 interface FormValues {
+  role: 'professional'
   email: string
   name: string
   phone: string
@@ -22,11 +24,13 @@ interface FormValues {
 }
 
 export const Professional = () => {
+  const navigate = useNavigate()
   const { user, isAuthenticated } = useAuth0()
   const { steps, handleNext, handlePrevious, handleSkip } =
     useSteps(professionalSteps)
 
   const initialValues: FormValues = {
+    role: 'professional',
     email: '',
     name: '',
     phone: '',
@@ -39,7 +43,8 @@ export const Professional = () => {
   }
 
   const onSubmit = (values: FormValues) => {
-    console.log(values)
+    localStorage.setItem('user', JSON.stringify(values))
+    navigate('/home')
   }
 
   const formik = useFormik({ initialValues, onSubmit })

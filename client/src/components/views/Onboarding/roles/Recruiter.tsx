@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useFormik } from 'formik'
@@ -9,6 +10,7 @@ import { Button } from '../../../Buttons'
 import { ArrowRightIcon } from '../../../Icons'
 
 interface FormValues {
+  role: 'recruiter'
   email: string
   companyName: string
   companyWebsite: string
@@ -17,10 +19,12 @@ interface FormValues {
 }
 
 export const Recruiter = () => {
+  const navigate = useNavigate()
   const { user, isAuthenticated } = useAuth0()
   const { steps, handleNext, handleSkip } = useSteps(recruiterSteps)
 
   const initialValues: FormValues = {
+    role: 'recruiter',
     email: '',
     companyName: '',
     companyWebsite: '',
@@ -29,7 +33,8 @@ export const Recruiter = () => {
   }
 
   const onSubmit = (values: FormValues) => {
-    console.log(values)
+    localStorage.setItem('user', JSON.stringify(values))
+    navigate('/home')
   }
 
   const formik = useFormik({ initialValues, onSubmit })
