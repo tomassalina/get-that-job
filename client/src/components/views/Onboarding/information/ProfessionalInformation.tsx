@@ -3,33 +3,25 @@ import * as Yup from 'yup'
 import { Input, FileInput, TextAreaInput } from '../../../Inputs'
 import { Button } from '../../../Buttons'
 
-import { CompanyInformationValues } from './type'
-import { ArrowRightIcon } from '../../../Icons'
+import { ProfessionalInformationValues } from './type'
+import { ArrowRightIcon, ArrowLeftIcon } from '../../../Icons'
 
-export const CompanyInformation = (props: {
-  initialValues: CompanyInformationValues
+export const ProfessionalInformation = (props: {
+  initialValues: ProfessionalInformationValues
+  onPrevious: (values: ProfessionalInformationValues) => void
   onSkip: () => void
-  onFinish: (values: CompanyInformationValues) => void
+  onFinish: (values: ProfessionalInformationValues) => void
 }) => {
-  const { onSkip, onFinish } = props
-
-  const initialValues: CompanyInformationValues = {
-    companyName: '',
-    companyWebsite: '',
-    companyAbout: '',
-    companyLogo: { file: {}, path: '' },
-  }
+  const { initialValues, onPrevious, onSkip, onFinish } = props
 
   const required = 'required field'
   const validationSchema = Yup.object().shape({
-    companyName: Yup.string().min(3).required(required),
-    companyWebsite: Yup.string().url('must be a valid URL').required(required),
-    companyAbout: Yup.string().min(100).max(2000).required(required),
+    title: Yup.string().min(4).max(50).required(required),
+    experience: Yup.string().min(300).max(2000).required(required),
+    education: Yup.string().min(100).max(2000).required(required),
   })
 
-  const onSubmit = (values: CompanyInformationValues) => {
-    onFinish(values)
-  }
+  const onSubmit = (values: ProfessionalInformationValues) => onFinish(values)
 
   const formik = useFormik({ initialValues, validationSchema, onSubmit })
   const {
@@ -56,47 +48,55 @@ export const CompanyInformation = (props: {
       </p>
       <Input
         type="text"
-        name="companyName"
-        label="Company name"
-        placeholder="My Company S.A"
-        value={values.companyName}
+        name="title"
+        label="Title"
+        placeholder="UX/UI designer"
+        value={values.title}
         handleChange={handleChange}
-        error={errors.companyName}
-        touched={touched.companyName}
-        handleBlur={handleBlur}
-      />
-      <Input
-        type="url"
-        name="companyWebsite"
-        label="Company website"
-        placeholder="https://www.mycompany.sa"
-        value={values.companyWebsite}
-        handleChange={handleChange}
-        error={errors.companyWebsite}
-        touched={touched.companyWebsite}
+        error={errors.title}
+        touched={touched.title}
         handleBlur={handleBlur}
       />
       <TextAreaInput
-        name="companyAbout"
-        label="About the company"
-        placeholder="My Company SA has the vision to change thw way how..."
-        caption="Between 100 and 2000 characters"
-        value={values.companyAbout}
+        name="experience"
+        label="Professional Experience"
+        placeholder="Worked 6 years in a bitcoin farm until I decided to change my life...."
+        caption="Between 300 and 2000 characters"
+        value={values.experience}
         handleChange={handleChange}
-        error={errors.companyAbout}
-        touched={touched.companyAbout}
+        error={errors.experience}
+        touched={touched.experience}
+        handleBlur={handleBlur}
+      />
+      <TextAreaInput
+        name="education"
+        label="Education"
+        placeholder="Major in life experiences with a PHD in procrastination..."
+        caption="Between 100 and 2000 characters"
+        value={values.education}
+        handleChange={handleChange}
+        error={errors.education}
+        touched={touched.education}
         handleBlur={handleBlur}
       />
       <FileInput
-        name="companyLogo"
-        label="Upload the company logo"
+        name="resume"
+        label="Upload/Update your CV"
         caption="Only PDF. Max size 5MB"
         accept=".pdf"
         maxSize={5}
-        value={values.companyLogo}
+        value={values.resume}
         handleChange={handleFileChange}
       />
+
       <div className="Onboarding__steps-buttons">
+        <Button
+          text="Previous"
+          type="primary"
+          handleClick={() => onPrevious(values)}
+        >
+          <ArrowLeftIcon />
+        </Button>
         <Button
           text="Skip this!"
           type="secondary"

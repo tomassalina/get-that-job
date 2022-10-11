@@ -1,10 +1,9 @@
-import { FormValues } from '../roles/Recruiter'
 import { Input } from '../../../Inputs'
 import { Button } from '../../../Buttons'
 import { ArrowRightIcon } from '../../../Icons'
 
 export const LoginInformation = (props: {
-  email: FormValues['email']
+  email: string
   isAuthenticated: boolean
   onNext: (email: string) => void
 }) => {
