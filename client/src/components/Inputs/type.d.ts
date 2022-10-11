@@ -25,7 +25,6 @@ export interface InputProps {
   error?: string
   touched?: boolean
   handleBlur?: FormikHandleBlur
-  handleChange: () => void
   size?: string
   img?: string
 }

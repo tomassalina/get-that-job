@@ -15,8 +15,8 @@ export const Input = (props: InputProps) => {
     error,
     touched,
     handleBlur,
-    size,//mio
-    img//mio
+    size,
+    img,
   } = props
 
   const style = classNames(['input', { error: error && touched }])
@@ -25,7 +25,6 @@ export const Input = (props: InputProps) => {
     <label htmlFor={`input-${name}`} className={style}>
       <span className="input__label">{label}</span>
       <input
-      style={{background:`url(${img})no-repeat left`}}  //mio
         type={type}
         name={name}
         id={`input-${name}`}
@@ -35,6 +34,7 @@ export const Input = (props: InputProps) => {
         autoComplete={autocomplete}
         onChange={handleChange}
         onBlur={handleBlur}
+        style={{ background: `url(${img})no-repeat left` }}
       />
       {error && touched ? (
         <p className="input__caption error">{error}</p>
