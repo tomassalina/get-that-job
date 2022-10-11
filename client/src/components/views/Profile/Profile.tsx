@@ -1,5 +1,5 @@
 import { Button } from "../../Buttons";
-import { Input } from "../../Inputs";
+import { FileInput, Input } from "../../Inputs";
 import { TextArea } from "../../TextArea";
 import "./Profile.styles.scss";
 
@@ -117,7 +117,15 @@ export const Profile = () => {
 
               <label htmlFor="">Upload/Update your CV</label>
               <br />
-              <input type="file" accept=".pdf" />
+              <FileInput
+              name="FileInputBox"
+              value=""
+              label="Choose a File"
+              caption=""
+              handleChange={() => {}}
+              accept=".pdf"
+              />
+             
               <br />
               <br />
 

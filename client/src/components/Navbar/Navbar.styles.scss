@@ -1,13 +1,14 @@
+@use "../../breakpoints";
 .navbar {
   color: var(--gray-color);
+  background-color: var(--bg-dark-color);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   padding-top: 15px;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
   width: 240px;
-  height: 100vh;
-  background-color: var(--bg-dark-color);
-
+  max-height: 100%;
   ul {
     list-style: none;
   }
@@ -23,13 +24,52 @@
     &:hover {
       background-color: var(--white-color);
     }
-    &.__active{
+    &.__active {
       background-color: var(--white-color);
     }
   }
-  footer {
+  @include breakpoints.smallXS {
+    &__header__nav-menu {
+      background-color: var(--bg-dark-color);
+
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      margin-top: 70px;
+      height: calc(100% - 70px);
+      a {
+        justify-content: center;
+      }
+    }
+  }
+  @include breakpoints.small {
+    &__header__nav-menu {
+      background-color: var(--bg-dark-color);
+
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      margin-top: 70px;
+      height: calc(100% - 70px);
+      a {
+        justify-content: center;
+      }
+    }
+  }
+  @include breakpoints.medium {
+    &__header__nav-menu {
+      position: inherit;
+      a {
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  /* footer {
     position: absolute;
     bottom: 0;
     margin-left: 8px;
-  }
+  } */
 }
