@@ -32,6 +32,7 @@ export const ProfessionalInformation = (props: {
     handleSubmit,
     handleBlur,
     setFieldValue,
+    isValid,
   } = formik
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -99,7 +100,7 @@ export const ProfessionalInformation = (props: {
         </Button>
         <Button
           text="Skip this!"
-          type="secondary"
+          type={isValid ? 'disabled' : 'secondary'}
           handleClick={() => onSkip()}
         />
         <Button

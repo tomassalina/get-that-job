@@ -5,6 +5,7 @@ import { Button } from '../../../Buttons'
 
 import { PersonalInformationValues } from './type'
 import { ArrowRightIcon } from '../../../Icons'
+import { useEffect } from 'react'
 
 export const PersonalInformation = (props: {
   initialValues: PersonalInformationValues
@@ -32,8 +33,15 @@ export const PersonalInformation = (props: {
   const onSubmit = (values: PersonalInformationValues) => onNext(values)
 
   const formik = useFormik({ initialValues, validationSchema, onSubmit })
-  const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
-    formik
+  const {
+    values,
+    errors,
+    touched,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    isValid,
+  } = formik
 
   return (
     <>
@@ -89,7 +97,7 @@ export const PersonalInformation = (props: {
       <div className="Onboarding__steps-buttons">
         <Button
           text="Skip this!"
-          type="secondary"
+          type={isValid ? 'disabled' : 'secondary'}
           handleClick={() => onSkip()}
         />
         <Button text="Next" type="primary" handleClick={handleSubmit} iconRight>
