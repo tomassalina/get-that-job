@@ -1,0 +1,14 @@
+.textareaIni {
+  /* width: 100%; */
+  width: 760px;
+  height: 326px;
+  padding: 8px;
+  font: var(--body-2);
+  color: var(--light-gray-color);
+  border: 1px solid var(--pink-color);
+  border-radius: var(--global-radius);
+  outline: 1px solid transparent;
+  &#input-education {
+    height: 126px;
+  }
+}

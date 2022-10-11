@@ -1,12 +1,19 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import { Layout } from '../components/Layout'
+import { HomeLayout, Layout } from '../components/Layout'
 import { Landing } from '../components/views/Landing'
 import { Home } from '../components/views/Home'
-import { NewProfile, Profile } from '../components/views/Profile'
+import { Profile } from '../components/views/Profile'
 import { NotFound } from '../components/views/NotFound'
+import { Onboarding } from '../components/views/Onboarding'
+import { FindThatJob } from '../components/views/FindThatJob'
+import { CreateNewJob } from '../components/views/CreateNewJob'
+import { ProtectedLayout } from '../components/Layout/ProtectedLayout'
+import { useUser } from '../hooks/useUser'
 
 function App() {
+  const { user } = useUser()
+
   return (
     <BrowserRouter>
       <Routes>
@@ -18,23 +25,42 @@ function App() {
             </Layout>
           }
         />
+        <Route element={<ProtectedLayout />}>
+          <Route path="/home" element={<Home user={user} />} />
+        </Route>
         <Route
           path="/profile"
           element={
-            <Layout>
+            <HomeLayout>
               <Profile />
-            </Layout>
+            </HomeLayout>
           }
         />
         <Route
-          path="/profile/new"
+          path="/onboarding"
           element={
             <Layout>
-              <NewProfile />
+              <Onboarding />
             </Layout>
           }
         />
-        <Route path="/home" element={<Home />} />
+
+        <Route
+          path="/FindThatJob"
+          element={
+            <HomeLayout>
+              <FindThatJob />
+            </HomeLayout>
+          }
+        />
+        <Route
+          path="/CreateNewJob"
+          element={
+            <HomeLayout>
+              <CreateNewJob />
+            </HomeLayout>
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

@@ -9,12 +9,17 @@
   font: var(--button);
   text-transform: uppercase;
   text-decoration: none;
+  background-color: transparent;
   border: 1px solid transparent;
   border-radius: 16px;
-  outline: none;
+  outline: 1px solid transparent;
   cursor: pointer;
 
   transition: background-color 0.3s ease-out;
+
+  &:focus {
+    outline-color: var(--dark-pink-color);
+  }
 
   svg path {
     transition: fill 0.3s ease-out;
@@ -33,9 +38,6 @@
     &:hover {
       background-color: var(--dark-pink-color);
     }
-    &:focus {
-      outline: 2px solid var(--dark-pink-color);
-    }
   }
 
   &-secondary {
@@ -52,9 +54,6 @@
       svg path {
         fill: var(--dark-gray-color);
       }
-    }
-    &:focus {
-      border: 1px solid var(--pink-color);
     }
   }
 
@@ -79,6 +78,20 @@
       svg path {
         fill: var(--dark-gray-color);
       }
+    }
+  }
+
+  // _____IconButton:
+  &-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 50%;
+    &:hover {
+      background-color: var(--shallow-pink);
     }
   }
 }

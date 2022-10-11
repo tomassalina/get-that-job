@@ -1,38 +1,28 @@
-import { Link } from 'react-router-dom'
 import classNames from 'classnames'
 
 import './Button.styles.scss'
-
 import { ButtonProps } from './type'
-import { Children } from 'react'
 
 export const Button = ({
-  children,
   type,
   large,
   text,
-  isFile,
-  isLink,
-  to,
+  children,
+  iconRight,
   handleClick,
 }: ButtonProps) => {
-  const buttonClasses = classNames('btn', `btn-${type}`, { large })
-
-  if (isLink)
-    return (
-      <Link className={buttonClasses} to={to ? to : '/'}>
-        <>
-          {children} <span>{text}</span>
-        </>
-      </Link>
-    )
-
-  if (isFile) return <input type="file" name="" id="" />
+  const styles = classNames('btn', `btn-${type}`, { large })
 
   return (
-    <button type="button" onClick={handleClick} className={buttonClasses}>
+    <button
+      type="button"
+      disabled={type === 'disabled'}
+      onClick={handleClick}
+      className={styles}
+    >
       <>
-        {children} <span>{text}</span>
+        {!iconRight && children} <span>{text}</span>
+        {iconRight && children}
       </>
     </button>
   )
