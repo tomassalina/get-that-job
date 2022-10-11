@@ -15,6 +15,8 @@ export const Input = (props: InputProps) => {
     error,
     touched,
     handleBlur,
+    size,
+    img,
   } = props
 
   const style = classNames(['input', { error: error && touched }])
@@ -32,6 +34,7 @@ export const Input = (props: InputProps) => {
         autoComplete={autocomplete}
         onChange={handleChange}
         onBlur={handleBlur}
+        style={{ background: `url(${img})no-repeat left` }}
       />
       {error && touched ? (
         <p className="input__caption error">{error}</p>

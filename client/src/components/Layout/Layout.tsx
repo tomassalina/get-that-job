@@ -5,6 +5,7 @@ type LayoutProps = {
 }
 
 export const Layout = ({ children }: LayoutProps) => {
+  
   return (
     <>
       <Header />

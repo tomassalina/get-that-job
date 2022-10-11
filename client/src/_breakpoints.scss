@@ -1,7 +1,12 @@
 // _____Breakpoints
 
+@mixin smallXS {
+  @media screen and (max-width: 425px) {
+    @content;
+  }
+}
 @mixin small {
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: 430px) {
     @content;
   }
 }

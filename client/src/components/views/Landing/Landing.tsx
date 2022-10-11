@@ -8,7 +8,7 @@ import { FooterSection } from './sections/FooterSection'
 export const Landing = () => {
   return (
     <>
-      <HeroSection />
+      <HeroSection  />
       <MainSection />
       <TeamSection />
       <FooterSection />

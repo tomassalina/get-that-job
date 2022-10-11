@@ -1,4 +1,4 @@
-type InputType = 'text' | 'tel' | 'date' | 'url'
+type InputType = 'text' | 'tel' | 'date' | 'url' | 'input'
 
 type FormikHandleChange = {
   (e: ChangeEvent<any>): void
@@ -25,6 +25,8 @@ export interface InputProps {
   error?: string
   touched?: boolean
   handleBlur?: FormikHandleBlur
+  size?: string
+  img?: string
 }
 
 export type TextAreaInputProps = Omit<

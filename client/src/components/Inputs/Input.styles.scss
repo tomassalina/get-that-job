@@ -1,3 +1,5 @@
+@use "../../breakpoints";
+
 .input,
 .textarea,
 .file-input {
@@ -49,14 +51,33 @@
       outline-color: var(--dark-pink-color);
     }
   }
-}
-
-.textarea {
-  max-width: 600px;
+  textarea {
+    width: 760px;
+  }
 }
 
 .file-input {
   input {
     cursor: pointer;
+  }
+}
+
+@include breakpoints.smallXS {
+  .textarea {
+    textarea {
+      max-width: 100%;
+    }
+  }
+}
+@include breakpoints.small {
+  .textarea {
+    textarea {
+      max-width: 650px;
+    }
+  }
+}
+@include breakpoints.medium {
+  #input-Salary {
+    width: 102px;
   }
 }
