@@ -11,6 +11,8 @@ export const FileInput = (props: FileInputProps) => {
         name={name}
         id={`file-input-${name}`}
         accept={accept}
+        value={value.path}
+        onChange={handleChange}
       />
       {caption && <p className="input__caption">{caption}</p>}
     </label>

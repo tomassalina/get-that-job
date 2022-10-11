@@ -1,16 +1,57 @@
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
-import useSteps from '../../../../hooks/useSteps'
-import { Step, recruiterSteps } from '../steps'
-import { Input, TextAreaInput, FileInput } from '../../../Inputs'
-import { Button } from '../../../Buttons'
 
-import { ArrowRightIcon } from '../../../Icons'
+import useSteps from '../../../../hooks/useSteps'
+import { recruiterSteps, Step, StepForm } from '../steps'
+import { LoginInformation, CompanyInformation } from '../information'
+
+import { initialState } from './initialState'
+import { RecruiterForm } from './type'
+import {
+  LoginInformationValues,
+  CompanyInformationValues,
+} from '../information/type'
 
 export const Recruiter = () => {
+  const navigate = useNavigate()
   const { user, isAuthenticated } = useAuth0()
+  const { steps, toNextStep } = useSteps(recruiterSteps)
 
-  const { steps, handleNext, handleSkip, handleFinish } =
-    useSteps(recruiterSteps)
+  const [redirect, setRedirect] = useState<string>('')
+  const [recruiter, setRecruiter] = useState<RecruiterForm>(
+    initialState.recruiterForm
+  )
+
+  const initialCompanyValues = {
+    companyName: recruiter.companyName,
+    companyAbout: recruiter.companyAbout,
+    companyWebsite: recruiter.companyWebsite,
+    companyLogo: recruiter.companyLogo,
+  }
+
+  const handleLogin = (email: LoginInformationValues['email']) => {
+    setRecruiter(prevRecruiter => ({ ...prevRecruiter, email }))
+    toNextStep()
+  }
+
+  const handleSkipAndRedirect = () => {
+    setRecruiter(prevRecruiter => ({
+      ...prevRecruiter,
+      ...initialCompanyValues,
+    }))
+    setRedirect('/home')
+  }
+
+  const handleFinish = (values: CompanyInformationValues) => {
+    setRecruiter(prevRecruiter => ({ ...prevRecruiter, ...values }))
+    setRedirect('/home')
+  }
+
+  useEffect(() => {
+    localStorage.setItem('user', JSON.stringify(recruiter))
+    if (redirect) navigate(redirect)
+  }, [recruiter])
 
   return (
     <div className="Onboarding__steps">
@@ -21,82 +62,22 @@ export const Recruiter = () => {
       </ul>
       <div className="Onboarding__steps-form">
         {steps[0].active && (
-          <form>
-            <Input
-              type="text"
-              name="email"
-              label="Email"
-              value={user?.email ? user.email : ''}
-              placeholder="some.user@mail.com"
-              handleChange={() => {}}
+          <StepForm>
+            <LoginInformation
+              email={user?.email ? user.email : ''}
+              isAuthenticated={isAuthenticated}
+              onNext={handleLogin}
             />
-            <div className="Onboarding__steps-buttons">
-              <Button
-                text="Next"
-                type={isAuthenticated ? 'primary' : 'disabled'}
-                handleClick={handleNext}
-                iconRight
-              >
-                <ArrowRightIcon />
-              </Button>
-            </div>
-          </form>
+          </StepForm>
         )}
         {steps[1].active && (
-          <form>
-            <p className="Onboarding__steps-recommendation">
-              You can complete this information later but we reccomend you to do
-              it now
-            </p>
-            <Input
-              type="text"
-              name="companyName"
-              label="Company name"
-              placeholder="My Company S.A"
-              value=""
-              handleChange={() => {}}
+          <StepForm>
+            <CompanyInformation
+              initialValues={initialCompanyValues}
+              onSkip={handleSkipAndRedirect}
+              onFinish={handleFinish}
             />
-            <Input
-              type="url"
-              name="companyWebsite"
-              label="Company website"
-              placeholder="https://www.mycompany.sa"
-              value=""
-              handleChange={() => {}}
-            />
-            <TextAreaInput
-              name="companyAbout"
-              label="About the company"
-              placeholder="My Company SA has the vision to change thw way how..."
-              caption="Between 100 and 2000 characters"
-              value=""
-              handleChange={() => {}}
-            />
-            <FileInput
-              name="companyLogo"
-              label="Upload the company logo"
-              caption="Only PDF. Max size 5MB"
-              accept=".pdf"
-              maxSize={5}
-              value=""
-              handleChange={() => {}}
-            />
-            <div className="Onboarding__steps-buttons">
-              <Button
-                text="Skip this!"
-                type="secondary"
-                handleClick={handleSkip}
-              />
-              <Button
-                text="Finish"
-                type="primary"
-                handleClick={handleFinish}
-                iconRight
-              >
-                <ArrowRightIcon />
-              </Button>
-            </div>
-          </form>
+          </StepForm>
         )}
       </div>
     </div>
