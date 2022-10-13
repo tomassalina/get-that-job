@@ -8,34 +8,18 @@ import { NotFound } from '../components/views/NotFound'
 import { Onboarding } from '../components/views/Onboarding'
 import { FindThatJob } from '../components/views/FindThatJob'
 import { CreateNewJob } from '../components/views/CreateNewJob'
-import { useUser } from '../hooks/useUser'
 
 function App() {
-  const { user } = useUser()
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          index
-          element={
-            <Layout>
-              <Landing />
-            </Layout>
-          }
-        />
-
-        <Route
-          path="/onboarding"
-          element={
-            <Layout>
-              <Onboarding />
-            </Layout>
-          }
-        />
+        <Route element={<Layout />}>
+          <Route index element={<Landing />} />
+          <Route path="/onboarding" element={<Onboarding />} />
+        </Route>
 
         <Route element={<ProtectedLayout />}>
-          <Route path="/home" element={<Home user={user} />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/FindThatJob" element={<FindThatJob />} />
           <Route path="/CreateNewJob" element={<CreateNewJob />} />

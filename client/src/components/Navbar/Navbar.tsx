@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Footer } from '../Footer'
-import { User } from '../../hooks/useUser'
+import { User, useUser } from '../../hooks/useUser'
 
 import './Navbar.styles.scss'
 import LogoImg from '../../assets/logo.png'
@@ -11,8 +11,6 @@ import userLine from '../../assets/user-line.svg'
 import logoutuserLine from '../../assets/logout-circle-line.svg'
 import briefcaseLine from '../../assets/briefcase-line.svg'
 import fileAddLine from '../../assets/file-add-line.svg'
-import React from 'react'
-import { useAuth0 } from '@auth0/auth0-react'
 
 interface Item {
   title: string
@@ -27,8 +25,8 @@ const professionalLinks: Item[] = [
 ]
 
 const recruiterLinks: Item[] = [
-  { title: 'Job Postings', url: '#', icon: searchLine },
-  { title: 'Create New Job', url: '#', icon: articleLine },
+  { title: 'Job Postings', url: '#', icon: briefcaseLine },
+  { title: 'Create New Job', url: '#', icon: fileAddLine },
 ]
 
 const NavbarItem = ({ title, url, icon }: Item) => {
@@ -43,7 +41,7 @@ const NavbarItem = ({ title, url, icon }: Item) => {
 }
 
 export const Navbar = ({ user }: { user: User }) => {
-  const { logout } = useAuth0()
+  const { logout } = useUser()
 
   return (
     <nav className="Navbar">
@@ -53,8 +51,13 @@ export const Navbar = ({ user }: { user: User }) => {
         </Link>
         <ul>
           {user.role === 'professional'
-            ? professionalLinks.map(item => <NavbarItem {...item} />)
-            : recruiterLinks.map(item => <NavbarItem {...item} />)}
+            ? professionalLinks.map(item => (
+                <NavbarItem key={item.title} {...item} />
+              ))
+            : recruiterLinks.map(item => (
+                <NavbarItem key={item.title} {...item} />
+              ))}
+
           <NavbarItem title="Profile" url="/profile" icon={userLine} />
           <li>
             <button type="button" onClick={() => logout()}>

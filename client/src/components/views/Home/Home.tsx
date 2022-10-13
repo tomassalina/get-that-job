@@ -1,11 +1,13 @@
 import './Home.styles.scss'
-import { User } from '../../../hooks/useUser'
+import { User, useUser } from '../../../hooks/useUser'
 
 interface HomeProps {
   user: User
 }
 
-export const Home = ({ user }: HomeProps) => {
+export const Home = () => {
+  const { user } = useUser()
+
   if (user.role === 'professional')
     return (
       <div className="Home">
@@ -15,7 +17,7 @@ export const Home = ({ user }: HomeProps) => {
 
   if (user.role === 'recruiter')
     return (
-      <div className="home__container">
+      <div className="Home">
         <h1>Recruiter</h1>
       </div>
     )

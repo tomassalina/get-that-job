@@ -8,7 +8,7 @@ export const ProtectedLayout = () => {
   )
   const hasUser = user.role && user.email
 
-  if (!hasUser) return <Navigate to={'/'} replace />
+  if (!hasUser) return <Navigate to="/" replace />
 
   return (
     <div className="Container">
