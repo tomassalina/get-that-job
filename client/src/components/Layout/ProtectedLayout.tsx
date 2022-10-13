@@ -1,5 +1,6 @@
 import { Outlet, Navigate } from 'react-router-dom'
 import { Navbar } from '../Navbar'
+import './Layout.style.scss'
 
 export const ProtectedLayout = () => {
   const user = JSON.parse(
@@ -11,7 +12,7 @@ export const ProtectedLayout = () => {
 
   return (
     <div className="Container">
-      <Navbar />
+      <Navbar user={user} />
       {<Outlet />}
     </div>
   )

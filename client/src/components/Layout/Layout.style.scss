@@ -1,0 +1,9 @@
+.Container {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(min-content, 240px) 1fr;
+}

@@ -1,0 +1,32 @@
+.Footer {
+  color: var(--gray-color);
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font: var(--body-2);
+  &__members {
+    p span {
+      color: var(--pink-color);
+    }
+    ul {
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    li a {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+  }
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

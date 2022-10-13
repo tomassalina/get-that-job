@@ -8,7 +8,7 @@ interface HomeProps {
 export const Home = ({ user }: HomeProps) => {
   if (user.role === 'professional')
     return (
-      <div className="home__container">
+      <div className="Home">
         <h1>Professional</h1>
       </div>
     )
