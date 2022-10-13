@@ -1,94 +1,53 @@
-import { Link } from "react-router-dom";
-import "./Navbar.styles.scss";
-import searchLine from "../../assets/search-line.svg";
-import articleLine from "../../assets/article-line.svg";
-import focus3Line from "../../assets/focus-3-line.svg";
-import userLine from "../../assets/user-line.svg";
-import logoutuserLine from "../../assets/logout-circle-line.svg";
-import LogoImg from "../../assets/logo.png";
-import briefcaseLine from "../../assets/briefcase-line.svg";
-import fileAddLine from "../../assets/file-add-line.svg";
+import { Link } from 'react-router-dom'
+import './Navbar.styles.scss'
+import searchLine from '../../assets/search-line.svg'
+import articleLine from '../../assets/article-line.svg'
+import focus3Line from '../../assets/focus-3-line.svg'
+import userLine from '../../assets/user-line.svg'
+import logoutuserLine from '../../assets/logout-circle-line.svg'
+import LogoImg from '../../assets/logo.png'
+import briefcaseLine from '../../assets/briefcase-line.svg'
+import fileAddLine from '../../assets/file-add-line.svg'
 
 export const Navbar = () => {
-  const handleClick = (e) => {
-    e.preventDefault();
-    console.log(e);
-  };
   return (
     <>
       <div className="navbar">
         <Link to="/" className="Header__logo">
           <img src={LogoImg} alt="Get That Job logo" />
         </Link>
-        <Link
-          className="prueba"
-          to="/FindThatJob"
-          onClick={(e) => {
-            e.target.className = "__active";
-            console.dir(e.target);
-          }}
-        >
+        <Link className="prueba" to="/FindThatJob">
           <span>
             <img src={searchLine} alt="" />
-          </span>{" "}
+          </span>{' '}
           Find That job
         </Link>
-        <Link
-          to="#"
-          onClick={(e) => {
-            e.target.className = "__active";
-            console.dir(e.target);
-          }}
-        >
+        <Link to="#">
           <span>
             <img src={articleLine} alt="" />
           </span>
           Your apllication
         </Link>
-        <Link
-          to="#"
-          onClick={(e) => {
-            e.target.className = "__active";
-            console.dir(e.target);
-          }}
-        >
+        <Link to="#">
           <span>
             <img src={focus3Line} alt="" />
           </span>
           Foollowing
         </Link>
-        
-        <Link
-          to="/JobPostings"
-          onClick={(e) => {
-            e.target.className = "__active";
-            console.dir(e.target);
-          }}
-        >
+
+        <Link to="/JobPostings">
           <span>
             <img src={briefcaseLine} alt="" />
           </span>
-          Job Postings{" "}
+          Job Postings{' '}
         </Link>
-        <Link
-          to="/CreateNewJob"
-          onClick={(e) => {
-            e.target.className = "__active";
-            console.dir(e.target);
-          }}
-        >
+        <Link to="/CreateNewJob">
           <span>
             <img src={fileAddLine} alt="" />
           </span>
           Create New Job
         </Link>
-        <Link
-          to="/profile"
-          onClick={(e) => {
-            e.target.className = "__active";
-            console.dir(e.target);
-          }}
-        >
+        <Link to="/profile">
           <span>
             <img src={userLine} alt="" />
           </span>
@@ -116,5 +75,5 @@ export const Navbar = () => {
         </footer>
       </div>
     </>
-  );
-};
+  )
+}
