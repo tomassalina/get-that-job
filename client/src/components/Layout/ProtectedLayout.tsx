@@ -11,9 +11,11 @@ export const ProtectedLayout = () => {
   if (!hasUser) return <Navigate to="/" replace />
 
   return (
-    <div className="Container">
+    <div className="Grid">
       <Navbar user={user} />
-      {<Outlet />}
+      <section className="Container">
+        <Outlet />
+      </section>
     </div>
   )
 }

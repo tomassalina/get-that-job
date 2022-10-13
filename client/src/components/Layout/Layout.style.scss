@@ -1,4 +1,4 @@
-.Container {
+.Grid {
   height: 100vh;
   position: relative;
   display: flex;
@@ -6,4 +6,9 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(min-content, 240px) 1fr;
+}
+
+.Container {
+  overflow-y: auto;
+  height: 100%;
 }

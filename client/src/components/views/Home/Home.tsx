@@ -1,9 +1,5 @@
 import './Home.styles.scss'
-import { User, useUser } from '../../../hooks/useUser'
-
-interface HomeProps {
-  user: User
-}
+import { useUser } from '../../../hooks/useUser'
 
 export const Home = () => {
   const { user } = useUser()
