@@ -1,7 +1,8 @@
-import { Button } from "../../Buttons";
-import { Input } from "../../Inputs";
-import { TextArea } from "../../TextArea";
-import "./Profile.styles.scss";
+import { Button } from '../../Buttons'
+import { Input } from '../../Inputs'
+import { ReangeInput } from '../../Inputs/RangeInput'
+import { TextArea } from '../../TextArea'
+import './Profile.styles.scss'
 
 export const Profile = () => {
   return (
@@ -51,11 +52,11 @@ export const Profile = () => {
             />
 
             <Input
-              type={"text"}
-              name={"linkedin"}
-              placeholder={"Ingrese su linkedin"}
-              label={"linkedin"}
-              value={"https://www.linkedin.com/in/donramon"}
+              type={'text'}
+              name={'linkedin'}
+              placeholder={'Ingrese su linkedin'}
+              label={'linkedin'}
+              value={'https://www.linkedin.com/in/donramon'}
               handleChange={() => {}}
             />
           </form>
@@ -133,5 +134,5 @@ export const Profile = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}

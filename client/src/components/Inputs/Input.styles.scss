@@ -1,8 +1,9 @@
-@use "../../breakpoints";
+@use '../../breakpoints';
 
 .input,
 .textarea,
-.file-input {
+.file-input,
+.range {
   width: 100%;
   max-width: 400px;
   display: flex;
@@ -59,6 +60,20 @@
 .file-input {
   input {
     cursor: pointer;
+  }
+}
+
+.range {
+  input {
+    max-width: 100px;
+    padding-left: 36px;
+    background-position: 10px center;
+    background-repeat: no-repeat;
+  }
+  &-separator {
+    margin: 0 10px;
+    font-size: 30px;
+    color: var(--light-gray-color);
   }
 }
 

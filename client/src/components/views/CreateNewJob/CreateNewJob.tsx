@@ -1,7 +1,7 @@
-import { Input, TextAreaInput } from "../../Inputs";
-import "./CreateNewJob.styles.scss";
-import moneyDolarCircle from "../../../assets/money-dollar-circle-fill.svg";
-import { Button } from "../../Buttons";
+import { Input, TextAreaInput } from '../../Inputs'
+import './CreateNewJob.styles.scss'
+import moneyDolarCircle from '../../../assets/money-dollar-circle-fill.svg'
+import { Button } from '../../Buttons'
 
 export const CreateNewJob = () => {
   return (
@@ -51,7 +51,7 @@ export const CreateNewJob = () => {
             value=""
             autocomplete="sd"
             handleChange={() => {}}
-            size="102px"
+            size="200px"
             img={moneyDolarCircle}
           />
           <div className="range__separator">-</div>
@@ -99,7 +99,6 @@ export const CreateNewJob = () => {
           handleClick={() => {}}
         />
       </form>
-   
     </div>
-  );
-};
+  )
+}
