@@ -1,0 +1,56 @@
+.Card {
+  max-width: 290px;
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  grid-template-areas:
+    'logo description'
+    'actions actions';
+  column-gap: 10px;
+  row-gap: 25px;
+  padding: 20px 12px;
+  background-color: var(--white-color);
+  box-shadow: var(--global-shadow-2);
+  border-radius: var(--global-radius);
+
+  &__title {
+    font: var(--headline-5);
+    color: var(--dark-gray-color);
+  }
+  &__subtitle {
+    font: var(--subtitle-6);
+    color: var(--dark-gray-color);
+  }
+  p {
+    font: var(--caption);
+    display: flex;
+    gap: 6px;
+    color: var(--light-gray-color);
+  }
+
+  &__logo {
+    grid-area: logo;
+    display: flex;
+    align-items: center;
+    img {
+      width: 100%;
+    }
+  }
+
+  &__description {
+    grid-area: description;
+  }
+
+  &__caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__actions {
+    grid-area: actions;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

@@ -1,5 +1,5 @@
 import { RangeInputProps } from './type'
-import SalaryIcon from '../../assets/icon-salary.svg'
+import SalaryIcon from '../../assets/icons/salary.svg'
 
 export const ReangeInput = (props: RangeInputProps) => {
   const { values, label, handleChangeMin, handleChangeMax } = props
