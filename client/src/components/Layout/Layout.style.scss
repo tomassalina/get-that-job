@@ -2,7 +2,7 @@
   height: 100vh;
   position: relative;
   display: flex;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(min-content, 240px) 1fr;
@@ -11,4 +11,5 @@
 .Container {
   overflow-y: auto;
   height: 100%;
+  padding: 0 80px;
 }

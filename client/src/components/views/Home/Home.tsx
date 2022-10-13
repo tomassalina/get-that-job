@@ -1,5 +1,7 @@
-import './Home.styles.scss'
 import { useUser } from '../../../hooks/useUser'
+
+import './Home.styles.scss'
+import { JobCard } from '../../Cards'
 
 export const Home = () => {
   const { user } = useUser()
@@ -7,7 +9,21 @@ export const Home = () => {
   if (user.role === 'professional')
     return (
       <div className="Home">
-        <h1>Professional</h1>
+        <h1 className="Home__title">Find That Job</h1>
+        <div className="Home__grid">
+          <JobCard />
+          <JobCard />
+          <JobCard />
+          <JobCard />
+          <JobCard />
+          <JobCard />
+          <JobCard />
+          <JobCard />
+          <JobCard />
+          <JobCard />
+          <JobCard />
+          <JobCard />
+        </div>
       </div>
     )
 
