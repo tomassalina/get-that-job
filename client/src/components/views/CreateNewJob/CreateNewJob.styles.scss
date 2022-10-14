@@ -1,4 +1,4 @@
-@use "../../../breakpoints";
+@use '../../../breakpoints';
 .navbar {
   display: none;
 }
@@ -31,13 +31,8 @@
     }
   }
   .btn {
-
     margin: 20px auto;
   }
-}
-
-@include breakpoints.smallXS {
-  
 }
 @include breakpoints.small {
   .CreateNewJob__container {
@@ -51,6 +46,4 @@
   .navbar {
     display: flex;
   }
-  
-  
 }
