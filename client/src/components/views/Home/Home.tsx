@@ -2,7 +2,6 @@ import { useUser } from '../../../hooks/useUser'
 
 import './Home.styles.scss'
 import { JobCard } from '../../Cards'
-import { NavbarMenu } from '../../Navbar'
 
 export const Home = () => {
   const { user } = useUser()

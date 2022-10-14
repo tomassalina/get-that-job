@@ -15,7 +15,7 @@
   overflow-y: auto;
   height: 100%;
   min-height: 100vh;
-  padding: 0 20px;
+  padding: 32px 20px 50px;
 }
 
 @include breakpoints.large {
@@ -23,6 +23,6 @@
     grid-template-columns: minmax(max-content, 240px) 1fr;
   }
   .Container {
-    padding: 0 60px;
+    padding: 32px 60px 50px;
   }
 }

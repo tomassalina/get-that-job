@@ -3,10 +3,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ProtectedLayout, Layout } from '../components/Layout'
 import { Landing } from '../components/views/Landing'
 import { Home } from '../components/views/Home'
+import { Applications } from '../components/views/Applications'
+import { Following } from '../components/views/Following/Following'
 import { Profile } from '../components/views/Profile'
+import { Jobs } from '../components/views/Jobs'
 import { NotFound } from '../components/views/NotFound'
 import { Onboarding } from '../components/views/Onboarding'
-import { FindThatJob } from '../components/views/FindThatJob'
 import { CreateNewJob } from '../components/views/CreateNewJob'
 
 function App() {
@@ -20,9 +22,11 @@ function App() {
 
         <Route element={<ProtectedLayout />}>
           <Route path="/home" element={<Home />} />
+          <Route path="/applications" element={<Applications />} />
+          <Route path="/following" element={<Following />} />
+          <Route path="/jobs/:jobID" element={<Jobs />} />
+          <Route path="/jobs/new" element={<CreateNewJob />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/FindThatJob" element={<FindThatJob />} />
-          <Route path="/CreateNewJob" element={<CreateNewJob />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />

@@ -20,14 +20,14 @@ interface Item {
 }
 
 const professionalLinks: Item[] = [
-  { title: 'Find that job', url: '#', icon: searchLine },
-  { title: 'Your applications', url: '#', icon: articleLine },
-  { title: 'Following', url: '#', icon: focus3Line },
+  { title: 'Find that job', url: '/home', icon: searchLine },
+  { title: 'Your applications', url: '/applications', icon: articleLine },
+  { title: 'Following', url: '/following', icon: focus3Line },
 ]
 
 const recruiterLinks: Item[] = [
-  { title: 'Job Postings', url: '#', icon: briefcaseLine },
-  { title: 'Create New Job', url: '#', icon: fileAddLine },
+  { title: 'Job Postings', url: '/home', icon: briefcaseLine },
+  { title: 'Create New Job', url: '/jobs/new', icon: fileAddLine },
 ]
 
 const NavbarItem = ({ title, url, icon }: Item) => {
