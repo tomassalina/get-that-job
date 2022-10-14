@@ -10,10 +10,7 @@ export const Home = () => {
   if (user.role === 'professional')
     return (
       <div className="Home">
-        <div className="Home__menu">
-          <h1 className="Home__title">Find That Job</h1>
-          <NavbarMenu />
-        </div>
+        <h1 className="Home__title">Find That Job</h1>
         <div className="Home__grid">
           <JobCard />
           <JobCard />

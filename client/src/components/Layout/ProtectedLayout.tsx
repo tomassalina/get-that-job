@@ -1,5 +1,5 @@
 import { Outlet, Navigate } from 'react-router-dom'
-import { Navbar } from '../Navbar'
+import { Navbar, NavbarMenu } from '../Navbar'
 import './Layout.style.scss'
 
 export const ProtectedLayout = () => {
@@ -13,6 +13,7 @@ export const ProtectedLayout = () => {
   return (
     <div className="Grid">
       <Navbar user={user} />
+      <NavbarMenu />
       <section className="Container">
         <Outlet />
       </section>

@@ -7,6 +7,7 @@
   padding-top: 32px;
   padding-bottom: 32px;
   background-color: var(--bg-dark-color);
+  overflow-y: auto;
 
   display: none;
 
@@ -20,7 +21,6 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 30px;
-    overflow-y: auto;
   }
 
   &__logo {
@@ -64,6 +64,9 @@
   }
 
   &__menu {
+    position: fixed;
+    top: 32px;
+    right: 20px;
     width: 20px;
     height: 20px;
     display: flex;
@@ -95,6 +98,7 @@
 
 @include breakpoints.large {
   .Navbar {
+    position: static !important;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
