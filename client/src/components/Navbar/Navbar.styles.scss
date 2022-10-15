@@ -35,9 +35,11 @@
 
   &__container {
     ul li {
-      padding: 12px 20px;
       a,
       button {
+        width: 100%;
+        height: 100%;
+        padding: 12px 20px;
         display: flex;
         align-items: center;
         gap: 10px;
