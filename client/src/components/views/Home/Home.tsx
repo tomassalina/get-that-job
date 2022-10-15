@@ -2,6 +2,7 @@ import { useUser } from '../../../hooks/useUser'
 
 import './Home.styles.scss'
 import { JobCard } from '../../Cards'
+import { initialState } from './initialState'
 
 export const Home = () => {
   const { user } = useUser()
@@ -11,18 +12,9 @@ export const Home = () => {
       <div className="Home">
         <h1 className="Home__title">Find That Job</h1>
         <div className="Home__grid">
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
+          {initialState.map(job => (
+            <JobCard key={job.id} job={job} />
+          ))}
         </div>
       </div>
     )
