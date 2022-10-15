@@ -36,7 +36,7 @@
       }
     }
   }
-  &__apply {
+  &__callToAction {
     align-self: flex-end;
   }
 
@@ -69,10 +69,16 @@
   &__section {
     h2 {
       font: var(--headline-5);
-      color: var(--pink-color);
+      color: var(--dark-pink-color);
       margin-bottom: 8px;
     }
   }
+}
+
+.JobInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 @include breakpoints.medium {
@@ -92,7 +98,7 @@
       justify-content: center;
       gap: 10px;
     }
-    &__apply {
+    &__callToAction {
       align-self: center;
     }
   }

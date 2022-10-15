@@ -23,6 +23,7 @@ function App() {
         <Route element={<ProtectedLayout />}>
           <Route path="/home" element={<Home />} />
           <Route path="/applications" element={<Applications />} />
+          <Route path="/applications/:jobID" element={<Applications />} />
           <Route path="/following" element={<Following />} />
           <Route path="/jobs/:jobID" element={<Jobs />} />
           <Route path="/jobs/new" element={<CreateNewJob />} />
