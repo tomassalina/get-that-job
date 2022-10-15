@@ -18,5 +18,5 @@ export const useUser = () => {
     }
   }, [])
 
-  return { user }
+  return { user,setUser }
 }

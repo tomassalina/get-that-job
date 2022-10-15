@@ -1,9 +1,33 @@
+import { useState } from "react";
+import { useUser } from "../../../hooks/useUser";
 import { Button } from "../../Buttons";
 import { FileInput, Input } from "../../Inputs";
 import { TextArea } from "../../TextArea";
 import "./Profile.styles.scss";
+import swal from "sweetalert";
 
 export const Profile = () => {
+  const objUser = useUser().user;
+
+  console.log(objUser);
+  const handleInput = (e) => {
+    let campo = e.target.name;
+
+    objUser[campo] = e.target.value;
+  };
+  const handleSave = (e: React.FormEvent<EventTarget>): void => {
+    e.preventDefault();
+
+    try {
+      localStorage.setItem("user", JSON.stringify(objUser));
+      console.log(objUser);
+      swal("Good job!", "You information has saved!", "success");
+    } catch (error) {
+      swal("Oh no!", "something went wrong", "error");
+    }
+
+  };
+
   return (
     <>
       <div className="profile">
@@ -14,49 +38,53 @@ export const Profile = () => {
             <Input
               type="text"
               name="email"
-              placeholder="Ingrese el Email"
+              placeholder={objUser.email ? objUser.email : "Ingrese el Email"}
               label="email"
               required
-              value=""
-              handleChange={() => {}}
+              //value={user.email}
+
+              handleChange={handleInput}
             />
 
             <Input
               type="text"
               name="name"
-              placeholder="Ingrese el nombre"
+              placeholder={objUser.name ? objUser.name : "Ingrese el Nombre"}
               label="name"
               required
-              value=""
-              handleChange={() => {}}
+              handleChange={handleInput}
             />
 
             <Input
               type="tel"
               name="phone"
-              placeholder="Ingrese el phone"
+              placeholder={
+                objUser.phone ? objUser.phone : "Ingrese el telefono"
+              }
               label="Telefono"
               required
-              value="+524831212891"
-              handleChange={() => {}}
+              //value="+524831212891"
+              handleChange={handleInput}
             />
 
             <Input
               type="date"
               name="birthdate"
-              placeholder="Ingrese su cumpleaños"
+              //placeholder={objUser.birthdate?objUser.birthdate:"Ingrese su cumpleaños"}
               label="birthdate"
-              value="1971/07/02"
-              handleChange={() => {}}
+              value={objUser.birthdate ? objUser.birthdate : "2099/12/31"}
+              handleChange={handleInput}
             />
 
             <Input
               type={"text"}
-              name={"linkedin"}
-              placeholder={"Ingrese su linkedin"}
-              label={"linkedin"}
-              value={"https://www.linkedin.com/in/donramon"}
-              handleChange={() => {}}
+              name="linkedinUrl"
+              placeholder={
+                objUser.linkedin ? objUser.linkedin : "Ingrese su linkedin"
+              }
+              label="linkedin"
+              //value={"https://www.linkedin.com/in/donramon"}
+              handleChange={handleInput}
             />
           </form>
 
@@ -68,71 +96,54 @@ export const Profile = () => {
               </p>
 
               <Input
-                handleChange={() => {}}
                 type="text"
                 name="tittle"
-                placeholder="Ingrese su linkedin"
+                placeholder={
+                  objUser.tittle ? objUser.tittle : "Professional Multiservice"
+                }
                 label="tittle"
-                value="Professional Multiservice"
+                //value="Professional Multiservice"
+                handleChange={handleInput}
               />
 
               <TextArea
-                name="Professional Experience"
-                placeholder="Professional Experience"
+                name="experience"
+                placeholder={
+                  objUser.tittle ? objUser.tittle : "Professional Experience"
+                }
                 label="Professional Experience"
-                value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-              feugiat quam ut tempor maximus. Sed neque arcu, rhoncus
-              elementum sodales a, tristique sed quam. Aliquam nibh velit,
-              pharetra ac faucibus in, ornare eu tortor. Vestibulum lacus
-              ligula, elementum sit amet purus ut, sagittis molestie ex. In
-              hendrerit orci tellus. Integer pharetra porttitor nulla, nec
-              fringilla dolor ultricies et. Integer accumsan feugiat urna, eu
-              hendrerit dui varius sit amet. Mauris eget tristique turpis.
-              Curabitur eget hendrerit turpis. Etiam rutrum dolor eu posuere
-              vehicula. Pellentesque ut mauris neque. Maecenas posuere sit
-              amet erat at placerat. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Suspendisse potenti. Donec tempor lobortis
-              nisl. Maecenas sit amet massa in tortor pulvinar sollicitudin.
-              Fusce vitae feugiat felis, ut malesuada purus. Curabitur felis
-              velit, interdum vitae viverra quis, sagittis ac nulla. Quisque
-              tempus pharetra ornare. In sed nulla eget risus cursus facilisis
-              vel quis nibh. Praesent euismod lectus a."
-                handleChange={() => {}}
+                handleChange={handleInput}
               />
 
               <TextArea
-                handleChange={() => {}}
                 name="education"
-                placeholder="Ingrese su Educacion"
+                placeholder={
+                  objUser.education ? objUser.education : "Put your Education"
+                }
                 label="education"
-                value="Pellentesque ut mauris neque. Maecenas posuere sit amet erat at
-              placerat. Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Suspendisse potenti. Donec tempor lobortis nisl. Maecenas
-              sit amet massa in tortor pulvinar sollicitudin. Fusce vitae
-              feugiat felis, ut malesuada purus. Curabitur felis velit,
-              interdum vitae viverra quis, sagittis ac nulla. Quisque tempus
-              pharetra ornare. In sed nulla eget risus cursus facilisis vel
-              quis nibh. Praesent euismod lectus a."
+                handleChange={handleInput}
+
+                //value="Pellentesque ut mauris neque. Maecenas posuere sit amet erat at"
               />
 
               <label htmlFor="">Upload/Update your CV</label>
               <br />
               <FileInput
-              name="FileInputBox"
-              value=""
-              label="Choose a File"
-              caption=""
-              handleChange={() => {}}
-              accept=".pdf"
+                name="FileInputBox"
+                value=""
+                label="Choose a File"
+                caption=""
+                handleChange={() => {}}
+                accept=".pdf"
               />
-             
+
               <br />
               <br />
 
               <Button
                 type="primary"
                 text="Save changes"
-                handleClick={() => {}}
+                handleClick={(e) => handleSave(e)}
               />
             </form>
             <br />

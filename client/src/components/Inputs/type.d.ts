@@ -15,7 +15,7 @@ type FormikHandleBlur = {
 export interface InputProps {
   type: InputType
   name: string
-  value: string
+  value?: string
   label: string
   placeholder: string
   caption?: string

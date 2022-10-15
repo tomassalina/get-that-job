@@ -6,6 +6,7 @@ export const Input = (props: InputProps) => {
     type,
     name,
     value,
+    defaultValue,
     placeholder,
     label,
     caption,
@@ -28,6 +29,7 @@ export const Input = (props: InputProps) => {
         type={type}
         name={name}
         id={`input-${name}`}
+        defaultValue={defaultValue}
         value={value}
         placeholder={placeholder}
         required={required}
@@ -35,7 +37,7 @@ export const Input = (props: InputProps) => {
         onChange={handleChange}
         onBlur={handleBlur}
         style={{ background: `url(${img})no-repeat left` }}
-      />
+      />  
       {error && touched ? (
         <p className="input__caption error">{error}</p>
       ) : (
