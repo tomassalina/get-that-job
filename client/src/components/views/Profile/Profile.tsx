@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from "react";
 import { useUser } from "../../../hooks/useUser";
 import { Button } from "../../Buttons";
@@ -5,6 +6,13 @@ import { FileInput, Input } from "../../Inputs";
 import { TextArea } from "../../TextArea";
 import "./Profile.styles.scss";
 import swal from "sweetalert";
+=======
+import { Button } from '../../Buttons'
+import { Input } from '../../Inputs'
+import { ReangeInput } from '../../Inputs/RangeInput'
+import { TextArea } from '../../TextArea'
+import './Profile.styles.scss'
+>>>>>>> 4996248797b6a8d61e5565fc06c08753c40ab9aa
 
 export const Profile = () => {
   const objUser = useUser().user;
@@ -77,6 +85,7 @@ export const Profile = () => {
             />
 
             <Input
+<<<<<<< HEAD
               type={"text"}
               name="linkedinUrl"
               placeholder={
@@ -85,6 +94,14 @@ export const Profile = () => {
               label="linkedin"
               //value={"https://www.linkedin.com/in/donramon"}
               handleChange={handleInput}
+=======
+              type={'text'}
+              name={'linkedin'}
+              placeholder={'Ingrese su linkedin'}
+              label={'linkedin'}
+              value={'https://www.linkedin.com/in/donramon'}
+              handleChange={() => {}}
+>>>>>>> 4996248797b6a8d61e5565fc06c08753c40ab9aa
             />
           </form>
 
@@ -152,5 +169,5 @@ export const Profile = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}

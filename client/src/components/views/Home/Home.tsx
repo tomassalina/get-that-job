@@ -1,21 +1,27 @@
+import { useUser } from '../../../hooks/useUser'
+
 import './Home.styles.scss'
-import { User } from '../../../hooks/useUser'
+import { JobCard } from '../../Cards'
+import { initialState } from './initialState'
 
-interface HomeProps {
-  user: User
-}
+export const Home = () => {
+  const { user } = useUser()
 
-export const Home = ({ user }: HomeProps) => {
   if (user.role === 'professional')
     return (
-      <div className="home__container">
-        <h1>Professional</h1>
+      <div className="Home">
+        <h1 className="Home__title">Find That Job</h1>
+        <div className="Home__grid">
+          {initialState.map(job => (
+            <JobCard key={job.id} job={job} />
+          ))}
+        </div>
       </div>
     )
 
   if (user.role === 'recruiter')
     return (
-      <div className="home__container">
+      <div className="Home">
         <h1>Recruiter</h1>
       </div>
     )

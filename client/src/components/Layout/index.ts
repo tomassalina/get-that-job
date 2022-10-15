@@ -1,3 +1,2 @@
-export { Layout } from './Layout';
-export { HomeLayout } from './HomeLayout'
-
+export { Layout } from './Layout'
+export { ProtectedLayout } from './ProtectedLayout'

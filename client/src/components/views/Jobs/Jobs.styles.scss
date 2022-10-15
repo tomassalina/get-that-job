@@ -1,0 +1,109 @@
+@use '../../../breakpoints';
+
+.Jobs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .Jobs__company {
+      display: grid;
+      grid-template-columns: 75px max-content;
+      grid-template-rows: 1fr;
+      grid-template-areas:
+        'company-logo company-title'
+        'company-logo following';
+      column-gap: 20px;
+      h3 {
+        font: var(--headline-6);
+        grid-area: company-title;
+      }
+      figure {
+        grid-area: company-logo;
+
+        height: 75px;
+        display: flex;
+        align-items: center;
+        background-color: var(--white-color);
+        img {
+          width: 100%;
+        }
+      }
+      button {
+        grid-area: following;
+      }
+    }
+  }
+  &__apply {
+    align-self: flex-end;
+  }
+
+  &__title {
+    font: var(--headline-3);
+  }
+
+  &__date {
+    display: flex;
+    gap: 5px;
+    font: var(--overline);
+    color: var(--light-gray-color);
+    text-transform: uppercase;
+  }
+
+  &__displays {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__main {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__section {
+    h2 {
+      font: var(--headline-5);
+      color: var(--pink-color);
+      margin-bottom: 8px;
+    }
+  }
+}
+
+@include breakpoints.medium {
+  .Jobs {
+    &__header {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    &__title {
+      text-align: center;
+    }
+    &__date {
+      justify-content: center;
+    }
+    &__displays {
+      flex-direction: row;
+      justify-content: center;
+      gap: 10px;
+    }
+    &__apply {
+      align-self: center;
+    }
+  }
+}
+
+@include breakpoints.extra-large {
+  .Jobs {
+    &__displays {
+      flex-direction: row;
+      justify-content: center;
+      gap: 32px;
+    }
+  }
+}

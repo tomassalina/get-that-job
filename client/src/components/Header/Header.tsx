@@ -5,11 +5,13 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { Button } from '../Buttons'
 import LogoImg from '../../assets/logo.png'
 import { AuthIcon, LogoutIcon } from '../Icons'
+import { useUser } from '../../hooks/useUser'
 
 export const Header = () => {
-  const { loginWithRedirect, logout, isAuthenticated } = useAuth0()
+  const { loginWithRedirect, isAuthenticated } = useAuth0()
+  const { logout } = useUser()
 
-  const handleAuth0 = () => loginWithRedirect()
+  const handleLogin = () => loginWithRedirect()
   const handleLogout = () => logout()
 
   return (
@@ -24,7 +26,7 @@ export const Header = () => {
               <LogoutIcon />
             </Button>
           ) : (
-            <Button type="secondary" text="Login" handleClick={handleAuth0}>
+            <Button type="secondary" text="Login" handleClick={handleLogin}>
               <AuthIcon />
             </Button>
           )}
