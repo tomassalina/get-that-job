@@ -59,19 +59,6 @@ export const Navbar = ({ user }: { user: User }) => {
                 <NavbarItem key={item.title} {...item} />
               ))}
 
-<<<<<<< HEAD
-        <footer className="navbar__footer">
-          <p>© 2022 - Get That Job</p>
-          <p>Codeable - Cohort X Final Project</p>
-          <ul>
-            <li>Cataldo Ivan</li>
-            <li>Tomas Salinas</li>
-          </ul>
-          <p>Source code:</p>
-          <p>Ruby on Rails REST API</p>
-          <p>React Responsive SPA</p>
-        </footer>
-=======
           <NavbarItem title="Profile" url="/profile" icon={userLine} />
           <li>
             <button type="button" onClick={() => logout()}>
@@ -80,7 +67,6 @@ export const Navbar = ({ user }: { user: User }) => {
             </button>
           </li>
         </ul>
->>>>>>> 4996248797b6a8d61e5565fc06c08753c40ab9aa
       </div>
       <Footer />
     </nav>

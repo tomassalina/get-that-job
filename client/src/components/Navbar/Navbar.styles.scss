@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-@use "../../breakpoints";
-.navbar {
-  color: var(--gray-color);
-  background-color: var(--bg-dark-color);
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  padding-top: 15px;
-  box-sizing: border-box;
-  width: 240px;
-  max-height: 100%;
-  ul {
-    list-style: none;
-=======
 @use '../../breakpoints';
 
 .Navbar {
@@ -42,7 +27,6 @@
     display: flex;
     padding: 0 20px;
     margin-bottom: 32px;
->>>>>>> 4996248797b6a8d61e5565fc06c08753c40ab9aa
   }
 
   a {
@@ -108,56 +92,6 @@
     &.active &-line:nth-child(2) {
       opacity: 0;
     }
-<<<<<<< HEAD
-    &.__active {
-      background-color: var(--white-color);
-    }
-  }
-  @include breakpoints.smallXS {
-    &__header__nav-menu {
-      background-color: var(--bg-dark-color);
-
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      margin-top: 70px;
-      height: calc(100% - 70px);
-      a {
-        justify-content: center;
-      }
-    }
-  }
-  @include breakpoints.small {
-    &__header__nav-menu {
-      background-color: var(--bg-dark-color);
-
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      margin-top: 70px;
-      height: calc(100% - 70px);
-      a {
-        justify-content: center;
-      }
-    }
-  }
-  @include breakpoints.medium {
-    &__header__nav-menu {
-      position: inherit;
-      a {
-        justify-content: flex-start;
-      }
-    }
-  }
-
-  /* footer {
-    position: absolute;
-    bottom: 0;
-    margin-left: 8px;
-  } */
-=======
     &.active &-line:last-child {
       transform: rotate(-45deg);
     }
@@ -174,5 +108,4 @@
       display: none;
     }
   }
->>>>>>> 4996248797b6a8d61e5565fc06c08753c40ab9aa
 }

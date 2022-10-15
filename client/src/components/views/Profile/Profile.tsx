@@ -1,21 +1,16 @@
-<<<<<<< HEAD
-import { useState } from "react";
-import { useUser } from "../../../hooks/useUser";
-import { Button } from "../../Buttons";
-import { FileInput, Input } from "../../Inputs";
-import { TextArea } from "../../TextArea";
-import "./Profile.styles.scss";
-import swal from "sweetalert";
-=======
 import { Button } from '../../Buttons'
-import { Input } from '../../Inputs'
+import { FileInput, Input } from '../../Inputs'
 import { ReangeInput } from '../../Inputs/RangeInput'
 import { TextArea } from '../../TextArea'
 import './Profile.styles.scss'
->>>>>>> 4996248797b6a8d61e5565fc06c08753c40ab9aa
-
+import swal from "sweetalert";
+import { useUser } from '../../../hooks/useUser'
+import { useEffect } from 'react'
 export const Profile = () => {
   const objUser = useUser().user;
+  useEffect(()=>{
+    
+  },[objUser])
 
   console.log(objUser);
   const handleInput = (e) => {
@@ -23,6 +18,7 @@ export const Profile = () => {
 
     objUser[campo] = e.target.value;
   };
+  
   const handleSave = (e: React.FormEvent<EventTarget>): void => {
     e.preventDefault();
 
@@ -85,23 +81,14 @@ export const Profile = () => {
             />
 
             <Input
-<<<<<<< HEAD
-              type={"text"}
-              name="linkedinUrl"
-              placeholder={
-                objUser.linkedin ? objUser.linkedin : "Ingrese su linkedin"
-              }
-              label="linkedin"
-              //value={"https://www.linkedin.com/in/donramon"}
-              handleChange={handleInput}
-=======
               type={'text'}
               name={'linkedin'}
-              placeholder={'Ingrese su linkedin'}
+              placeholder={
+                objUser.linkedin ? objUser.linkedin : "Ingrese su direccion de Linkedin"
+              }
               label={'linkedin'}
-              value={'https://www.linkedin.com/in/donramon'}
-              handleChange={() => {}}
->>>>>>> 4996248797b6a8d61e5565fc06c08753c40ab9aa
+              //value={'https://www.linkedin.com/in/donramon'}
+              handleChange={handleInput}
             />
           </form>
 
@@ -126,7 +113,7 @@ export const Profile = () => {
               <TextArea
                 name="experience"
                 placeholder={
-                  objUser.tittle ? objUser.tittle : "Professional Experience"
+                  objUser.experience ? objUser.experience : "Professional Experience"
                 }
                 label="Professional Experience"
                 handleChange={handleInput}

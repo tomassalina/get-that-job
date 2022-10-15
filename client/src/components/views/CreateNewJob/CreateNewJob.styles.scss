@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-@use "../../../breakpoints";
-/* .navbar {
-=======
 @use '../../../breakpoints';
 .navbar {
->>>>>>> 4996248797b6a8d61e5565fc06c08753c40ab9aa
   display: none;
-} */
+
 .CreateNewJob__container {
   padding: 10px;
 
@@ -39,6 +34,7 @@
     margin: 20px auto;
   }
 }
+
 @include breakpoints.small {
   .CreateNewJob__container {
     padding: 30px;
@@ -51,4 +47,5 @@
   .navbar {
     display: flex;
   }
+}
 }
