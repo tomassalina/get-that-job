@@ -7,7 +7,7 @@ import './Navbar.styles.scss'
 import LogoImg from '../../assets/logo.png'
 import searchLine from '../../assets/search-line.svg'
 import articleLine from '../../assets/article-line.svg'
-import focus3Line from '../../assets/focus-3-line.svg'
+// import focus3Line from '../../assets/focus-3-line.svg'
 import userLine from '../../assets/user-line.svg'
 import logoutuserLine from '../../assets/logout-circle-line.svg'
 import briefcaseLine from '../../assets/briefcase-line.svg'
@@ -22,7 +22,6 @@ interface Item {
 const professionalLinks: Item[] = [
   { title: 'Find that job', url: '/home', icon: searchLine },
   { title: 'Your applications', url: '/applications', icon: articleLine },
-  { title: 'Following', url: '/following', icon: focus3Line },
 ]
 
 const recruiterLinks: Item[] = [
