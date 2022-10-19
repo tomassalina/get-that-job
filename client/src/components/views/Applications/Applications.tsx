@@ -9,6 +9,7 @@ import { Button, LinkButton } from '../../Buttons'
 import { FileInput, TextAreaInput } from '../../Inputs'
 
 import { ArrowLeftIcon, SendIcon } from '../../Icons'
+import { ApplicationCard } from '../../Cards'
 
 export const Applications = () => {
   const { jobID } = useParams()
@@ -78,5 +79,11 @@ export const Applications = () => {
       </div>
     )
 
-  return <h1>Applications</h1>
+  return (
+    <div className="Applications">
+      <h1>Your applications</h1>
+      <h3>4 applications found</h3>
+      <ApplicationCard job={job} open />
+    </div>
+  )
 }

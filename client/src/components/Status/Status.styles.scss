@@ -1,0 +1,12 @@
+.Status {
+  max-width: 80px;
+  text-align: center;
+  font: var(--caption);
+  color: var(--gray-color);
+  &.waiting {
+    color: var(--pink-color);
+  }
+  &.declined {
+    color: var(--dark-pink-color);
+  }
+}
