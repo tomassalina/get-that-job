@@ -78,24 +78,8 @@
   }
 }
 
-// @include breakpoints.smallXS {
-//   .textarea {
-//     textarea {
-//       max-width: 100%;
-//     }
-//   }
-// }
-// @include breakpoints.small {
-//   .textarea {
-//     textarea {
-//       max-width: 650px;
-//     }
-//   }
-// }
-// @include breakpoints.medium {
-//   .textarea {
-//     textarea {
-//       width: 760px;
-//     }
-//   }
-// }
+@include breakpoints.medium {
+  .textarea {
+    max-width: 744px;
+  }
+}
