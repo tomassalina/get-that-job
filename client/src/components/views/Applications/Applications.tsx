@@ -24,7 +24,7 @@ export const Applications = () => {
   if (jobID)
     return (
       <div className="Applications">
-        <LinkButton type="ghost" text="Back" to="/applications">
+        <LinkButton type="ghost" text="Back" to={`/jobs/${jobID}`}>
           <ArrowLeftIcon />
         </LinkButton>
 

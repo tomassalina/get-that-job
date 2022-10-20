@@ -5,7 +5,6 @@ import { Button } from '../../../Buttons'
 
 import { PersonalInformationValues } from './type'
 import { ArrowRightIcon } from '../../../Icons'
-import { useEffect } from 'react'
 
 export const PersonalInformation = (props: {
   initialValues: PersonalInformationValues
