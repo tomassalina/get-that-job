@@ -1,3 +1,5 @@
+import { ProfessionalForm } from '../Onboarding/roles/type'
+
 type JobType = 'full time' | 'part time' | 'freelance'
 type JobCategory =
   | 'manufacturing'
@@ -25,4 +27,8 @@ export interface Job {
   aboutPosition: string
   requirements: string
   optionalRequirements: string
+}
+
+export interface JobPost extends Job {
+  applicants: Array<ProfessionalForm>
 }

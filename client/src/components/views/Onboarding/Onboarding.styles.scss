@@ -112,5 +112,6 @@
 @include breakpoints.medium {
   .Onboarding__steps ul {
     flex-direction: row;
+    justify-content: flex-start;
   }
 }

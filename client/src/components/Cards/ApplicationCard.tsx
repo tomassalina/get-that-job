@@ -47,19 +47,19 @@ export const ApplicationCard = ({ job, open }: ApplicationCardProps) => {
     }
   }
 
-  const styles = classNames(['ApplicationCard', { open: isOpen }])
+  const styles = classNames(['SwitchCard', { open: isOpen }])
 
   return (
     <div className={styles}>
-      <div className="ApplicationCard__header" onClick={handleOpen}>
-        <div className="ApplicationCard__company">
+      <div className="SwitchCard__header">
+        <div className="SwitchCard__company">
           <img src={companyLogo} alt="" />
-          <div className="ApplicationCard__company--description">
-            <h3>{title}</h3>
-            <h4>{companyName}</h4>
+          <div className="SwitchCard__company--description">
+            <h3 className="SwitchCard__title">{title}</h3>
+            <h4 className="SwitchCard__subtitle">{companyName}</h4>
           </div>
         </div>
-        <div className="ApplicationCard__info">
+        <div className="SwitchCard__info">
           <p>
             <span>
               <img src={JobCategoryIcon} alt="" /> {category}
@@ -70,7 +70,7 @@ export const ApplicationCard = ({ job, open }: ApplicationCardProps) => {
           </p>
           <p>
             <span>
-              <img src={SalaryIcon} alt="" />{' '}
+              <img src={SalaryIcon} alt="" />
               {`${salaryRange.min} - ${salaryRange.max}`}
             </span>
             <span>
@@ -78,16 +78,16 @@ export const ApplicationCard = ({ job, open }: ApplicationCardProps) => {
             </span>
           </p>
         </div>
-        <div className="ApplicationCard__statuses">
+        <div className="SwitchCard__statuses">
           <Status.Posted on={createdOn} />
           {renderStatus()}
-          <button type="button" onClick={handleOpen}>
+          <button className="openArrow" type="button" onClick={handleOpen}>
             <ArrowBottomIcon />
           </button>
         </div>
       </div>
-      <div className="ApplicationCard__content">
-        <section className="ApplicationCard__section">
+      <div className="SwitchCard__content">
+        <section className="SwitchCard__section">
           <h4>Professional experence</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In feugiat
@@ -110,7 +110,7 @@ export const ApplicationCard = ({ job, open }: ApplicationCardProps) => {
             risus cursus facilisis vel quis nibh. Praesent euismod lectus a.
           </p>
         </section>
-        <section className="ApplicationCard__section">
+        <section className="SwitchCard__section">
           <h4>Why are you interested in working at {job.companyName}</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
@@ -126,7 +126,7 @@ export const ApplicationCard = ({ job, open }: ApplicationCardProps) => {
           </p>
         </section>
       </div>
-      <div className="ApplicationCard__actions">
+      <div className="SwitchCard__actions">
         <Button text="Download CV" type="secondary" handleClick={() => {}}>
           <DownloadIcon />
         </Button>

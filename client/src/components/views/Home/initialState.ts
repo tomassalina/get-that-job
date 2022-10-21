@@ -1,4 +1,4 @@
-import { Job } from '../Jobs/type'
+import { Job, JobPost } from '../Jobs/type'
 import CompanyLogo from '../../../assets/logos/company-default.png'
 
 const defaultAboutCompany =
@@ -198,5 +198,40 @@ export const initialState: Job[] = [
     optionalRequirements: defaultOptionalRequirements,
     createdOn: '08/30/2022',
     status: 'waiting',
+  },
+]
+
+export const initialJobPosts: Array<JobPost> = [
+  {
+    id: '30e019a9-5bfe-4dd2-be8a-bed0dc7e8012',
+    title: 'The job title',
+    companyName: 'The company name SA',
+    companyLogo: CompanyLogo,
+    category: 'manufacturing',
+    type: 'full time',
+    salaryRange: { min: 2000, max: 2500 },
+    aboutCompany: defaultAboutCompany,
+    aboutPosition: defaultAboutPosition,
+    requirements: defaultRequirements,
+    optionalRequirements: defaultOptionalRequirements,
+    createdOn: '08/30/2022',
+    status: 'waiting',
+    applicants: [],
+  },
+  {
+    id: '30e019a9-5bfe-4dd2-be8a-bed0dc7e8011',
+    title: 'The job title',
+    companyName: 'The company name SA',
+    companyLogo: CompanyLogo,
+    category: 'manufacturing',
+    type: 'full time',
+    salaryRange: { min: 2000, max: 2500 },
+    aboutCompany: defaultAboutCompany,
+    aboutPosition: defaultAboutPosition,
+    requirements: defaultRequirements,
+    optionalRequirements: defaultOptionalRequirements,
+    createdOn: '08/30/2022',
+    status: 'waiting',
+    applicants: [],
   },
 ]

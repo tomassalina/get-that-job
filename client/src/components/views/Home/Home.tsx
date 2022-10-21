@@ -1,8 +1,8 @@
 import { useUser } from '../../../hooks/useUser'
 
 import './Home.styles.scss'
-import { JobCard } from '../../Cards'
-import { initialState } from './initialState'
+import { JobCard, JobPostCard } from '../../Cards'
+import { initialState, initialJobPosts } from './initialState'
 
 export const Home = () => {
   const { user } = useUser()
@@ -23,6 +23,9 @@ export const Home = () => {
     return (
       <div className="Home">
         <h1>Recruiter</h1>
+        {initialJobPosts.map(jobPost => (
+          <JobPostCard jobPost={jobPost} />
+        ))}
       </div>
     )
 
