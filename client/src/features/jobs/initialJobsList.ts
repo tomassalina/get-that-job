@@ -45,7 +45,7 @@ export const initialJobsList: JobPost[] = [
       logo: BabySwimLogo,
       about: defaultCompanyAbout,
     },
-    applicants: ['96c5fd9f-5d62-49f1-9e22-5f78852bf457'],
+    applicants: [],
   },
   {
     id: '30e019a9-5bfe-4dd2-be8a-bed0dc7e80b2',
@@ -67,7 +67,7 @@ export const initialJobsList: JobPost[] = [
       logo: FastBananaLogo,
       about: defaultCompanyAbout,
     },
-    applicants: ['96c5fd9f-5d62-49f1-9e22-5f78852bf457'],
+    applicants: [],
   },
   {
     id: '30e019a9-5bfe-4dd2-be8a-bed0dc7e80b3',
@@ -89,7 +89,7 @@ export const initialJobsList: JobPost[] = [
       logo: TheDanceStudioLogo,
       about: defaultCompanyAbout,
     },
-    applicants: ['96c5fd9f-5d62-49f1-9e22-5f78852bf457'],
+    applicants: [],
   },
   {
     id: '30e019a9-5bfe-4dd2-be8a-bed0dc7e80b4',
@@ -111,7 +111,7 @@ export const initialJobsList: JobPost[] = [
       logo: SpaceCubeLogo,
       about: defaultCompanyAbout,
     },
-    applicants: ['96c5fd9f-5d62-49f1-9e22-5f78852bf457'],
+    applicants: [],
   },
   {
     id: '30e019a9-5bfe-4dd2-be8a-bed0dc7e80b5',
@@ -133,7 +133,7 @@ export const initialJobsList: JobPost[] = [
       logo: GreensLogo,
       about: defaultCompanyAbout,
     },
-    applicants: ['96c5fd9f-5d62-49f1-9e22-5f78852bf457'],
+    applicants: [],
   },
   {
     id: '30e019a9-5bfe-4dd2-be8a-bed0dc7e80b6',
@@ -155,7 +155,7 @@ export const initialJobsList: JobPost[] = [
       logo: TheWebWorksLogo,
       about: defaultCompanyAbout,
     },
-    applicants: ['96c5fd9f-5d62-49f1-9e22-5f78852bf457'],
+    applicants: [],
   },
   {
     id: '30e019a9-5bfe-4dd2-be8a-bed0dc7e80b7',
@@ -177,7 +177,7 @@ export const initialJobsList: JobPost[] = [
       logo: YogaBabyLogo,
       about: defaultCompanyAbout,
     },
-    applicants: ['96c5fd9f-5d62-49f1-9e22-5f78852bf457'],
+    applicants: [],
   },
   {
     id: '30e019a9-5bfe-4dd2-be8a-bed0dc7e80b8',
@@ -199,7 +199,7 @@ export const initialJobsList: JobPost[] = [
       logo: CroftsAccountantsLogo,
       about: defaultCompanyAbout,
     },
-    applicants: ['96c5fd9f-5d62-49f1-9e22-5f78852bf457'],
+    applicants: [],
   },
   {
     id: '30e019a9-5bfe-4dd2-be8a-bed0dc7e80b9',
@@ -221,9 +221,6 @@ export const initialJobsList: JobPost[] = [
       logo: AutoSpeedLogo,
       about: defaultCompanyAbout,
     },
-    applicants: [
-      '96c5fd9f-5d62-49f1-9e22-5f78852bf457',
-      '96c5fd9f-5d62-49f1-9e22-5f78852bf458',
-    ],
+    applicants: [],
   },
 ]

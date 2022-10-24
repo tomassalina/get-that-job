@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import { useSelector } from 'react-redux'
 
 import { ApplicationStatus as Status } from '../Status'
 
@@ -9,14 +10,21 @@ import SalaryIcon from '../../assets/icons/salary.svg'
 import ClockIcon from '../../assets/icons/clock.svg'
 import { useState } from 'react'
 import { Button } from '../Buttons'
-import { JobPost } from '../../features/jobs/type'
+import { Application } from '../../features/jobs/type'
+import { getJobs } from '../../features/jobs/jobsSlice'
 
 interface ApplicationCardProps {
-  job: JobPost
+  application: Application
   open?: boolean
 }
 
-export const ApplicationCard = ({ job, open }: ApplicationCardProps) => {
+export const ApplicationCard = ({
+  application,
+  open,
+}: ApplicationCardProps) => {
+  const jobs = useSelector(getJobs)
+  const job = jobs.list.find(job => job.id === application.jobId)
+
   const { company, title, category, type, salaryRange, createdOn, status } = job
 
   const [isOpen, setIsOpen] = useState(open)

@@ -1,3 +1,5 @@
+import { UserState } from '../user/type'
+
 type JobType = 'full time' | 'part time' | 'freelance'
 type JobCategory =
   | 'software and technology'
@@ -36,7 +38,7 @@ export interface JobPost {
     logo: string
     about: string
   }
-  applicants: string[]
+  applicants: UserState[]
 }
 
 export type CreateJobPost = Omit<
@@ -45,4 +47,10 @@ export type CreateJobPost = Omit<
 > & {
   salaryRangeMin: number
   salaryRangeMax: number
+}
+
+export interface Application {
+  jobId: string
+  user: UserState
+  interests: string
 }

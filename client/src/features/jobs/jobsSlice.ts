@@ -1,18 +1,21 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { v4 as uuid } from 'uuid'
 import { RootState } from '../../app/store'
+import { UserState } from '../user/type'
 
 import { initialJobsList } from './initialJobsList'
-import { CreateJobPost, JobPost } from './type'
+import { Application, CreateJobPost, JobPost } from './type'
 
 interface JobsState {
   list: JobPost[]
+  applications: Application[]
   loading: boolean
 }
 
 const initialState: JobsState = {
   list: initialJobsList,
   loading: true,
+  applications: [],
 }
 
 export const jobsSlice = createSlice({
@@ -21,12 +24,33 @@ export const jobsSlice = createSlice({
   reducers: {
     getJobsFromLocalStorage: state => {
       const jobsString = localStorage.getItem('jobs')
-      const jobs: JobPost[] = jobsString ? JSON.parse(jobsString) : initialState
+      const jobs: JobPost[] = jobsString
+        ? JSON.parse(jobsString)
+        : initialState.list
 
       if (jobs.length > 0) {
-        jobs.forEach((job, index) => {
+        jobs.forEach(job => {
           const exists = state.list.find(item => item.id === job.id)
           if (!exists) state.list.push(job)
+        })
+      }
+      state.loading = false
+    },
+
+    getApplicationsFromLocalStorage: state => {
+      const applicationsString = localStorage.getItem('applications')
+      const applications: Application[] = applicationsString
+        ? JSON.parse(applicationsString)
+        : initialState.applications
+
+      if (applications.length > 0) {
+        console.log('LOCAL_STORAGE', applications)
+        applications.forEach(application => {
+          console.log(application)
+          const exists = state.applications.find(
+            item => item.jobId === application.jobId
+          )
+          if (!exists) state.applications.push(application)
         })
       }
       state.loading = false
@@ -61,10 +85,38 @@ export const jobsSlice = createSlice({
         localStorage.setItem('jobs', JSON.stringify([newJob]))
       }
     },
+
+    sendApplication: (state, action: PayloadAction<Application>) => {
+      const newApplication = {
+        jobId: action.payload.jobId,
+        user: action.payload.user,
+        interests: action.payload.interests,
+      }
+
+      state.applications.push(newApplication)
+
+      const applicationsString = localStorage.getItem('applications')
+      const applications: Application[] = applicationsString
+        ? JSON.parse(applicationsString)
+        : initialState
+      if (applications.length > 0) {
+        localStorage.setItem(
+          'applications',
+          JSON.stringify([...applications, newApplication])
+        )
+      } else {
+        localStorage.setItem('applications', JSON.stringify([newApplication]))
+      }
+    },
   },
 })
 
 export const getJobs = (state: RootState) => state.jobs
 
-export const { getJobsFromLocalStorage, createJob } = jobsSlice.actions
+export const {
+  getJobsFromLocalStorage,
+  getApplicationsFromLocalStorage,
+  createJob,
+  sendApplication,
+} = jobsSlice.actions
 export default jobsSlice.reducer
