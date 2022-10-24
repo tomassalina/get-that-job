@@ -10,7 +10,7 @@ export const RangeInput = (props: RangeInputProps) => {
       <div className="range-container">
         <input
           type="number"
-          name="min"
+          name="salaryRangeMin"
           id="range-min"
           placeholder="min"
           value={values.min}
@@ -20,7 +20,7 @@ export const RangeInput = (props: RangeInputProps) => {
         <span className="range-separator">-</span>
         <input
           type="number"
-          name="max"
+          name="salaryRangeMax"
           id="range-max"
           placeholder="max"
           value={values.max}

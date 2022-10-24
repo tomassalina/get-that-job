@@ -38,3 +38,11 @@ export interface JobPost {
   }
   applicants: string[]
 }
+
+export type CreateJobPost = Omit<
+  JobPost,
+  'id' | 'createdOn' | 'salaryRange' | 'applicants'
+> & {
+  salaryRangeMin: number
+  salaryRangeMax: number
+}

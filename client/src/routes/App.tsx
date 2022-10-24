@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { getUserFromLocalStorage } from '../features/user/userSlice'
+import { getJobsFromLocalStorage } from '../features/jobs/jobsSlice'
 
 import { ProtectedLayout, Layout } from '../components/Layout'
 import { Landing } from '../components/views/Landing'
@@ -19,6 +20,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getUserFromLocalStorage())
+    dispatch(getJobsFromLocalStorage())
   }, [])
 
   return (

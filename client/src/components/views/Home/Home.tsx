@@ -3,7 +3,6 @@ import { getUser, getUserIsLoading } from '../../../features/user/userSlice'
 
 import './Home.styles.scss'
 import { JobCard, JobPostCard } from '../../Cards'
-import { initialJobPosts } from './initialState'
 import { getJobs } from '../../../features/jobs/jobsSlice'
 
 export const Home = () => {
@@ -28,7 +27,7 @@ export const Home = () => {
   else
     return (
       <div className="Home">
-        <h1>Recruiter</h1>
+        <h1 className="Home__title">Job Postings</h1>
         {jobs.list.filter(job => job.company.id === user.id).length === 0 && (
           <p>No postings yet</p>
         )}

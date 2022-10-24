@@ -195,7 +195,7 @@ export const ProfessionalForm = () => {
               text="Update profile"
               handleClick={handleSubmit}
             />
-            <Toaster position="top-right" />
+            <Toaster />
           </form>
         </div>
       </div>
