@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -14,8 +14,10 @@ import { ApplicationCard } from '../../Cards'
 import { getJobs, sendApplication } from '../../../features/jobs/jobsSlice'
 import { JobPost } from '../../../features/jobs/type'
 import { getUser } from '../../../features/user/userSlice'
+import toast, { Toaster } from 'react-hot-toast'
 
 export const Applications = () => {
+  const navigate = useNavigate()
   const { jobID: jobId } = useParams()
   const dispatch = useDispatch()
   const user = useSelector(getUser)
@@ -38,6 +40,8 @@ export const Applications = () => {
 
   const onSubmit = (values: any) => {
     dispatch(sendApplication(values))
+    toast.success('Application sent')
+    navigate('/applications')
   }
 
   const formik = useFormik({ initialValues, validationSchema, onSubmit })
@@ -122,6 +126,8 @@ export const Applications = () => {
           >
             <SendIcon />
           </Button>
+
+          <Toaster />
         </div>
       </div>
     )

@@ -75,8 +75,8 @@ export const RecruiterForm = () => {
         <FileInput
           name="logo"
           label="Company logo"
-          caption="Only PDF. Max size 5MB"
-          accept=".pdf"
+          caption="PNG, JPEG, SVG"
+          accept=".png,.svg,.jpeg,.jpg"
           maxSize={5}
           value={values.logo}
           handleChange={handleFileChange}

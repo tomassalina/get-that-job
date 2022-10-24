@@ -108,6 +108,28 @@ export const jobsSlice = createSlice({
         localStorage.setItem('applications', JSON.stringify([newApplication]))
       }
     },
+
+    declineApplication: (state, action: PayloadAction<{ id: string }>) => {
+      state.applications = state.applications.filter(
+        item => item.jobId !== action.payload.id
+      )
+
+      const applicationsString = localStorage.getItem('applications')
+      const applications: Application[] = applicationsString
+        ? JSON.parse(applicationsString)
+        : initialState
+
+      if (applications.length > 0) {
+        localStorage.setItem(
+          'applications',
+          JSON.stringify(
+            state.applications.filter(item => item.jobId !== action.payload.id)
+          )
+        )
+      } else {
+        localStorage.setItem('applications', JSON.stringify([]))
+      }
+    },
   },
 })
 
@@ -118,5 +140,6 @@ export const {
   getApplicationsFromLocalStorage,
   createJob,
   sendApplication,
+  declineApplication,
 } = jobsSlice.actions
 export default jobsSlice.reducer

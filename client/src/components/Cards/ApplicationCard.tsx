@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import { ApplicationStatus as Status } from '../Status'
 
@@ -11,7 +11,7 @@ import ClockIcon from '../../assets/icons/clock.svg'
 import { useState } from 'react'
 import { Button } from '../Buttons'
 import { Application } from '../../features/jobs/type'
-import { getJobs } from '../../features/jobs/jobsSlice'
+import { declineApplication, getJobs } from '../../features/jobs/jobsSlice'
 
 interface ApplicationCardProps {
   application: Application
@@ -22,16 +22,22 @@ export const ApplicationCard = ({
   application,
   open,
 }: ApplicationCardProps) => {
+  const dispatch = useDispatch()
   const jobs = useSelector(getJobs)
   const job =
     jobs.list.find(job => job.id === application.jobId) || jobs.list[0]
 
-  const { company, title, category, type, salaryRange, createdOn, status } = job
+  const { company, title, category, type, salaryRange, createdOn, status, id } =
+    job
 
   const [isOpen, setIsOpen] = useState(open)
 
   const handleOpen = () => {
     setIsOpen(!isOpen)
+  }
+
+  const handleDecline = () => {
+    dispatch(declineApplication({ id }))
   }
 
   const renderStatus = () => {
@@ -133,7 +139,7 @@ export const ApplicationCard = ({
         <Button
           text="Decline Application"
           type="primary"
-          handleClick={() => {}}
+          handleClick={handleDecline}
         >
           <CloseIcon />
         </Button>

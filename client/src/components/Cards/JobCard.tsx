@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux'
 import { Button, LinkButton } from '../Buttons'
 import { FollowIcon } from '../Icons'
 import JobCategoryIcon from '../../assets/icons/job-category.svg'
@@ -5,6 +6,7 @@ import JobTypeIcon from '../../assets/icons/job-type.svg'
 import SalaryIcon from '../../assets/icons/salary.svg'
 
 import { JobPost } from '../../features/jobs/type'
+import { getJobs } from '../../features/jobs/jobsSlice'
 
 interface JobCardProps {
   job: JobPost
@@ -12,6 +14,7 @@ interface JobCardProps {
 
 export const JobCard = (props: JobCardProps) => {
   const { id, title, company, category, type, salaryRange } = props.job
+  const jobs = useSelector(getJobs)
 
   const minSalaryRange = salaryRange.min / 1000
   const maxSalaryRange = salaryRange.max / 1000
@@ -46,7 +49,11 @@ export const JobCard = (props: JobCardProps) => {
         <Button text="Follow" type="ghost" handleClick={() => {}}>
           <FollowIcon />
         </Button>
-        <LinkButton text="See more" type="secondary" to={`/jobs/${id}`} />
+        {jobs.applications.find(item => item.jobId === id) ? (
+          <Button type="disabled" handleClick={() => {}} text="Applied" />
+        ) : (
+          <LinkButton text="See more" type="secondary" to={`/jobs/${id}`} />
+        )}
       </div>
     </div>
   )
