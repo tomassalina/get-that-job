@@ -11,14 +11,7 @@ export const CompanyInformation = (props: {
   onSkip: () => void
   onFinish: (values: CompanyInfoValues) => void
 }) => {
-  const { onSkip, onFinish } = props
-
-  const initialValues = {
-    name: '',
-    website: '',
-    about: '',
-    logo: { file: {}, path: '' },
-  }
+  const { onSkip, onFinish, initialValues } = props
 
   const required = 'required field'
   const validationSchema = Yup.object().shape({

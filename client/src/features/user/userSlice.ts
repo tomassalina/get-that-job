@@ -53,7 +53,7 @@ export const userSlice = createSlice({
     },
 
     // Both roles
-    createUser: state => {
+    saveUser: state => {
       const user = {
         id: state.id,
         name: state.name,
@@ -63,6 +63,28 @@ export const userSlice = createSlice({
         company: state.company,
       }
       window.localStorage.setItem('user', JSON.stringify(user))
+    },
+    updateProfessionalUser: (
+      state,
+      action: PayloadAction<
+        LoginInfoValues & PersonalInfoValues & ProfessionalInfoValues
+      >
+    ) => {
+      state.name = action.payload.name
+      state.professional.phone = action.payload.phone
+      state.professional.birthdate = action.payload.birthdate
+      state.professional.linkedinUrl = action.payload.linkedinUrl
+      state.professional.title = action.payload.title
+      state.professional.experience = action.payload.experience
+      state.professional.education = action.payload.education
+    },
+    updateRecruiterUser: (
+      state,
+      action: PayloadAction<LoginInfoValues & CompanyInfoValues>
+    ) => {
+      state.name = action.payload.name
+      state.company.website = action.payload.website
+      state.company.about = action.payload.about
     },
     setLoginfo: (state, action: PayloadAction<LoginInfoValues>) => {
       state.id = uuidv4()
@@ -123,11 +145,14 @@ export const getUserError = (state: RootState) => state.user.error
 
 export const {
   getUserFromLocalStorage,
-  createUser,
+  saveUser,
+  updateProfessionalUser,
+  updateRecruiterUser,
   setLoginfo,
   setPersonalInfo,
   setProfessionalInfo,
   setCompanyInfo,
+
   logoutUser,
 } = userSlice.actions
 export default userSlice.reducer

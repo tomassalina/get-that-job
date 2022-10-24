@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 
 import {
-  createUser,
+  saveUser,
   setLoginfo,
   setPersonalInfo,
   setProfessionalInfo,
@@ -44,13 +44,13 @@ export const Professional = () => {
   }
 
   const handleSkipAndRedirect = () => {
-    dispatch(createUser())
+    dispatch(saveUser())
     navigate('/home')
   }
 
   const handleFinish = (values: ProfessionalInfoValues) => {
     dispatch(setProfessionalInfo({ ...professional, ...values }))
-    dispatch(createUser())
+    dispatch(saveUser())
     navigate('/home')
   }
 
