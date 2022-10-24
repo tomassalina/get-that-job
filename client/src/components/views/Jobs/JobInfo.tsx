@@ -1,6 +1,5 @@
-import { Button, LinkButton } from '../../Buttons'
+import { Button } from '../../Buttons'
 import { DisplayCard } from '../../Cards'
-import { Job } from './type'
 
 import { FollowIcon, ApplyIcon } from '../../Icons'
 import CategoryIcon from '../../../assets/icons/job-category.svg'
