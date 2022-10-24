@@ -3,12 +3,12 @@ import classNames from 'classnames'
 
 import { JobStatus as Status } from '../Status'
 
-import { JobPost } from '../views/Jobs/type'
 import JobCategoryIcon from '../../assets/icons/job-category.svg'
 import JobTypeIcon from '../../assets/icons/job-type.svg'
 import SalaryIcon from '../../assets/icons/salary.svg'
 import { LinkButton, Button } from '../Buttons'
 import { CloseIcon, FindIcon, ArrowBottomIcon } from '../Icons'
+import { JobPost } from '../../features/jobs/type'
 
 interface JobPostCardProps {
   jobPost: JobPost

@@ -1,23 +1,25 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { initialState } from '../Home/initialState'
+import { useSelector } from 'react-redux'
 
 import './Applications.styles.scss'
 import { JobInfo } from '../Jobs'
-import { Job } from '../Jobs/type'
 import { Button, LinkButton } from '../../Buttons'
 import { FileInput, TextAreaInput } from '../../Inputs'
 
 import { ArrowLeftIcon, SendIcon } from '../../Icons'
 import { ApplicationCard } from '../../Cards'
+import { getJobs } from '../../../features/jobs/jobsSlice'
+import { JobPost } from '../../../features/jobs/type'
 
 export const Applications = () => {
   const { jobID } = useParams()
+  const jobs = useSelector(getJobs)
 
-  const [job, setJob] = useState<Job>(initialState[0])
+  const [job, setJob] = useState<JobPost>(jobs.list[0])
 
   useEffect(() => {
-    const foundJob = initialState.find(job => job.id === jobID)
+    const foundJob = jobs.list.find(job => job.id === jobID)
     if (foundJob) return setJob(foundJob)
   }, [])
 

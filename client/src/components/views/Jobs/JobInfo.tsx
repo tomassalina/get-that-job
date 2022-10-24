@@ -7,9 +7,10 @@ import CategoryIcon from '../../../assets/icons/job-category.svg'
 import TypeIcon from '../../../assets/icons/job-type.svg'
 import SalaryIcon from '../../../assets/icons/salary.svg'
 import ClockIcon from '../../../assets/icons/clock.svg'
+import { JobPost } from '../../../features/jobs/type'
 
 interface JobInfoProps {
-  job: Job
+  job: JobPost
   callToAction: () => JSX.Element
 }
 
@@ -19,9 +20,9 @@ export const JobInfo = ({ job, callToAction }: JobInfoProps) => {
       <div className="Jobs__header">
         <div className="Jobs__company">
           <figure>
-            <img src={job.companyLogo} alt="" />
+            <img src={job.company.logo} alt="" />
           </figure>
-          <h3>{job.companyName}</h3>
+          <h3>{job.company.name}</h3>
           <Button type="ghost" text="Following" handleClick={() => {}}>
             <FollowIcon />
           </Button>

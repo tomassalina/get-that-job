@@ -152,7 +152,6 @@ export const {
   setPersonalInfo,
   setProfessionalInfo,
   setCompanyInfo,
-
   logoutUser,
 } = userSlice.actions
 export default userSlice.reducer

@@ -4,15 +4,14 @@ import JobCategoryIcon from '../../assets/icons/job-category.svg'
 import JobTypeIcon from '../../assets/icons/job-type.svg'
 import SalaryIcon from '../../assets/icons/salary.svg'
 
-import { Job } from '../views/Jobs/type'
+import { JobPost } from '../../features/jobs/type'
 
 interface JobCardProps {
-  job: Job
+  job: JobPost
 }
 
 export const JobCard = (props: JobCardProps) => {
-  const { id, title, companyName, companyLogo, category, type, salaryRange } =
-    props.job
+  const { id, title, company, category, type, salaryRange } = props.job
 
   const minSalaryRange = salaryRange.min / 1000
   const maxSalaryRange = salaryRange.max / 1000
@@ -20,7 +19,7 @@ export const JobCard = (props: JobCardProps) => {
   return (
     <div className="Card">
       <figure className="Card__logo">
-        <img src={companyLogo} alt="Comapny logo" />
+        <img src={company.logo} alt="Comapny logo" />
       </figure>
       <div className="Card__description">
         <p>
@@ -29,7 +28,7 @@ export const JobCard = (props: JobCardProps) => {
           </span>
         </p>
         <h3 className="Card__title">{title}</h3>
-        <h4 className="Card__subtitle">{companyName}</h4>
+        <h4 className="Card__subtitle">{company.name}</h4>
         <div className="Card__caption">
           <p>
             <img src={JobTypeIcon} alt="" />

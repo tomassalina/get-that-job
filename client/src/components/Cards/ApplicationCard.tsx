@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import { Job } from '../views/Jobs/type'
 
 import { ApplicationStatus as Status } from '../Status'
 
@@ -10,23 +9,15 @@ import SalaryIcon from '../../assets/icons/salary.svg'
 import ClockIcon from '../../assets/icons/clock.svg'
 import { useState } from 'react'
 import { Button } from '../Buttons'
+import { JobPost } from '../../features/jobs/type'
 
 interface ApplicationCardProps {
-  job: Job
+  job: JobPost
   open?: boolean
 }
 
 export const ApplicationCard = ({ job, open }: ApplicationCardProps) => {
-  const {
-    companyLogo,
-    title,
-    companyName,
-    category,
-    type,
-    salaryRange,
-    createdOn,
-    status,
-  } = job
+  const { company, title, category, type, salaryRange, createdOn, status } = job
 
   const [isOpen, setIsOpen] = useState(open)
 
@@ -53,10 +44,10 @@ export const ApplicationCard = ({ job, open }: ApplicationCardProps) => {
     <div className={styles}>
       <div className="SwitchCard__header">
         <div className="SwitchCard__company">
-          <img src={companyLogo} alt="" />
+          <img src={company.logo} alt="" />
           <div className="SwitchCard__company--description">
             <h3 className="SwitchCard__title">{title}</h3>
-            <h4 className="SwitchCard__subtitle">{companyName}</h4>
+            <h4 className="SwitchCard__subtitle">{company.name}</h4>
           </div>
         </div>
         <div className="SwitchCard__info">
@@ -111,7 +102,7 @@ export const ApplicationCard = ({ job, open }: ApplicationCardProps) => {
           </p>
         </section>
         <section className="SwitchCard__section">
-          <h4>Why are you interested in working at {job.companyName}</h4>
+          <h4>Why are you interested in working at {job.company.name}</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
             egestas ex at libero feugiat volutpat. Praesent fringilla
