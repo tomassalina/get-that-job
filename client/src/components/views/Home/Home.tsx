@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { getUser } from '../../../features/user/userSlice'
+import { getUser, getUserIsLoading } from '../../../features/user/userSlice'
 
 import './Home.styles.scss'
 import { JobCard, JobPostCard } from '../../Cards'
@@ -7,6 +7,9 @@ import { initialState, initialJobPosts } from './initialState'
 
 export const Home = () => {
   const user = useSelector(getUser)
+  const isLoading = useSelector(getUserIsLoading)
+
+  if (isLoading) return <p>Loading...</p>
 
   if (user.role === 'professional')
     return (

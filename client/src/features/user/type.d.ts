@@ -21,6 +21,8 @@ export interface UserState {
   email: string
   professional: ProfessionalInfo
   company: CompanyInfo
+  loading: boolean
+  error: string
 }
 
 // _____USER_FORMS:

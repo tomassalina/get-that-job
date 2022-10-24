@@ -31,6 +31,8 @@ const initialState: UserState = {
     website: '',
     logo: { path: '', file: {} },
   },
+  loading: true,
+  error: '',
 }
 
 export const userSlice = createSlice({
@@ -47,6 +49,7 @@ export const userSlice = createSlice({
       state.name = user.name
       state.professional = user.professional
       state.company = user.company
+      state.loading = false
     },
 
     // Both roles
@@ -115,6 +118,8 @@ export const userSlice = createSlice({
 })
 
 export const getUser = (state: RootState) => state.user
+export const getUserIsLoading = (state: RootState) => state.user.loading
+export const getUserError = (state: RootState) => state.user.error
 
 export const {
   getUserFromLocalStorage,
