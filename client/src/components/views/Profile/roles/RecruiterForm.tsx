@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import toast, { Toaster } from 'react-hot-toast'
+
 import {
   getUser,
   saveUser,
@@ -40,6 +42,7 @@ export const RecruiterForm = () => {
   const onSubmit = (values: FormValues) => {
     dispatch(updateRecruiterUser(values))
     dispatch(saveUser())
+    toast.success('Profile updated')
   }
 
   const formik = useFormik({ initialValues, validationSchema, onSubmit })
@@ -117,6 +120,7 @@ export const RecruiterForm = () => {
           text="Update profile"
           handleClick={handleSubmit}
         />
+        <Toaster position="top-right" />
       </form>
     </div>
   )

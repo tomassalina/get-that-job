@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import toast, { Toaster } from 'react-hot-toast'
+
 import {
   getUser,
   updateProfessionalUser,
@@ -55,6 +57,7 @@ export const ProfessionalForm = () => {
   const onSubmit = (values: FormValues) => {
     dispatch(updateProfessionalUser(values))
     dispatch(saveUser())
+    toast.success('Updated profile')
   }
 
   const formik = useFormik({ initialValues, validationSchema, onSubmit })
@@ -192,6 +195,7 @@ export const ProfessionalForm = () => {
               text="Update profile"
               handleClick={handleSubmit}
             />
+            <Toaster position="top-right" />
           </form>
         </div>
       </div>
