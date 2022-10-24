@@ -44,3 +44,10 @@ export interface FileInputProps extends FileInput {
   accept: string
   value: { file: object; path: string }
 }
+
+export interface RangeInputProps {
+  values: { min: number | ''; max: number | '' }
+  label: string
+  handleChangeMin: FormikHandleChange
+  handleChangeMax: FormikHandleChange
+}

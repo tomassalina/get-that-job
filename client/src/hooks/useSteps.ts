@@ -40,7 +40,6 @@ const useSteps = (initialState: StepType[]) => {
   }
 
   const skipStep = () => {
-    console.log('Skipping')
     const currentIndex = steps.findIndex(step => step.active)
     const nextIndex = currentIndex + 1
 

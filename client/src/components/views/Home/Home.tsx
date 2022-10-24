@@ -1,24 +1,41 @@
+import { useSelector } from 'react-redux'
+import { getUser, getUserIsLoading } from '../../../features/user/userSlice'
+
 import './Home.styles.scss'
-import { User } from '../../../hooks/useUser'
+import { JobCard, JobPostCard } from '../../Cards'
+import { getJobs } from '../../../features/jobs/jobsSlice'
 
-interface HomeProps {
-  user: User
-}
+export const Home = () => {
+  const user = useSelector(getUser)
+  const isLoading = useSelector(getUserIsLoading)
 
-export const Home = ({ user }: HomeProps) => {
+  const jobs = useSelector(getJobs)
+
+  if (isLoading) return <p>Loading...</p>
+
   if (user.role === 'professional')
     return (
-      <div className="home__container">
-        <h1>Professional</h1>
+      <div className="Home">
+        <h1 className="Home__title">Find That Job</h1>
+        <div className="Home__grid">
+          {jobs.list.map(job => (
+            <JobCard key={job.id} job={job} />
+          ))}
+        </div>
       </div>
     )
-
-  if (user.role === 'recruiter')
+  else
     return (
-      <div className="home__container">
-        <h1>Recruiter</h1>
+      <div className="Home">
+        <h1 className="Home__title">Job Postings</h1>
+        {jobs.list.filter(job => job.company.id === user.id).length === 0 && (
+          <p>No postings yet</p>
+        )}
+        {jobs.list
+          .filter(job => job.company.id === user.id)
+          .map(jobPost => (
+            <JobPostCard key={jobPost.id} jobPost={jobPost} />
+          ))}
       </div>
     )
-
-  return <p>Loading...</p>
 }

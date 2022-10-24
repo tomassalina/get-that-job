@@ -1,56 +1,18 @@
-@use "../../../breakpoints";
-.navbar {
-  display: none;
-}
-.CreateNewJob__container {
-  padding: 10px;
+@use '../../../breakpoints';
 
-  h1 {
-    font: var(--headline-4);
+.CreateNewJob {
+  &__title {
+    font: var(--headline-3);
   }
-  &__main {
+  &__subtitle {
+    margin-top: 32px;
+    margin-bottom: 10px;
     font: var(--headline-5);
-    margin: 9px 0;
   }
-  .input,
-  .textarea {
-    margin: 8px 0;
-  }
-  .range {
-    display: inline-flex;
-    &__separator {
-      color: var(--gray-color);
-      margin: 0 10px;
-      justify-content: center;
-      align-items: center;
-      display: flex;
-      font-size: 30px;
-    }
-    #input-Salary {
-      width: 160px;
-    }
-  }
-  .btn {
-
-    margin: 20px auto;
-  }
-}
-
-@include breakpoints.smallXS {
-  
-}
-@include breakpoints.small {
-  .CreateNewJob__container {
-    padding: 30px;
-    .btn {
-      margin: 20px 0;
-    }
-  }
-}
-@include breakpoints.medium {
-  .navbar {
+  form {
+    margin-top: 20px;
     display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
-  
-  
 }

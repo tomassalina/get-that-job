@@ -1,0 +1,209 @@
+@use '../../breakpoints';
+
+.Card {
+  max-width: 300px;
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  grid-template-areas:
+    'logo description'
+    'actions actions';
+  column-gap: 10px;
+  row-gap: 25px;
+  padding: 20px 12px;
+  background-color: var(--white-color);
+  box-shadow: var(--global-shadow-2);
+  border-radius: var(--global-radius);
+
+  &__title {
+    font: var(--headline-5);
+    color: var(--dark-gray-color);
+  }
+  &__subtitle {
+    font: var(--subtitle-1);
+    color: var(--dark-gray-color);
+  }
+  p {
+    font: var(--caption);
+    display: flex;
+    gap: 6px;
+    color: var(--light-gray-color);
+  }
+
+  &__logo {
+    grid-area: logo;
+    display: flex;
+    align-items: center;
+    img {
+      width: 100%;
+    }
+  }
+
+  &__description {
+    grid-area: description;
+  }
+
+  &__caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__actions {
+    grid-area: actions;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+// _____DisplayCard:
+.Display {
+  width: fit-content;
+  padding: 8px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  box-shadow: var(--global-shadow-2);
+  border: var(--global-border);
+  border-radius: var(--global-radius);
+
+  &__type {
+    font: var(--subtitle-1);
+  }
+
+  &__description {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    img {
+      width: 20px;
+    }
+    h3 {
+      font: var(--headline-6);
+    }
+  }
+}
+
+// _____ApplicationCard:
+.SwitchCard {
+  position: relative;
+
+  padding: 20px;
+  padding-right: 40px;
+  border-radius: var(--global-radius);
+  box-shadow: var(--global-shadow-2);
+  height: 100px;
+  overflow: hidden;
+  background-color: var(--white-color);
+
+  &.open {
+    height: 100%;
+  }
+
+  &.open > &__header &__statuses svg {
+    transform: rotate(180deg);
+  }
+
+  .openArrow {
+    position: absolute;
+    right: 20px;
+    bottom: 25px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+  &__title {
+    font: var(--headline-6);
+    margin-bottom: 4px;
+  }
+  &__subtitle {
+    font: var(--subtitle-2);
+  }
+  &__company {
+    display: flex;
+    gap: 15px;
+    img {
+      width: 60px;
+      object-fit: cover;
+    }
+    &--description {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    p {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+      font: var(--caption);
+      color: var(--light-gray-color);
+      img {
+        height: 13px;
+      }
+    }
+  }
+  &__statuses {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  &__section {
+    max-width: 850px;
+    h4 {
+      font: var(--headline-6);
+      color: var(--dark-pink-color);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    .btn-primary {
+      background-color: var(--dark-pink-color);
+    }
+  }
+}
+
+@include breakpoints.large {
+  .Display {
+    &__description {
+      h3 {
+        font: var(--headline-5);
+      }
+    }
+  }
+}
+
+@include breakpoints.extra-large {
+  .Display {
+    padding: 8px 32px 16px;
+  }
+}

@@ -1,0 +1,17 @@
+.Status {
+  max-width: 80px;
+  text-align: center;
+  font: var(--caption);
+  color: var(--gray-color);
+
+  span {
+    margin-left: 5px;
+  }
+
+  &.waiting {
+    color: var(--pink-color);
+  }
+  &.declined {
+    color: var(--dark-pink-color);
+  }
+}

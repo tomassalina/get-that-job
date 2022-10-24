@@ -1,35 +1,111 @@
-.navbar {
-  color: var(--gray-color);
-  padding-top: 15px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  width: 240px;
-  height: 100vh;
-  background-color: var(--bg-dark-color);
+@use '../../breakpoints';
 
-  ul {
-    list-style: none;
+.Navbar {
+  width: 100%;
+  max-width: 300px;
+  height: 100vh;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  background-color: var(--bg-dark-color);
+  overflow-y: auto;
+
+  display: none;
+
+  &.open {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
   }
+
+  &__logo {
+    display: flex;
+    padding: 0 20px;
+    margin-bottom: 32px;
+  }
+
   a {
     color: var(--gray-color);
-    display: flex;
-    padding: 12px 16px;
-    text-decoration: none;
-    margin-left: 3px;
-    span {
-      margin-right: 8px;
-    }
-    &:hover {
-      background-color: var(--white-color);
-    }
-    &.__active{
-      background-color: var(--white-color);
+  }
+
+  &__container {
+    ul li {
+      a,
+      button {
+        width: 100%;
+        height: 100%;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      button {
+        background: transparent;
+        border: none;
+        font: var(--body-1);
+        color: var(--gray-color);
+      }
+
+      img {
+        width: 20px;
+      }
+
+      &:hover {
+        background-color: var(--white-color);
+        cursor: pointer;
+      }
     }
   }
-  footer {
-    position: absolute;
-    bottom: 0;
-    margin-left: 8px;
+
+  &__menu {
+    position: fixed;
+    top: 32px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    &-line {
+      width: 100%;
+      height: 2px;
+      background-color: var(--dark-gray-color);
+      border-radius: 5px;
+      transition: all 0.5s;
+      transform-origin: left;
+    }
+    &.active &-line:first-child {
+      transform: rotate(45deg);
+    }
+    &.active &-line:nth-child(2) {
+      opacity: 0;
+    }
+    &.active &-line:last-child {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+@include breakpoints.large {
+  .Navbar {
+    position: static !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &__menu {
+      display: none;
+    }
   }
 }

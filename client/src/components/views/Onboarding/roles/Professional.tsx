@@ -1,6 +1,19 @@
-import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
+
+import {
+  saveUser,
+  setLoginfo,
+  setPersonalInfo,
+  setProfessionalInfo,
+  getUser,
+} from '../../../../features/user/userSlice'
+import {
+  LoginInfoValues,
+  PersonalInfoValues,
+  ProfessionalInfoValues,
+} from '../../../../features/user/type'
 
 import useSteps from '../../../../hooks/useSteps'
 import { professionalSteps, StepForm, Step } from '../steps'
@@ -10,95 +23,36 @@ import {
   ProfessionalInformation,
 } from '../information'
 
-import { initialState } from './initialState'
-import { ProfessionalForm } from './type'
-import {
-  LoginInformationValues,
-  PersonalInformationValues,
-  ProfessionalInformationValues,
-} from '../information/type'
-
 export const Professional = () => {
   const navigate = useNavigate()
-  const { user, isAuthenticated } = useAuth0()
+  const dispatch = useDispatch()
+
+  const { name, professional } = useSelector(getUser)
+  const { user: auth0User, isAuthenticated } = useAuth0()
   const { steps, toNextStep, toPreviousStep, skipStep } =
     useSteps(professionalSteps)
 
-  const [redirect, setRedirect] = useState<string>('')
-  const [professional, setProfessional] = useState<ProfessionalForm>(
-    initialState.professionalForm
-  )
-
-  const initialPersonalValues = {
-    name: professional.name,
-    phone: professional.phone,
-    birthdate: professional.birthdate,
-    linkedinUrl: professional.linkedinUrl,
-  }
-
-  const initialProfessionalValues = {
-    title: professional.title,
-    experience: professional.experience,
-    education: professional.education,
-    resume: professional.resume,
-  }
-
-  const handleLogin = (email: LoginInformationValues['email']) => {
-    setProfessional(prevProfessional => ({ ...prevProfessional, email }))
+  // _____HANDLERS:
+  const handleLogin = (email: LoginInfoValues['email']) => {
+    dispatch(setLoginfo({ email, role: 'professional' }))
     toNextStep()
   }
 
-  const handleNext = (values: PersonalInformationValues) => {
-    setProfessional(prevProfessional => ({
-      ...prevProfessional,
-      ...values,
-    }))
+  const handlePersonalInfo = (values: PersonalInfoValues) => {
+    dispatch(setPersonalInfo(values))
     toNextStep()
-  }
-
-  const handleSkip = () => {
-    setProfessional(prevProfessional => ({
-      ...prevProfessional,
-      name: initialState.professionalForm.name,
-      phone: initialState.professionalForm.phone,
-      birthdate: initialState.professionalForm.birthdate,
-      linkedinUrl: initialState.professionalForm.linkedinUrl,
-    }))
-    skipStep()
-  }
-
-  const handlePrevious = (values: ProfessionalInformationValues) => {
-    setProfessional(prevProfessional => ({
-      ...prevProfessional,
-      ...values,
-      resume: initialState.professionalForm.resume,
-    }))
-    toPreviousStep()
   }
 
   const handleSkipAndRedirect = () => {
-    setProfessional(prevProfessional => ({
-      ...prevProfessional,
-      title: initialState.professionalForm.title,
-      experience: initialState.professionalForm.experience,
-      education: initialState.professionalForm.education,
-      resume: initialState.professionalForm.resume,
-    }))
-    setRedirect('/home')
+    dispatch(saveUser())
+    navigate('/home')
   }
 
-  const handleFinish = (values: ProfessionalInformationValues) => {
-    setProfessional(prevProfessional => ({
-      ...prevProfessional,
-      ...values,
-    }))
-    setRedirect('/home')
+  const handleFinish = (values: ProfessionalInfoValues) => {
+    dispatch(setProfessionalInfo({ ...professional, ...values }))
+    dispatch(saveUser())
+    navigate('/home')
   }
-
-  useEffect(() => {
-    localStorage.setItem('user', JSON.stringify(professional))
-    if (redirect) navigate(redirect)
-  }, [professional])
 
   return (
     <div className="Onboarding__steps">
@@ -111,7 +65,7 @@ export const Professional = () => {
         {steps[0].active && (
           <StepForm>
             <LoginInformation
-              email={user?.email ? user.email : ''}
+              email={auth0User?.email ? auth0User.email : ''}
               isAuthenticated={isAuthenticated}
               onNext={handleLogin}
             />
@@ -121,9 +75,14 @@ export const Professional = () => {
         {steps[1].active && (
           <StepForm>
             <PersonalInformation
-              initialValues={initialPersonalValues}
-              onNext={handleNext}
-              onSkip={handleSkip}
+              initialValues={{
+                name,
+                phone: professional.phone,
+                birthdate: professional.birthdate,
+                linkedinUrl: professional.linkedinUrl,
+              }}
+              onNext={handlePersonalInfo}
+              onSkip={skipStep}
             />
           </StepForm>
         )}
@@ -131,8 +90,13 @@ export const Professional = () => {
         {steps[2].active && (
           <StepForm>
             <ProfessionalInformation
-              initialValues={initialProfessionalValues}
-              onPrevious={handlePrevious}
+              initialValues={{
+                title: professional.title,
+                experience: professional.experience,
+                education: professional.education,
+                resume: professional.resume,
+              }}
+              onPrevious={toPreviousStep}
               onSkip={handleSkipAndRedirect}
               onFinish={handleFinish}
             />

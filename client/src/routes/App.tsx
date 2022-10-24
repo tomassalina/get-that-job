@@ -1,66 +1,50 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { getUserFromLocalStorage } from '../features/user/userSlice'
+import {
+  getApplicationsFromLocalStorage,
+  getJobsFromLocalStorage,
+} from '../features/jobs/jobsSlice'
 
-import { HomeLayout, Layout } from '../components/Layout'
+import { ProtectedLayout, Layout } from '../components/Layout'
 import { Landing } from '../components/views/Landing'
 import { Home } from '../components/views/Home'
+import { Applications } from '../components/views/Applications'
+import { Following } from '../components/views/Following/Following'
 import { Profile } from '../components/views/Profile'
+import { Jobs } from '../components/views/Jobs'
 import { NotFound } from '../components/views/NotFound'
 import { Onboarding } from '../components/views/Onboarding'
-import { FindThatJob } from '../components/views/FindThatJob'
 import { CreateNewJob } from '../components/views/CreateNewJob'
-import { ProtectedLayout } from '../components/Layout/ProtectedLayout'
-import { useUser } from '../hooks/useUser'
+import { useEffect } from 'react'
 
 function App() {
-  const { user } = useUser()
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getUserFromLocalStorage())
+    dispatch(getJobsFromLocalStorage())
+    dispatch(getApplicationsFromLocalStorage())
+  }, [])
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          index
-          element={
-            <Layout>
-              <Landing />
-            </Layout>
-          }
-        />
-        <Route element={<ProtectedLayout />}>
-          <Route path="/home" element={<Home user={user} />} />
+        <Route element={<Layout />}>
+          <Route index element={<Landing />} />
+          <Route path="/onboarding" element={<Onboarding />} />
         </Route>
-        <Route
-          path="/profile"
-          element={
-            <HomeLayout>
-              <Profile />
-            </HomeLayout>
-          }
-        />
-        <Route
-          path="/onboarding"
-          element={
-            <Layout>
-              <Onboarding />
-            </Layout>
-          }
-        />
 
-        <Route
-          path="/FindThatJob"
-          element={
-            <HomeLayout>
-              <FindThatJob />
-            </HomeLayout>
-          }
-        />
-        <Route
-          path="/CreateNewJob"
-          element={
-            <HomeLayout>
-              <CreateNewJob />
-            </HomeLayout>
-          }
-        />
+        <Route element={<ProtectedLayout />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/applications" element={<Applications />} />
+          <Route path="/applications/:jobID" element={<Applications />} />
+          <Route path="/following" element={<Following />} />
+          <Route path="/jobs/:jobID" element={<Jobs />} />
+          <Route path="/jobs/new" element={<CreateNewJob />} />
+          <Route path="/profile" element={<Profile />} />
+        </Route>
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux'
+
 import './Header.styles.scss'
 
 import { Link } from 'react-router-dom'
@@ -6,11 +8,17 @@ import { Button } from '../Buttons'
 import LogoImg from '../../assets/logo.png'
 import { AuthIcon, LogoutIcon } from '../Icons'
 
-export const Header = () => {
-  const { loginWithRedirect, logout, isAuthenticated } = useAuth0()
+import { logoutUser } from '../../features/user/userSlice'
 
-  const handleAuth0 = () => loginWithRedirect()
-  const handleLogout = () => logout()
+export const Header = () => {
+  const dispatch = useDispatch()
+  const { loginWithRedirect, isAuthenticated, logout } = useAuth0()
+
+  const handleLogin = () => loginWithRedirect()
+  const handleLogout = () => {
+    dispatch(logoutUser())
+    logout()
+  }
 
   return (
     <header className="Header">
@@ -24,7 +32,7 @@ export const Header = () => {
               <LogoutIcon />
             </Button>
           ) : (
-            <Button type="secondary" text="Login" handleClick={handleAuth0}>
+            <Button type="secondary" text="Login" handleClick={handleLogin}>
               <AuthIcon />
             </Button>
           )}

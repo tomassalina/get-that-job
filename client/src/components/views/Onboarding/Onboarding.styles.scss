@@ -1,3 +1,5 @@
+@use '../../../breakpoints';
+
 .Onboarding {
   &__grid {
     padding: 32px 0;
@@ -48,6 +50,9 @@
     margin-top: 50px;
     ul {
       display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
     }
     &-item {
@@ -101,5 +106,12 @@
       align-items: center;
       gap: 16px;
     }
+  }
+}
+
+@include breakpoints.medium {
+  .Onboarding__steps ul {
+    flex-direction: row;
+    justify-content: flex-start;
   }
 }
