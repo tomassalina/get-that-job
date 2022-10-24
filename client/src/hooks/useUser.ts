@@ -24,7 +24,7 @@ export const useUser = () => {
   }
 
   useEffect(() => {
-    const userString = localStorage.getItem('user')
+    const userString = localStorage.getItem('temporalUser')
     if (userString) {
       setUser({ ...JSON.parse(userString), isAuthenticated: false })
     }

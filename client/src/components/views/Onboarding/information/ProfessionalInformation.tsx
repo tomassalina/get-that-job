@@ -8,7 +8,7 @@ import { ArrowRightIcon, ArrowLeftIcon } from '../../../Icons'
 
 export const ProfessionalInformation = (props: {
   initialValues: ProfessionalInformationValues
-  onPrevious: (values: ProfessionalInformationValues) => void
+  onPrevious: () => void
   onSkip: () => void
   onFinish: (values: ProfessionalInformationValues) => void
 }) => {
@@ -91,11 +91,7 @@ export const ProfessionalInformation = (props: {
       />
 
       <div className="Onboarding__steps-buttons">
-        <Button
-          text="Previous"
-          type="primary"
-          handleClick={() => onPrevious(values)}
-        >
+        <Button text="Previous" type="primary" handleClick={onPrevious}>
           <ArrowLeftIcon />
         </Button>
         <Button

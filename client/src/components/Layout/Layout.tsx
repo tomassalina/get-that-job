@@ -3,7 +3,7 @@ import { Navigate, Outlet } from 'react-router-dom'
 
 export const Layout = () => {
   const user = JSON.parse(
-    localStorage.getItem('user') || '{"role":"","email":""}'
+    localStorage.getItem('temporalUser') || '{"role":"","email":""}'
   )
   const hasUser = user.role && user.email
 

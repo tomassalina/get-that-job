@@ -1,57 +1,52 @@
-import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
+
+import {
+  createUser,
+  setLoginfo,
+  setCompanyInfo,
+  getUser,
+} from '../../../../features/user/userSlice'
+import {
+  CompanyInfoValues,
+  LoginInfoValues,
+} from '../../../../features/user/type'
 
 import useSteps from '../../../../hooks/useSteps'
 import { recruiterSteps, Step, StepForm } from '../steps'
 import { LoginInformation, CompanyInformation } from '../information'
 
-import { initialState } from './initialState'
-import { RecruiterForm } from './type'
-import {
-  LoginInformationValues,
-  CompanyInformationValues,
-} from '../information/type'
-
 export const Recruiter = () => {
   const navigate = useNavigate()
-  const { user, isAuthenticated } = useAuth0()
+  const dispatch = useDispatch()
+
+  const { company, name } = useSelector(getUser)
+  const { user: auth0User, isAuthenticated } = useAuth0()
   const { steps, toNextStep } = useSteps(recruiterSteps)
 
-  const [redirect, setRedirect] = useState<string>('')
-  const [recruiter, setRecruiter] = useState<RecruiterForm>(
-    initialState.recruiterForm
-  )
-
-  const initialCompanyValues = {
-    companyName: recruiter.companyName,
-    companyAbout: recruiter.companyAbout,
-    companyWebsite: recruiter.companyWebsite,
-    companyLogo: recruiter.companyLogo,
+  const initialCompanyValues: CompanyInfoValues = {
+    name,
+    about: company.about,
+    website: company.website,
+    logo: company.logo,
   }
 
-  const handleLogin = (email: LoginInformationValues['email']) => {
-    setRecruiter(prevRecruiter => ({ ...prevRecruiter, email }))
+  const handleLogin = (email: LoginInfoValues['email']) => {
+    dispatch(setLoginfo({ email, role: 'recruiter' }))
     toNextStep()
   }
 
   const handleSkipAndRedirect = () => {
-    setRecruiter(prevRecruiter => ({
-      ...prevRecruiter,
-      ...initialCompanyValues,
-    }))
-    setRedirect('/home')
+    dispatch(createUser())
+    // navigate('/home')
   }
 
-  const handleFinish = (values: CompanyInformationValues) => {
-    setRecruiter(prevRecruiter => ({ ...prevRecruiter, ...values }))
-    setRedirect('/home')
+  const handleFinish = (values: CompanyInfoValues) => {
+    dispatch(setCompanyInfo(values))
+    dispatch(createUser())
+    // navigate('/home')
   }
-
-  useEffect(() => {
-    localStorage.setItem('user', JSON.stringify(recruiter))
-    if (redirect) navigate(redirect)
-  }, [recruiter])
 
   return (
     <div className="Onboarding__steps">
@@ -64,7 +59,7 @@ export const Recruiter = () => {
         {steps[0].active && (
           <StepForm>
             <LoginInformation
-              email={user?.email ? user.email : ''}
+              email={auth0User?.email ? auth0User.email : ''}
               isAuthenticated={isAuthenticated}
               onNext={handleLogin}
             />

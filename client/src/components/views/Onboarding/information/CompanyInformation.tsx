@@ -13,18 +13,18 @@ export const CompanyInformation = (props: {
 }) => {
   const { onSkip, onFinish } = props
 
-  const initialValues: CompanyInformationValues = {
-    companyName: '',
-    companyWebsite: '',
-    companyAbout: '',
-    companyLogo: { file: {}, path: '' },
+  const initialValues = {
+    name: '',
+    website: '',
+    about: '',
+    logo: { file: {}, path: '' },
   }
 
   const required = 'required field'
   const validationSchema = Yup.object().shape({
-    companyName: Yup.string().min(3).required(required),
-    companyWebsite: Yup.string().url('must be a valid URL').required(required),
-    companyAbout: Yup.string().min(100).max(2000).required(required),
+    name: Yup.string().min(3).required(required),
+    website: Yup.string().url('must be a valid URL').required(required),
+    about: Yup.string().min(100).max(2000).required(required),
   })
 
   const onSubmit = (values: CompanyInformationValues) => {
@@ -57,44 +57,44 @@ export const CompanyInformation = (props: {
       </p>
       <Input
         type="text"
-        name="companyName"
+        name="name"
         label="Company name"
         placeholder="My Company S.A"
-        value={values.companyName}
+        value={values.name}
         handleChange={handleChange}
-        error={errors.companyName}
-        touched={touched.companyName}
+        error={errors.name}
+        touched={touched.name}
         handleBlur={handleBlur}
       />
       <Input
         type="url"
-        name="companyWebsite"
+        name="website"
         label="Company website"
         placeholder="https://www.mycompany.sa"
-        value={values.companyWebsite}
+        value={values.website}
         handleChange={handleChange}
-        error={errors.companyWebsite}
-        touched={touched.companyWebsite}
+        error={errors.website}
+        touched={touched.website}
         handleBlur={handleBlur}
       />
       <TextAreaInput
-        name="companyAbout"
+        name="about"
         label="About the company"
         placeholder="My Company SA has the vision to change thw way how..."
         caption="Between 100 and 2000 characters"
-        value={values.companyAbout}
+        value={values.about}
         handleChange={handleChange}
-        error={errors.companyAbout}
-        touched={touched.companyAbout}
+        error={errors.about}
+        touched={touched.about}
         handleBlur={handleBlur}
       />
       <FileInput
-        name="companyLogo"
+        name="logo"
         label="Upload the company logo"
         caption="Only PDF. Max size 5MB"
         accept=".pdf"
         maxSize={5}
-        value={values.companyLogo}
+        value={values.logo}
         handleChange={handleFileChange}
       />
       <div className="Onboarding__steps-buttons">

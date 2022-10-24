@@ -97,7 +97,7 @@ export const PersonalInformation = (props: {
         <Button
           text="Skip this!"
           type={isValid ? 'disabled' : 'secondary'}
-          handleClick={() => onSkip()}
+          handleClick={onSkip}
         />
         <Button text="Next" type="primary" handleClick={handleSubmit} iconRight>
           <ArrowRightIcon />
