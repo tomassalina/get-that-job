@@ -22,8 +22,7 @@ export const Home = () => {
         </div>
       </div>
     )
-
-  if (user.role === 'recruiter')
+  else
     return (
       <div className="Home">
         <h1>Recruiter</h1>
@@ -32,6 +31,4 @@ export const Home = () => {
         ))}
       </div>
     )
-
-  return <p>Loading...</p>
 }

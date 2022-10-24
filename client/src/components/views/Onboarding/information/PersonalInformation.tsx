@@ -3,13 +3,13 @@ import * as Yup from 'yup'
 import { Input } from '../../../Inputs'
 import { Button } from '../../../Buttons'
 
-import { PersonalInformationValues } from './type'
+import { PersonalInfoValues } from '../../../../features/user/type'
 import { ArrowRightIcon } from '../../../Icons'
 
 export const PersonalInformation = (props: {
-  initialValues: PersonalInformationValues
+  initialValues: PersonalInfoValues
   onSkip: () => void
-  onNext: (values: PersonalInformationValues) => void
+  onNext: (values: PersonalInfoValues) => void
 }) => {
   const { initialValues, onSkip, onNext } = props
 
@@ -29,7 +29,7 @@ export const PersonalInformation = (props: {
     linkedinUrl: Yup.string().url('must be a valid URL').required(required),
   })
 
-  const onSubmit = (values: PersonalInformationValues) => onNext(values)
+  const onSubmit = (values: PersonalInfoValues) => onNext(values)
 
   const formik = useFormik({ initialValues, validationSchema, onSubmit })
   const {

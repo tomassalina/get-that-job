@@ -3,14 +3,14 @@ import * as Yup from 'yup'
 import { Input, FileInput, TextAreaInput } from '../../../Inputs'
 import { Button } from '../../../Buttons'
 
-import { ProfessionalInformationValues } from './type'
+import { ProfessionalInfoValues } from '../../../../features/user/type'
 import { ArrowRightIcon, ArrowLeftIcon } from '../../../Icons'
 
 export const ProfessionalInformation = (props: {
-  initialValues: ProfessionalInformationValues
+  initialValues: ProfessionalInfoValues
   onPrevious: () => void
   onSkip: () => void
-  onFinish: (values: ProfessionalInformationValues) => void
+  onFinish: (values: ProfessionalInfoValues) => void
 }) => {
   const { initialValues, onPrevious, onSkip, onFinish } = props
 
@@ -21,7 +21,7 @@ export const ProfessionalInformation = (props: {
     education: Yup.string().min(100).max(2000).required(required),
   })
 
-  const onSubmit = (values: ProfessionalInformationValues) => onFinish(values)
+  const onSubmit = (values: ProfessionalInfoValues) => onFinish(values)
 
   const formik = useFormik({ initialValues, validationSchema, onSubmit })
   const {

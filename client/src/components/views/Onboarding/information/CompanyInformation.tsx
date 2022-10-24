@@ -3,13 +3,13 @@ import * as Yup from 'yup'
 import { Input, FileInput, TextAreaInput } from '../../../Inputs'
 import { Button } from '../../../Buttons'
 
-import { CompanyInformationValues } from './type'
+import { CompanyInfoValues } from '../../../../features/user/type'
 import { ArrowRightIcon } from '../../../Icons'
 
 export const CompanyInformation = (props: {
-  initialValues: CompanyInformationValues
+  initialValues: CompanyInfoValues
   onSkip: () => void
-  onFinish: (values: CompanyInformationValues) => void
+  onFinish: (values: CompanyInfoValues) => void
 }) => {
   const { onSkip, onFinish } = props
 
@@ -27,7 +27,7 @@ export const CompanyInformation = (props: {
     about: Yup.string().min(100).max(2000).required(required),
   })
 
-  const onSubmit = (values: CompanyInformationValues) => {
+  const onSubmit = (values: CompanyInfoValues) => {
     onFinish(values)
   }
 
