@@ -23,7 +23,8 @@ export const ApplicationCard = ({
   open,
 }: ApplicationCardProps) => {
   const jobs = useSelector(getJobs)
-  const job = jobs.list.find(job => job.id === application.jobId)
+  const job =
+    jobs.list.find(job => job.id === application.jobId) || jobs.list[0]
 
   const { company, title, category, type, salaryRange, createdOn, status } = job
 
@@ -110,7 +111,7 @@ export const ApplicationCard = ({
           </p>
         </section>
         <section className="SwitchCard__section">
-          <h4>Why are you interested in working at {job.company.name}</h4>
+          <h4>Why are you interested in working at {company.name}</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
             egestas ex at libero feugiat volutpat. Praesent fringilla

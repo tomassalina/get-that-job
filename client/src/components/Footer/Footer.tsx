@@ -14,9 +14,9 @@ export const Footer = () => {
         </p>
         <ul>
           <li>
-            <a href="https://github.com/cataldoIvan/" target="_blank">
+            <a href="https://github.com/salinatomass/" target="_blank">
               <img src={GithubLogo} alt="GitHub logo" />
-              <span>Cataldo Ivan</span>
+              <span>Tomas Salina</span>
             </a>
           </li>
           <li>
@@ -26,9 +26,9 @@ export const Footer = () => {
             </a>
           </li>
           <li>
-            <a href="https://github.com/salinatomass/" target="_blank">
+            <a href="https://github.com/cataldoIvan/" target="_blank">
               <img src={GithubLogo} alt="GitHub logo" />
-              <span>Tomas Salina</span>
+              <span>Cataldo Ivan</span>
             </a>
           </li>
         </ul>
