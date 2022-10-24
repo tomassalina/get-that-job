@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { getUserFromLocalStorage } from '../features/user/userSlice'
 
 import { ProtectedLayout, Layout } from '../components/Layout'
 import { Landing } from '../components/views/Landing'
@@ -10,8 +12,15 @@ import { Jobs } from '../components/views/Jobs'
 import { NotFound } from '../components/views/NotFound'
 import { Onboarding } from '../components/views/Onboarding'
 import { CreateNewJob } from '../components/views/CreateNewJob'
+import { useEffect } from 'react'
 
 function App() {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getUserFromLocalStorage())
+  }, [])
+
   return (
     <BrowserRouter>
       <Routes>

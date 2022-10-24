@@ -1,11 +1,12 @@
-import { useUser } from '../../../hooks/useUser'
+import { useSelector } from 'react-redux'
+import { getUser } from '../../../features/user/userSlice'
 
 import './Home.styles.scss'
 import { JobCard, JobPostCard } from '../../Cards'
 import { initialState, initialJobPosts } from './initialState'
 
 export const Home = () => {
-  const { user } = useUser()
+  const user = useSelector(getUser)
 
   if (user.role === 'professional')
     return (
@@ -24,7 +25,7 @@ export const Home = () => {
       <div className="Home">
         <h1>Recruiter</h1>
         {initialJobPosts.map(jobPost => (
-          <JobPostCard jobPost={jobPost} />
+          <JobPostCard key={jobPost.id} jobPost={jobPost} />
         ))}
       </div>
     )

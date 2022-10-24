@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { RootState } from '../../app/store'
 import { v4 as uuidv4 } from 'uuid'
+
+import { RootState } from '../../app/store'
 
 import {
   UserState,

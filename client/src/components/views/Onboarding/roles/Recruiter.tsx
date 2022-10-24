@@ -39,13 +39,13 @@ export const Recruiter = () => {
 
   const handleSkipAndRedirect = () => {
     dispatch(createUser())
-    // navigate('/home')
+    navigate('/home')
   }
 
   const handleFinish = (values: CompanyInfoValues) => {
     dispatch(setCompanyInfo(values))
     dispatch(createUser())
-    // navigate('/home')
+    navigate('/home')
   }
 
   return (

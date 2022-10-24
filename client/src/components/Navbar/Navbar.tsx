@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { useAuth0 } from '@auth0/auth0-react'
+import { logoutUser } from '../../features/user/userSlice'
 import { Footer } from '../Footer'
-import { User, useUser } from '../../hooks/useUser'
 
 import './Navbar.styles.scss'
 
@@ -12,6 +14,7 @@ import userLine from '../../assets/user-line.svg'
 import logoutuserLine from '../../assets/logout-circle-line.svg'
 import briefcaseLine from '../../assets/briefcase-line.svg'
 import fileAddLine from '../../assets/file-add-line.svg'
+import { UserState } from '../../features/user/type'
 
 interface Item {
   title: string
@@ -40,8 +43,14 @@ const NavbarItem = ({ title, url, icon }: Item) => {
   )
 }
 
-export const Navbar = ({ user }: { user: User }) => {
-  const { logout } = useUser()
+export const Navbar = ({ user }: { user: UserState }) => {
+  const { logout } = useAuth0()
+  const dispatch = useDispatch()
+
+  const handleLogout = () => {
+    dispatch(logoutUser())
+    logout()
+  }
 
   return (
     <nav className="Navbar" id="navbar">
@@ -60,7 +69,7 @@ export const Navbar = ({ user }: { user: User }) => {
 
           <NavbarItem title="Profile" url="/profile" icon={userLine} />
           <li>
-            <button type="button" onClick={() => logout()}>
+            <button type="button" onClick={handleLogout}>
               <img src={logoutuserLine} alt="Logout icon" />
               <span>Logout</span>
             </button>

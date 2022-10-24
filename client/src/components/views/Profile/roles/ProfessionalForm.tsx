@@ -1,7 +1,11 @@
+import { useSelector } from 'react-redux'
+import { getUser } from '../../../../features/user/userSlice'
 import { Button } from '../../../Buttons'
 import { Input, TextAreaInput, FileInput } from '../../../Inputs'
 
 export const ProfessionalForm = () => {
+  const user = useSelector(getUser)
+
   return (
     <div className="Profile">
       <h1 className="Profile__title">Profile</h1>
@@ -11,9 +15,17 @@ export const ProfessionalForm = () => {
           <Input
             type="text"
             name="email"
+            label="Email"
+            placeholder="some.user@mail.com"
+            value={user.email}
+            handleChange={() => {}}
+          />
+          <Input
+            type="text"
+            name="name"
             placeholder="John Doe"
-            label="email"
-            value=""
+            label="Name"
+            value={user.name}
             handleChange={() => {}}
           />
           <Input
@@ -22,7 +34,7 @@ export const ProfessionalForm = () => {
             label="Phone"
             caption="+[country code][number]"
             placeholder="+XXXXXXXXX"
-            value=""
+            value={user.professional.phone}
             handleChange={() => {}}
           />
           <Input
@@ -30,15 +42,7 @@ export const ProfessionalForm = () => {
             name="birthdate"
             label="Birthdate"
             placeholder="Pick a date"
-            value=""
-            handleChange={() => {}}
-          />
-          <Input
-            type="date"
-            name="birthdate"
-            label="Birthdate"
-            placeholder="Pick a date"
-            value=""
+            value={user.professional.birthdate}
             handleChange={() => {}}
           />
           <Input
@@ -46,7 +50,7 @@ export const ProfessionalForm = () => {
             name="linkedinUrl"
             label="LinkedIn URL"
             placeholder="https://www.linkedin.com/in/username"
-            value=""
+            value={user.professional.linkedinUrl}
             handleChange={() => {}}
           />
         </form>
@@ -60,7 +64,7 @@ export const ProfessionalForm = () => {
               name="title"
               label="Title"
               placeholder="UX/UI designer"
-              value=""
+              value={user.professional.title}
               handleChange={() => {}}
             />
             <TextAreaInput
@@ -68,7 +72,7 @@ export const ProfessionalForm = () => {
               label="Professional Experience"
               placeholder="Worked 6 years in a bitcoin farm until I decided to change my life...."
               caption="Between 300 and 2000 characters"
-              value=""
+              value={user.professional.experience}
               handleChange={() => {}}
             />
             <TextAreaInput
@@ -76,7 +80,7 @@ export const ProfessionalForm = () => {
               label="Education"
               placeholder="Major in life experiences with a PHD in procrastination..."
               caption="Between 100 and 2000 characters"
-              value=""
+              value={user.professional.education}
               handleChange={() => {}}
             />
             <FileInput

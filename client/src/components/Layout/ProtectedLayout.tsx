@@ -4,7 +4,7 @@ import './Layout.style.scss'
 
 export const ProtectedLayout = () => {
   const user = JSON.parse(
-    localStorage.getItem('temporalUser') || '{"role":"","email":""}'
+    localStorage.getItem('user') || '{"role":"","email":""}'
   )
   const hasUser = user.role && user.email
 

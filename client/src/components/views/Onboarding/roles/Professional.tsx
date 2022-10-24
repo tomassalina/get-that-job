@@ -45,13 +45,13 @@ export const Professional = () => {
 
   const handleSkipAndRedirect = () => {
     dispatch(createUser())
-    // navigate('/home')
+    navigate('/home')
   }
 
   const handleFinish = (values: ProfessionalInfoValues) => {
     dispatch(setProfessionalInfo({ ...professional, ...values }))
     dispatch(createUser())
-    // navigate('/home')
+    navigate('/home')
   }
 
   return (

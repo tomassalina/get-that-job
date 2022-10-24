@@ -1,7 +1,11 @@
+import { useSelector } from 'react-redux'
+import { getUser } from '../../../../features/user/userSlice'
 import { Button } from '../../../Buttons'
 import { Input, TextAreaInput, FileInput } from '../../../Inputs'
 
 export const RecruiterForm = () => {
+  const user = useSelector(getUser)
+
   return (
     <div className="Profile">
       <h1 className="Profile__title">Profile</h1>
@@ -21,7 +25,7 @@ export const RecruiterForm = () => {
           name="companyName"
           label="Company name"
           placeholder="My Company S.A"
-          value=""
+          value={user.name}
           handleChange={() => {}}
         />
         <Input
@@ -29,7 +33,7 @@ export const RecruiterForm = () => {
           name="companyWebsite"
           label="Company website"
           placeholder="https://www.mycompany.sa"
-          value=""
+          value={user.company.website}
           handleChange={() => {}}
         />
         <TextAreaInput
@@ -37,7 +41,7 @@ export const RecruiterForm = () => {
           label="About the company"
           placeholder="My Company SA has the vision to change thw way how..."
           caption="Between 100 and 2000 characters"
-          value=""
+          value={user.company.about}
           handleChange={() => {}}
         />
 

@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux'
+
 import './Header.styles.scss'
 
 import { Link } from 'react-router-dom'
@@ -5,14 +7,18 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { Button } from '../Buttons'
 import LogoImg from '../../assets/logo.png'
 import { AuthIcon, LogoutIcon } from '../Icons'
-import { useUser } from '../../hooks/useUser'
+
+import { logoutUser } from '../../features/user/userSlice'
 
 export const Header = () => {
-  const { loginWithRedirect, isAuthenticated } = useAuth0()
-  const { logout } = useUser()
+  const dispatch = useDispatch()
+  const { loginWithRedirect, isAuthenticated, logout } = useAuth0()
 
   const handleLogin = () => loginWithRedirect()
-  const handleLogout = () => logout()
+  const handleLogout = () => {
+    dispatch(logoutUser())
+    logout()
+  }
 
   return (
     <header className="Header">
